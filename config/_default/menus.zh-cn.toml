@@ -17,12 +17,12 @@ weight = 101
 
 [[main]]
 name = "生活记录"
-pageRef = "posts/blog"
+pageRef = "posts/vlog"
 weight = 10
 
 [[main]]
 name = "学习笔记"
-pageRef = "posts/studyBug"
+pageRef = "posts/studySpace"
 weight = 20
 
 [[main]]

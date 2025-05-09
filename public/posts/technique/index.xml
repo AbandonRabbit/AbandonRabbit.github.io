@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术文档 on Ting&#39;s Space</title>
+    <link>http://localhost:1313/posts/technique/</link>
+    <description>Recent content in 技术文档 on Ting&#39;s Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>604102668@qq.com (Ting)</managingEditor>
+    <webMaster>604102668@qq.com (Ting)</webMaster>
+    <copyright>© 2025 Ting</copyright>
+    <lastBuildDate>Mon, 13 Jun 2022 20:55:37 +0100</lastBuildDate><atom:link href="http://localhost:1313/posts/technique/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Context的用法</title>
+      <link>http://localhost:1313/posts/technique/20241004/</link>
+      <pubDate>Fri, 04 Oct 2024 16:07:15 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/technique/20241004/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/technique/20241004/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>go语言实现hook效果</title>
+      <link>http://localhost:1313/posts/technique/20241002/</link>
+      <pubDate>Wed, 02 Oct 2024 15:33:12 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/technique/20241002/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/technique/20241002/featured.jpg" />
+    </item>
+    
+  </channel>
+</rss>

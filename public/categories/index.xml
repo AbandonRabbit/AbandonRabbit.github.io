@@ -2,21 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>主题 on Ting&#39;s Space</title>
-    <link>http://localhost:52558/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in 主题 on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Mon, 14 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:52558/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 May 2025 18:14:49 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Go</title>
-      <link>http://localhost:52558/categories/go/</link>
-      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <title>学习笔记</title>
+      <link>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Fri, 09 May 2025 18:14:49 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:52558/categories/go/</guid>
+      <guid>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://localhost:1313/categories/golang/</link>
+      <pubDate>Fri, 09 May 2025 18:07:10 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/categories/golang/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>计算机基础</title>
+      <link>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Fri, 09 May 2025 15:24:46 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</guid>
       <description></description>
       
     </item>

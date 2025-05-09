@@ -2,7 +2,7 @@
 title: "欢迎来到我的网站！我很高兴你的来访。"
 date: 2022-06-13T20:55:37+01:00
 draft: false
-
+excludeFromRelated: true
 # excludeFromRelated: true
 # seriesOpened: false
 # showDate: false
@@ -21,7 +21,6 @@ draft: false
 # showLikes: false
 # showAuthor: true
 # layoutBackgroundHeaderSpace: false
-
 ---
 
 一个从体育生转型为全栈开发者的技术实践者。2018年，我以散打特长生的身份开始大学生涯，却在一次程序设计选修课后发现了对代码的热爱。从中专的VB入门，到专科主攻C#开发，再到本科系统学习计算机科学，我用5年时间完成了从体育生到开发者的蜕变。

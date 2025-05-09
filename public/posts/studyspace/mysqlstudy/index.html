@@ -1,0 +1,3789 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="zh-cn" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>MySql学习笔记 &middot; Ting&#39;s Space</title>
+  <meta name="title" content="MySql学习笔记 &middot; Ting&#39;s Space" />
+  
+  
+  <meta name="keywords" content="MySql, " />
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/studyspace/mysqlstudy/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.6835005deb03361a63daa0f215c157c04a02d4105393c699a083c9b5b4646983ea9e8226a58d603f65328e01ff0ba67c42716cbb5e5d322feafa09718538bd00.css"
+    integrity="sha512-aDUAXesDNhpj2qDyFcFXwEoC1BBTk8aZoIPJtbRkaYPqnoImpY1gP2UyjgH/C6Z8QnFsu15dMi/q&#43;glxhTi9AA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
+    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="复制" data-copied="已复制"></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.f592a181a15d2a5b042daa7f746c3721acf9063f8b6acd175d989129865a37d400ae0e85b640f9ad42cd98d1f8ad30931718cf8811abdcc5fcb264400d1a2b0c.js" integrity="sha512-9ZKhgaFdKlsELap/dGw3Iaz5Bj&#43;Las0XXZiRKYZaN9QArg6FtkD5rULNmNH4rTCTFxjPiBGr3MX8smRADRorDA=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/posts/studyspace/mysqlstudy/">
+  <meta property="og:site_name" content="Ting&#39;s Space">
+  <meta property="og:title" content="MySql学习笔记">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-09T18:12:03+08:00">
+    <meta property="article:modified_time" content="2025-05-09T18:12:03+08:00">
+    <meta property="article:tag" content="MySql">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MySql学习笔记">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "文档",
+    "name": "MySql学习笔记",
+    "headline": "MySql学习笔记",
+    
+    
+    "inLanguage": "zh-cn",
+    "url" : "http:\/\/localhost:1313\/posts\/studyspace\/mysqlstudy\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Ting"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-05-09T18:12:03\u002b08:00",
+    "datePublished": "2025-05-09T18:12:03\u002b08:00",
+    
+    "dateModified": "2025-05-09T18:12:03\u002b08:00",
+    
+    "keywords": ["MySql"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "8840"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Ting" />
+  
+  
+  
+  
+  
+  
+  
+  
+  <link href="https://dev.to/username" rel="me" />
+  
+  
+  
+  
+  <link href="https://github.com/AbandonRabbit" rel="me" />
+  
+  
+  
+  
+  <link href="https://www.google.com/" rel="me" />
+  
+  
+  
+  
+  <link href="https://steamcommunity.com/profiles/userid" rel="me" />
+  
+  
+  
+  
+  <link href="https://t.me/username" rel="me" />
+  
+  
+  
+  
+  <link href="https://twitter.com/username" rel="me" />
+  
+  
+  
+  
+  <link href="https://youtube.com/username" rel="me" />
+  
+  
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>跳过正文</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Ting&rsquo;s Space</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/posts/vlog/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="生活记录">
+        生活记录
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/posts/studyspace/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="学习笔记">
+        学习笔记
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="标签">
+        标签
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="欢迎来到我的网站！我很高兴你的来访。">
+        关于
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/initblowfish/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="Blowfish主题部署指南">
+        部署指南
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class=" flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400 ltr:mr-1 rtl:ml-1">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/posts/vlog/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="生活记录">
+            生活记录
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/posts/studyspace/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="学习笔记">
+            学习笔记
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="标签">
+            标签
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="欢迎来到我的网站！我很高兴你的来访。">
+            关于
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/initblowfish/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="Blowfish主题部署指南">
+            部署指南
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+  
+   
+  
+ 
+
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/image_hu_74c11e6307a30282.jpg);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      MySql学习笔记
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-09T18:12:03&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>8840 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">18 分钟</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/mysql/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    MySql
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+        
+        
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="Ting" src="/profile_hu_92a1d806b07f8410.jpg" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      作者
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      Ting
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">全栈开发实战派 | 技术跨界成长者 | 复合能力持有者</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="mailto:604102668@qq.com"
+          target="_blank"
+          aria-label="Email"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://dev.to/username"
+          target="_blank"
+          aria-label="Dev"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M120.12 208.29c-3.88-2.9-7.77-4.35-11.65-4.35H91.03v104.47h17.45c3.88 0 7.77-1.45 11.65-4.35 3.88-2.9 5.82-7.25 5.82-13.06v-69.65c-.01-5.8-1.96-10.16-5.83-13.06zM404.1 32H43.9C19.7 32 .06 51.59 0 75.8v360.4C.06 460.41 19.7 480 43.9 480h360.2c24.21 0 43.84-19.59 43.9-43.8V75.8c-.06-24.21-19.7-43.8-43.9-43.8zM154.2 291.19c0 18.81-11.61 47.31-48.36 47.25h-46.4V172.98h47.38c35.44 0 47.36 28.46 47.37 47.28l.01 70.93zm100.68-88.66H201.6v38.42h32.57v29.57H201.6v38.41h53.29v29.57h-62.18c-11.16.29-20.44-8.53-20.72-19.69V193.7c-.27-11.15 8.56-20.41 19.71-20.69h63.19l-.01 29.52zm103.64 115.29c-13.2 30.75-36.85 24.63-47.44 0l-38.53-144.8h32.57l29.71 113.72 29.57-113.72h32.58l-38.46 144.8z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/AbandonRabbit"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://www.google.com/"
+          target="_blank"
+          aria-label="Google"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://steamcommunity.com/profiles/userid"
+          target="_blank"
+          aria-label="Steam"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M496 256c0 137-111.2 248-248.4 248-113.8 0-209.6-76.3-239-180.4l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L176.6 279c-15.5-.9-30.7 3.4-43.5 12.1L0 236.1C10.2 108.4 117.1 8 247.6 8 384.8 8 496 119 496 256zM155.7 384.3l-30.5-12.6a52.79 52.79 0 0 0 27.2 25.8c26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3.1-40.3-5.4-13-15.5-23.2-28.5-28.6-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21zm173.8-129.9c-34.4 0-62.4-28-62.4-62.3s28-62.3 62.4-62.3 62.4 28 62.4 62.3-27.9 62.3-62.4 62.3zm.1-15.6c25.9 0 46.9-21 46.9-46.8 0-25.9-21-46.8-46.9-46.8s-46.9 21-46.9 46.8c.1 25.8 21.1 46.8 46.9 46.8z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://t.me/username"
+          target="_blank"
+          aria-label="Telegram"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://twitter.com/username"
+          target="_blank"
+          aria-label="X-Twitter"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://youtube.com/username"
+          target="_blank"
+          aria-label="Youtube"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+      
+
+      
+
+      
+      <div class="mb-5"></div>
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#事务四大特性">事务四大特性</a></li>
+        <li><a href="#并发事务问题">并发事务问题</a></li>
+        <li><a href="#事务隔离级别">事务隔离级别</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#管理用户">管理用户</a></li>
+    <li><a href="#权限控制">权限控制</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#字符串函数">字符串函数</a></li>
+    <li><a href="#数值函数">数值函数</a></li>
+    <li><a href="#日期函数">日期函数</a></li>
+    <li><a href="#流程控制函数">流程控制函数</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#mysql的体系结构">MySQL的体系结构</a></li>
+    <li><a href="#存储引擎简介">存储引擎简介</a>
+      <ul>
+        <li><a href="#innodb-存储引擎">InnoDB 存储引擎</a>
+          <ul>
+            <li><a href="#特点">特点</a></li>
+            <li><a href="#文件">文件</a></li>
+            <li><a href="#逻辑存储结构">逻辑存储结构</a></li>
+          </ul>
+        </li>
+        <li><a href="#myisam-存储引擎">MyISAM 存储引擎</a>
+          <ul>
+            <li><a href="#特点-1">特点</a></li>
+            <li><a href="#文件-1">文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#memory-存储引擎">Memory 存储引擎</a>
+          <ul>
+            <li><a href="#特点-2">特点</a></li>
+            <li><a href="#文件-2">文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#区别及特点">区别及特点</a></li>
+      </ul>
+    </li>
+    <li><a href="#存储引擎选择">存储引擎选择</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#分类">分类</a></li>
+    <li><a href="#sql性能分析">sql性能分析</a>
+      <ul>
+        <li><a href="#sql执行频率">sql执行频率</a></li>
+        <li><a href="#慢查询日志">慢查询日志</a></li>
+        <li><a href="#profile详情">profile详情</a></li>
+        <li><a href="#explain执行计划">explain执行计划</a></li>
+      </ul>
+    </li>
+    <li><a href="#索引使用">索引使用</a>
+      <ul>
+        <li><a href="#最左前缀法则">最左前缀法则</a></li>
+        <li><a href="#索引失效情况">索引失效情况</a></li>
+        <li><a href="#sql提示">SQL提示</a></li>
+        <li><a href="#覆盖索引">覆盖索引</a></li>
+        <li><a href="#前缀索引">前缀索引</a></li>
+      </ul>
+    </li>
+    <li><a href="#索引设计原则">索引设计原则</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#insert优化">insert优化</a></li>
+    <li><a href="#大批量插入数据">大批量插入数据</a></li>
+    <li><a href="#主键优化">主键优化</a>
+      <ul>
+        <li><a href="#主键设计原则">主键设计原则</a></li>
+      </ul>
+    </li>
+    <li><a href="#order-by优化">order by优化</a>
+      <ul>
+        <li><a href="#mysql的排序有两种方式">MySQL的排序，有两种方式：</a></li>
+        <li><a href="#优化注意事项">优化注意事项</a></li>
+      </ul>
+    </li>
+    <li><a href="#group-by优化">group by优化</a></li>
+    <li><a href="#limit优化">limit优化</a></li>
+    <li><a href="#count优化">count优化</a></li>
+    <li><a href="#update数据优化">update数据优化</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#视图检查选项">视图检查选项</a></li>
+        <li><a href="#视图更新及作用">视图更新及作用</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#基本语法">基本语法</a>
+      <ul>
+        <li><a href="#创建">创建</a></li>
+        <li><a href="#调用">调用</a></li>
+        <li><a href="#查看">查看</a></li>
+        <li><a href="#删除">删除</a></li>
+      </ul>
+    </li>
+    <li><a href="#变量">变量</a>
+      <ul>
+        <li><a href="#系统变量">系统变量</a>
+          <ul>
+            <li><a href="#基本使用语法">基本使用语法</a></li>
+          </ul>
+        </li>
+        <li><a href="#用户定义变量">用户定义变量</a>
+          <ul>
+            <li><a href="#基本使用语法-1">基本使用语法</a></li>
+          </ul>
+        </li>
+        <li><a href="#局部变量">局部变量</a>
+          <ul>
+            <li><a href="#基本使用语法-2">基本使用语法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#if-判断">if 判断</a></li>
+    <li><a href="#参数">参数</a></li>
+    <li><a href="#case">case</a></li>
+    <li><a href="#while">while</a></li>
+    <li><a href="#repeat">repeat</a></li>
+    <li><a href="#loop">loop</a></li>
+    <li><a href="#游标">游标</a></li>
+    <li><a href="#条件处理程序">条件处理程序</a></li>
+    <li><a href="#存储函数">存储函数</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#基本语法-1">基本语法</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#全局锁">全局锁</a></li>
+    <li><a href="#表级锁">表级锁</a>
+      <ul>
+        <li><a href="#表锁">表锁</a></li>
+        <li><a href="#元数据锁">元数据锁</a></li>
+        <li><a href="#意向锁">意向锁</a></li>
+        <li><a href="#行级锁">行级锁</a>
+          <ul>
+            <li><a href="#行锁">行锁</a></li>
+            <li><a href="#间隙锁临键锁">间隙锁&amp;临键锁</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#事务四大特性">事务四大特性</a></li>
+        <li><a href="#并发事务问题">并发事务问题</a></li>
+        <li><a href="#事务隔离级别">事务隔离级别</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#管理用户">管理用户</a></li>
+    <li><a href="#权限控制">权限控制</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#字符串函数">字符串函数</a></li>
+    <li><a href="#数值函数">数值函数</a></li>
+    <li><a href="#日期函数">日期函数</a></li>
+    <li><a href="#流程控制函数">流程控制函数</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#mysql的体系结构">MySQL的体系结构</a></li>
+    <li><a href="#存储引擎简介">存储引擎简介</a>
+      <ul>
+        <li><a href="#innodb-存储引擎">InnoDB 存储引擎</a>
+          <ul>
+            <li><a href="#特点">特点</a></li>
+            <li><a href="#文件">文件</a></li>
+            <li><a href="#逻辑存储结构">逻辑存储结构</a></li>
+          </ul>
+        </li>
+        <li><a href="#myisam-存储引擎">MyISAM 存储引擎</a>
+          <ul>
+            <li><a href="#特点-1">特点</a></li>
+            <li><a href="#文件-1">文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#memory-存储引擎">Memory 存储引擎</a>
+          <ul>
+            <li><a href="#特点-2">特点</a></li>
+            <li><a href="#文件-2">文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#区别及特点">区别及特点</a></li>
+      </ul>
+    </li>
+    <li><a href="#存储引擎选择">存储引擎选择</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#分类">分类</a></li>
+    <li><a href="#sql性能分析">sql性能分析</a>
+      <ul>
+        <li><a href="#sql执行频率">sql执行频率</a></li>
+        <li><a href="#慢查询日志">慢查询日志</a></li>
+        <li><a href="#profile详情">profile详情</a></li>
+        <li><a href="#explain执行计划">explain执行计划</a></li>
+      </ul>
+    </li>
+    <li><a href="#索引使用">索引使用</a>
+      <ul>
+        <li><a href="#最左前缀法则">最左前缀法则</a></li>
+        <li><a href="#索引失效情况">索引失效情况</a></li>
+        <li><a href="#sql提示">SQL提示</a></li>
+        <li><a href="#覆盖索引">覆盖索引</a></li>
+        <li><a href="#前缀索引">前缀索引</a></li>
+      </ul>
+    </li>
+    <li><a href="#索引设计原则">索引设计原则</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#insert优化">insert优化</a></li>
+    <li><a href="#大批量插入数据">大批量插入数据</a></li>
+    <li><a href="#主键优化">主键优化</a>
+      <ul>
+        <li><a href="#主键设计原则">主键设计原则</a></li>
+      </ul>
+    </li>
+    <li><a href="#order-by优化">order by优化</a>
+      <ul>
+        <li><a href="#mysql的排序有两种方式">MySQL的排序，有两种方式：</a></li>
+        <li><a href="#优化注意事项">优化注意事项</a></li>
+      </ul>
+    </li>
+    <li><a href="#group-by优化">group by优化</a></li>
+    <li><a href="#limit优化">limit优化</a></li>
+    <li><a href="#count优化">count优化</a></li>
+    <li><a href="#update数据优化">update数据优化</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#视图检查选项">视图检查选项</a></li>
+        <li><a href="#视图更新及作用">视图更新及作用</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#基本语法">基本语法</a>
+      <ul>
+        <li><a href="#创建">创建</a></li>
+        <li><a href="#调用">调用</a></li>
+        <li><a href="#查看">查看</a></li>
+        <li><a href="#删除">删除</a></li>
+      </ul>
+    </li>
+    <li><a href="#变量">变量</a>
+      <ul>
+        <li><a href="#系统变量">系统变量</a>
+          <ul>
+            <li><a href="#基本使用语法">基本使用语法</a></li>
+          </ul>
+        </li>
+        <li><a href="#用户定义变量">用户定义变量</a>
+          <ul>
+            <li><a href="#基本使用语法-1">基本使用语法</a></li>
+          </ul>
+        </li>
+        <li><a href="#局部变量">局部变量</a>
+          <ul>
+            <li><a href="#基本使用语法-2">基本使用语法</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#if-判断">if 判断</a></li>
+    <li><a href="#参数">参数</a></li>
+    <li><a href="#case">case</a></li>
+    <li><a href="#while">while</a></li>
+    <li><a href="#repeat">repeat</a></li>
+    <li><a href="#loop">loop</a></li>
+    <li><a href="#游标">游标</a></li>
+    <li><a href="#条件处理程序">条件处理程序</a></li>
+    <li><a href="#存储函数">存储函数</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#基本语法-1">基本语法</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#全局锁">全局锁</a></li>
+    <li><a href="#表级锁">表级锁</a>
+      <ul>
+        <li><a href="#表锁">表锁</a></li>
+        <li><a href="#元数据锁">元数据锁</a></li>
+        <li><a href="#意向锁">意向锁</a></li>
+        <li><a href="#行级锁">行级锁</a>
+          <ul>
+            <li><a href="#行锁">行锁</a></li>
+            <li><a href="#间隙锁临键锁">间隙锁&amp;临键锁</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h3 class="relative group">事务四大特性 
+    <div id="%E4%BA%8B%E5%8A%A1%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%8B%E5%8A%A1%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>事务具有四大特性，被称为ACID：</p>
+<ul>
+<li>原子性（Atomicity）：事务是不可分割的最小操作单元，要么全部成功，要么全部失败</li>
+<li>一致性（Consistency）：事务完成时，必须使所有的数据都保持一致状态</li>
+<li>隔离性（Isolation）：数据库系统提供的隔离机制，保证事务在不受外部并发操作影响的独立环境下运行</li>
+<li>持久性（Durability）：事务一旦提交或滚回，它对数据库的改变就是永久的</li>
+</ul>
+
+
+<h3 class="relative group">并发事务问题 
+    <div id="%E5%B9%B6%E5%8F%91%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B9%B6%E5%8F%91%E4%BA%8B%E5%8A%A1%E9%97%AE%E9%A2%98" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>并发事务常常出现三种问题：</p>
+<table>
+  <thead>
+      <tr>
+          <th>问题</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>脏读</td>
+          <td>一个事务读到另外一个事务还没有提交的数据</td>
+      </tr>
+      <tr>
+          <td>不可重复读</td>
+          <td>一个事务先后读取同一条记录，但两次读取的数据不同，称为不可重复读</td>
+      </tr>
+      <tr>
+          <td>幻读</td>
+          <td>一个事务按照条件查询数据时，没有对应的数据行，但在插入数据时，又发现该数据已经存在</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h3 class="relative group">事务隔离级别 
+    <div id="%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>事务隔离级别分为四种：</p>
+<table>
+  <thead>
+      <tr>
+          <th>隔离级别</th>
+          <th>脏读</th>
+          <th>不可重复读</th>
+          <th>幻读</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Read uncommitted</td>
+          <td>√</td>
+          <td>√</td>
+          <td>√</td>
+      </tr>
+      <tr>
+          <td>Read committed</td>
+          <td>×</td>
+          <td>√</td>
+          <td>√</td>
+      </tr>
+      <tr>
+          <td>Repeatable Read(默认)</td>
+          <td>×</td>
+          <td>×</td>
+          <td>√</td>
+      </tr>
+      <tr>
+          <td>Serializable</td>
+          <td>×</td>
+          <td>×</td>
+          <td>×</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h1 class="relative group">用户数据管理 
+    <div id="%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">管理用户 
+    <div id="%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="cm">/*查询用户*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="k">user</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*创建用户*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;用户名&#39;</span><span class="o">@</span><span class="w"> </span><span class="s1">&#39;主机名&#39;</span><span class="w"> </span><span class="n">IDENTIFUED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;密码&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*修改用户密码*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ALTER</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;用户名&#39;</span><span class="o">@</span><span class="w"> </span><span class="s1">&#39;主机名&#39;</span><span class="w"> </span><span class="n">IDENTIFUED</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">mysql_native_password</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;新密码&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*删除用户*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">DROPUSER</span><span class="w"> </span><span class="s1">&#39;用户名&#39;</span><span class="o">@</span><span class="w"> </span><span class="s1">&#39;主机名&#39;</span><span class="w">
+</span></span></span></code></pre></div><p>主机名可以用%通配符，表示任意</p>
+
+
+<h2 class="relative group">权限控制 
+    <div id="%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="cm">/*查询权限*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SHOW</span><span class="w"> </span><span class="n">GRANTS</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="s1">&#39;用户名&#39;</span><span class="o">@</span><span class="w"> </span><span class="s1">&#39;主机名&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*授予权限*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GRANT</span><span class="w"> </span><span class="err">权限列表</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="err">数据库名</span><span class="p">.</span><span class="err">表名</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;用户名&#39;</span><span class="o">@</span><span class="w"> </span><span class="s1">&#39;主机名&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*撤销权限*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">REVOKE</span><span class="w"> </span><span class="err">权限列表</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="err">数据库名</span><span class="p">.</span><span class="err">表名</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="s1">&#39;用户名&#39;</span><span class="o">@</span><span class="w"> </span><span class="s1">&#39;主机名&#39;</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p>多个权限之间，可以使用逗号分隔</p>
+<p>授权时，数据库名和表名可以使用 * 进行统配，表示所有</p></blockquote>
+
+
+<h1 class="relative group">函数 
+    <div id="%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%BD%E6%95%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">字符串函数 
+    <div id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CONCAT(S1,S2,&hellip;Sn)</td>
+          <td>字符串拼接，将S1，S2，&hellip; Sn拼接成一个字符串</td>
+      </tr>
+      <tr>
+          <td>LOWER(str)</td>
+          <td>将字符串str全部转为小写</td>
+      </tr>
+      <tr>
+          <td>UPPER(str)</td>
+          <td>将字符串str全部转为大写</td>
+      </tr>
+      <tr>
+          <td>LPAD(str,n,pad)</td>
+          <td>左填充，用字符串pad对str的左边进行填充，达到n个字符 串长度</td>
+      </tr>
+      <tr>
+          <td>RPAD(str,n,pad)</td>
+          <td>右填充，用字符串pad对str的右边进行填充，达到n个字符 串长度</td>
+      </tr>
+      <tr>
+          <td>TRIM(str)</td>
+          <td>去掉字符串头部和尾部的空格</td>
+      </tr>
+      <tr>
+          <td>SUBSTRING(str,start,len)</td>
+          <td>返回从字符串str从start位置起的len个长度的字符串</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">数值函数 
+    <div id="%E6%95%B0%E5%80%BC%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%95%B0%E5%80%BC%E5%87%BD%E6%95%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CEIL(x)</td>
+          <td>向上取整</td>
+      </tr>
+      <tr>
+          <td>FLOOR(x)</td>
+          <td>向下取整</td>
+      </tr>
+      <tr>
+          <td>MOD(x,y)</td>
+          <td>返回x/y的模</td>
+      </tr>
+      <tr>
+          <td>RAND()</td>
+          <td>返回0~1内的随机数</td>
+      </tr>
+      <tr>
+          <td>ROUND(x,y)</td>
+          <td>求参数x的四舍五入的值，保留y位小数</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">日期函数 
+    <div id="%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CURDATE()</td>
+          <td>返回当前日期</td>
+      </tr>
+      <tr>
+          <td>CURTIME()</td>
+          <td>返回当前时间</td>
+      </tr>
+      <tr>
+          <td>NOW()</td>
+          <td>返回当前日期和时间</td>
+      </tr>
+      <tr>
+          <td>YEAR(date)</td>
+          <td>获取指定date的年份</td>
+      </tr>
+      <tr>
+          <td>MONTH(date)</td>
+          <td>获取指定date的月份</td>
+      </tr>
+      <tr>
+          <td>DAY(date)</td>
+          <td>获取指定date的日期</td>
+      </tr>
+      <tr>
+          <td>DATE_ADD(date, INTERVAL expr type)</td>
+          <td>返回一个日期/时间值加上一个时间间隔expr后的 时间</td>
+      </tr>
+      <tr>
+          <td>DATEDIFF(date1,date2)</td>
+          <td>返回起始时间date1 和 结束时间date2之间的天数</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">流程控制函数 
+    <div id="%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%87%BD%E6%95%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>函数</th>
+          <th>功能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>IF(value,t,f)</td>
+          <td>如果value为true，返回 t ，否则返回 f</td>
+      </tr>
+      <tr>
+          <td>IFNULL(v1,v2)</td>
+          <td>如果 v1 不为空，返回 v1，否则返回 v2</td>
+      </tr>
+      <tr>
+          <td>CASE WHEN [ val1 ] THEN [res1] &hellip; ELSE [ default ] END</td>
+          <td>如果val1为true，返回res1，&hellip; 否 则返回default默认值</td>
+      </tr>
+      <tr>
+          <td>CASE [ expr ] WHEN [ val1 ] THEN [res1] &hellip; ELSE [ default ] END</td>
+          <td>如果expr的值等于val1，返回 res1，&hellip; 否则返回default默认值</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h1 class="relative group">存储引擎 
+    <div id="%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+<p>存储结构 表空间、段、区（大小固定 1 M）、页（大小固定 16 k）、行</p>
+
+
+<h2 class="relative group">MySQL的体系结构 
+    <div id="mysql%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mysql%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>第一层——连接层：接受客户端的链接，完成链接处理，认证授权，安全方案，检查最大链接数</li>
+<li>第二层——服务层：SQL结构，解析器，查询优化器，缓存</li>
+<li>第三层——存储引擎层：数据存储和提取的方式，索引在这一层实现</li>
+<li>第四层——存储层：数据库的相关数据</li>
+</ul>
+
+
+<h2 class="relative group">存储引擎简介 
+    <div id="%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%AE%80%E4%BB%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E7%AE%80%E4%BB%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>存储引擎就是存储数据、建立索引、更新/查询数据等技术的实现方式 。存储引擎是基于表的，而不是 基于库的，所以存储引擎也可被称为表类型。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-mysql" data-lang="mysql"><span class="line"><span class="cl"><span class="cm">/*查询建表语句*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">show</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*建表时指定存储引擎*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="err">表名</span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="err">字段</span><span class="mi">1</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="err">类型</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">COMMENT</span><span class="w"> </span><span class="err">字段</span><span class="mi">1</span><span class="err">注释</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="kp">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">引擎名</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">COMMENT</span><span class="w"> </span><span class="err">表注释</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*查询当前数据库支持的存储引擎*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">show</span><span class="w"> </span><span class="n">engines</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">InnoDB 存储引擎 
+    <div id="innodb-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#innodb-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>在 MySQL 5.5 之后，InnoDB是默认的 MySQL 存储引擎。</p>
+
+
+<h4 class="relative group">特点 
+    <div id="%E7%89%B9%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E7%82%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>DML操作遵循ACID模型，支持事务；</li>
+<li>行级锁，提高并发访问性能；</li>
+<li>支持外键FOREIGN KEY约束，保证数据的完整性和正确性；</li>
+</ul>
+
+
+<h4 class="relative group">文件 
+    <div id="%E6%96%87%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>xxx.ibd：xxx代表的是表名，innoDB引擎的每张表都会对应这样一个表空间文件，存储该表的表结 构（frm-早期的 、sdi-新版的）、数据和索引。</p>
+
+
+<h4 class="relative group">逻辑存储结构 
+    <div id="%E9%80%BB%E8%BE%91%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%80%BB%E8%BE%91%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<ol>
+<li>表空间 : InnoDB存储引擎逻辑结构的最高层，ibd文件其实就是表空间文件，在表空间中可以 包含多个Segment段。</li>
+<li>段 : 表空间是由各个段组成的， 常见的段有数据段、索引段、回滚段等。InnoDB中对于段的管 理，都是引擎自身完成，不需要人为对其控制，一个段中包含多个区。</li>
+<li>区 : 区是表空间的单元结构，每个区的大小为1M。 默认情况下， InnoDB存储引擎页大小为 16K， 即一个区中一共有64个连续的页。</li>
+<li>页 : 页是组成区的最小单元，页也是InnoDB 存储引擎磁盘管理的最小单元，每个页的大小默 认为 16KB。为了保证页的连续性，InnoDB 存储引擎每次从磁盘申请 4-5 个区。</li>
+<li>行 : InnoDB 存储引擎是面向行的，也就是说数据是按行进行存放的，在每一行中除了定义表时 所指定的字段以外，还包含两个隐藏字段</li>
+</ol>
+
+
+<h3 class="relative group">MyISAM 存储引擎 
+    <div id="myisam-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#myisam-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>是MySQL早期的默认存储引擎</p>
+
+
+<h4 class="relative group">特点 
+    <div id="%E7%89%B9%E7%82%B9-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E7%82%B9-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>不支持事务，不支持外键</li>
+<li>支持表锁，不支持行锁</li>
+<li>访问速度快</li>
+</ul>
+
+
+<h4 class="relative group">文件 
+    <div id="%E6%96%87%E4%BB%B6-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>xxx.sdi：存储表结构信息</li>
+<li>xxx.MYD: 存储数据</li>
+<li>xxx.MYI: 存储索引</li>
+</ul>
+
+
+<h3 class="relative group">Memory 存储引擎 
+    <div id="memory-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#memory-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Memory引擎的表数据时存储在内存中的，由于受到硬件问题、或断电问题的影响，只能将这些表作为 临时表或缓存使用。</p>
+
+
+<h4 class="relative group">特点 
+    <div id="%E7%89%B9%E7%82%B9-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%89%B9%E7%82%B9-2" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<ol>
+<li>内存存放</li>
+<li>hash索引（默认）</li>
+</ol>
+
+
+<h4 class="relative group">文件 
+    <div id="%E6%96%87%E4%BB%B6-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%87%E4%BB%B6-2" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>xxx.sdi：存储表结构信息</li>
+</ul>
+
+
+<h3 class="relative group">区别及特点 
+    <div id="%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%89%B9%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8C%BA%E5%88%AB%E5%8F%8A%E7%89%B9%E7%82%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h2 class="relative group">存储引擎选择 
+    <div id="%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E9%80%89%E6%8B%A9" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h1 class="relative group">索引 
+    <div id="%E7%B4%A2%E5%BC%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B4%A2%E5%BC%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">分类 
+    <div id="%E5%88%86%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%86%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th>含义</th>
+          <th>特点</th>
+          <th>关键字</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>主键索引</td>
+          <td>针对于表中主键创建的索引</td>
+          <td>默认自动创建, 只能 有一个</td>
+          <td>PRIMARY</td>
+      </tr>
+      <tr>
+          <td>唯一索引</td>
+          <td>避免同一个表中某数据列中的值重复</td>
+          <td>可以有多个</td>
+          <td>UNIQUE</td>
+      </tr>
+      <tr>
+          <td>常规索引</td>
+          <td>快速定位特定数据</td>
+          <td>可以有多个</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>全文索引</td>
+          <td>全文索引查找的是文本中的关键词，而不是比 较索引中的值</td>
+          <td>可以有多个</td>
+          <td>FULLTEXT</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>InnoDB中的索引形式</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>分类</th>
+          <th>含义</th>
+          <th>特点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>聚集索引</td>
+          <td>将数据存储与索引放到了一块，索引结构的叶子 节点保存了行数据</td>
+          <td>必须有,而且只 有一个</td>
+      </tr>
+      <tr>
+          <td>二级索引</td>
+          <td>将数据与索引分开存储，索引结构的叶子节点关 联的是对应的主键</td>
+          <td>可以存在多个</td>
+      </tr>
+  </tbody>
+</table>
+<p>聚集索引选取规则</p>
+<blockquote>
+<ol>
+<li>主键</li>
+<li>使用第一个 UNIQUE 作为聚集索引</li>
+<li>自动生成一个rowid作为隐藏的聚集索引</li>
+</ol></blockquote>
+<p>**回表查询：**先走二级索引找到主键值，在去聚集索引中拿到这一行的行数据</p>
+
+
+<h2 class="relative group">sql性能分析 
+    <div id="sql%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sql%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">sql执行频率 
+    <div id="sql%E6%89%A7%E8%A1%8C%E9%A2%91%E7%8E%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sql%E6%89%A7%E8%A1%8C%E9%A2%91%E7%8E%87" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="cm">/*服务器状态信息*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- session 是查看当前会话 ; 
+</span></span></span><span class="line"><span class="cl"><span class="c1">-- global 是查询全局数据 ;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">show</span><span class="w"> </span><span class="p">[</span><span class="k">session</span><span class="o">|</span><span class="k">global</span><span class="p">]</span><span class="w"> </span><span class="n">status</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*查看当前数据库的INSERT、UPDATE、DELETE、SELECT的访问频次*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SHOW</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="n">STATUS</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;Com_______&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">慢查询日志 
+    <div id="%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%97%A5%E5%BF%97" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p><em>慢查询日志记录了所有执行时间超过指定参数（long_query_time，单位：秒，默认10秒）的所有 SQL语句的日志</em></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="cm">/*慢查询日志默认没有开启，需要在配置文件（/etc/my.cnf）中配置*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">使用</span><span class="n">vim添加配置信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">开启</span><span class="n">MySQL慢日志查询开关</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">slow_query_log</span><span class="o">=</span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">设置慢日志的时间为</span><span class="mi">2</span><span class="err">秒，</span><span class="n">SQL语句执行时间超过2秒</span><span class="err">，就会视为慢查询，记录慢查询日志</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">long_query_time</span><span class="o">=</span><span class="mi">2</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">profile详情 
+    <div id="profile%E8%AF%A6%E6%83%85" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#profile%E8%AF%A6%E6%83%85" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>先使用 <code>SELECT @@have_profiling;</code> 查看是否支持 profile 功能</p>
+<p>开启 profiling ：<code>SET profiling = 1;</code> （可以指定在 session/global级别开启）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 查看每一条SQL的耗时基本情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">show</span><span class="w"> </span><span class="n">profiles</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 查看指定query_id的SQL语句各个阶段的耗时情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">show</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">query_id</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 查看指定query_id的SQL语句CPU的使用情况
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">show</span><span class="w"> </span><span class="n">profile</span><span class="w"> </span><span class="n">cpu</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">query_id</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">explain执行计划 
+    <div id="explain%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#explain%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>EXPLAIN 或者 DESC命令获取 MySQL 如何执行 SELECT 语句的信息，包括在 SELECT 语句执行 过程中表如何连接和连接的顺序</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 直接在select语句之前加上关键字 explain / desc
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段列表</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Explain 执行计划中各个字段的含义:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>select查询的序列号，表示查询中执行select子句或者是操作表的顺序 (id相同，执行顺序从上到下；id不同，值越大，越先执行)。</td>
+      </tr>
+      <tr>
+          <td>select_type</td>
+          <td>表示 SELECT 的类型，常见的取值有 SIMPLE（简单表，即不使用表连接 或者子查询）、PRIMARY（主查询，即外层的查询）、 UNION（UNION 中的第二个或者后面的查询语句）、 SUBQUERY（SELECT/WHERE之后包含了子查询）等</td>
+      </tr>
+      <tr>
+          <td>type</td>
+          <td>表示连接类型，性能由好到差的连接类型为NULL、system、const、 eq_ref、ref、range、 index、all 。</td>
+      </tr>
+      <tr>
+          <td>possible_key</td>
+          <td>显示可能应用在这张表上的索引，一个或多个。</td>
+      </tr>
+      <tr>
+          <td>key</td>
+          <td>实际使用的索引，如果为NULL，则没有使用索引。</td>
+      </tr>
+      <tr>
+          <td>key_len</td>
+          <td>表示索引中使用的字节数， 该值为索引字段最大可能长度，并非实际使用长 度，在不损失精确性的前提下， 长度越短越好 。</td>
+      </tr>
+      <tr>
+          <td>rows</td>
+          <td>MySQL认为必须要执行查询的行数，在innodb引擎的表中，是一个估计值， 可能并不总是准确的。</td>
+      </tr>
+      <tr>
+          <td>filtered</td>
+          <td>表示返回结果的行数占需读取行数的百分比， filtered 的值越大越好。</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">索引使用 
+    <div id="%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B4%A2%E5%BC%95%E4%BD%BF%E7%94%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">最左前缀法则 
+    <div id="%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E6%B3%95%E5%88%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E6%B3%95%E5%88%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>如果索引了多列（联合索引），要遵守最左前缀法则。最左前缀法则指的最左前缀法则指的是，查询时，最左变的列，必须存在，否则索引全部失效。 而且中间不能跳过某一列，否则该列后面的字段索引将失效。（与顺序无关）</p>
+
+
+<h3 class="relative group">索引失效情况 
+    <div id="%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E6%83%85%E5%86%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E6%83%85%E5%86%B5" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>范围查询中(&gt;,&lt;)，范围查询右侧的列索引失效。在业务允许的情况下，尽可能的使用类似于 &gt;= 或 &lt;= 这类的范围查询，而避免使用 &gt; 或 &lt;。</p>
+<p>在索引列上进行运算操作， 索引将失效。</p>
+<p>字符类型数据，不加字符串会导致索引失效</p>
+<p>在模糊匹配中，尾部模糊匹配，索引不会失效。头部模糊匹配，索引失效。</p>
+<p>当or连接的条件，其中一侧没有索引，索引失效，左右两侧字段都有索引时，索引才会生效。</p>
+<p>数据分布，如果MySQL评估使用索引比全表更慢，则不使用索引。</p>
+
+
+<h3 class="relative group">SQL提示 
+    <div id="sql%E6%8F%90%E7%A4%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sql%E6%8F%90%E7%A4%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>use index ： 建议MySQL使用哪一个索引完成此次查询（仅仅是建议，mysql内部还会再次进 行评估）</li>
+<li>ignore index ： 忽略指定的索引。</li>
+<li>force index ： 强制使用索引。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">select</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="n">sql提示</span><span class="p">(</span><span class="err">索引名</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="err">条件</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">覆盖索引 
+    <div id="%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>尽量使用覆盖索引（覆盖索引是指 查询使用了索引，并且需要返回的列，在该索引中已经全部能够找到）</p>
+
+
+<h3 class="relative group">前缀索引 
+    <div id="%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>当字段类型为字符串，有时候需要索引很长的字符串，者会让索引变得很大，此时可以将字符串的一部分前缀建立索引，可以节约空间</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">create</span><span class="w"> </span><span class="k">index</span><span class="w"> </span><span class="n">idx_xxxx</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="k">table_name</span><span class="p">(</span><span class="k">column</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><strong>前缀长度</strong></p>
+<p>以根据索引的选择性来决定，而选择性是指不重复的索引值（基数）和数据表的记录总数的比值， 索引选择性越高则查询效率越高， 唯一索引的选择性是1，这是最好的索引选择性，性能也是最好的。前缀索引主要时解决长字符串数据查询产生了大量的磁盘 IO 情况</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 不设置索引时的索引选择性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="k">distinct</span><span class="w"> </span><span class="n">email</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tb_user</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 前5个字符的索引选择性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">select</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="k">distinct</span><span class="w"> </span><span class="k">substring</span><span class="p">(</span><span class="n">email</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">tb_user</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">索引设计原则 
+    <div id="%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B4%A2%E5%BC%95%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li>在数据量大，且查询比较频繁的表建立索引</li>
+<li>针对于常作为查询条件（where）、排序（order by）、分组（group by）操作的字段建立索引。</li>
+<li>选择区分度高的列，建立唯一索引，区分度越高，索引的效率越高。</li>
+<li>字符串较长的列建立前缀索引</li>
+<li>尽量采用联合索引，避免回表，提高查询效率</li>
+<li>控制索引的数据量，索引越多，维护索引结构的代价就越大</li>
+<li>在创建表的时候尽量使用 NOT NULL 约束，方便优化器更好判断索引查询效率</li>
+</ol>
+
+
+<h1 class="relative group">SQL优化 
+    <div id="sql%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sql%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">insert优化 
+    <div id="insert%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#insert%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li>尽量使用批量插入</li>
+<li>手动提交事务</li>
+<li>采用数据插入</li>
+</ol>
+
+
+<h2 class="relative group">大批量插入数据 
+    <div id="%E5%A4%A7%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%A7%E6%89%B9%E9%87%8F%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>主键顺序插入效率大于乱序插入</p>
+<p>使用 load 指令插入</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 客户端连接服务端时，加上参数 -–local-infile
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">mysql</span><span class="w"> </span><span class="err">–</span><span class="o">-</span><span class="k">local</span><span class="o">-</span><span class="n">infile</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 设置全局参数local_infile为1，开启从本地加载文件导入数据的开关
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">set</span><span class="w"> </span><span class="k">global</span><span class="w"> </span><span class="n">local_infile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 执行load指令将准备好的数据，加载到表结构中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">load</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="k">local</span><span class="w"> </span><span class="n">infile</span><span class="w"> </span><span class="s1">&#39;/root/sql1.log&#39;</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">tb_user</span><span class="w"> </span><span class="n">fields</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="w"> </span><span class="n">lines</span><span class="w"> </span><span class="n">terminated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">主键优化 
+    <div id="%E4%B8%BB%E9%94%AE%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E9%94%AE%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>主键乱序插入会产生页分裂现象</p>
+<p>删除一行记录时，该记录只是被标记为删除，并没有进行物理删除，并且它的空间变得允许被其他记录声明使用</p>
+
+
+<h3 class="relative group">主键设计原则 
+    <div id="%E4%B8%BB%E9%94%AE%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E9%94%AE%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>尽量降低主键的长度</li>
+<li>插入数据的时，尽量选择顺序插入，选择使用AUTO_INCREMENT自增主键</li>
+<li>尽量不使用UUID作为主键或其他主键，比如身份证号</li>
+</ul>
+
+
+<h2 class="relative group">order by优化 
+    <div id="order-by%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#order-by%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">MySQL的排序，有两种方式： 
+    <div id="mysql%E7%9A%84%E6%8E%92%E5%BA%8F%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mysql%E7%9A%84%E6%8E%92%E5%BA%8F%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Using filesort : 通过表的索引或全表扫描，读取满足条件的数据行，然后在排序缓冲区sort buffer中完成排序操作，所有不是通过索引直接返回排序结果的排序都叫 FileSort 排序。</li>
+<li>Using index : 通过有序索引顺序扫描直接返回有序数据，这种情况即为 using index，不需要 额外排序，操作效率高。 对于以上的两种排序方式，Using index的性能高，而Using filesort的性能低，我们在优化排序 操作时，尽量要优化为 Using index。</li>
+</ul>
+
+
+<h3 class="relative group">优化注意事项 
+    <div id="%E4%BC%98%E5%8C%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BC%98%E5%8C%96%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>根据排序字段建立合适的索引，多字段排序时，也遵循最左前缀法则</li>
+<li>尽量使用覆盖索引</li>
+<li>多字段排序，一个升序一个降序，注意联合索引在创建时的规则</li>
+<li>如果不可避免的出现filesort，大数据量排序时，可以适当增大排序缓冲区大小 sort_buffer_size(默认256k)。</li>
+</ul>
+
+
+<h2 class="relative group">group by优化 
+    <div id="group-by%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#group-by%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>Using temporary 使用到临时表</p>
+<p>在分组操作时，也是需要满足最左前缀法则</p>
+
+
+<h2 class="relative group">limit优化 
+    <div id="limit%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#limit%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>通过覆盖索引加子查询的方式进行优化</p>
+
+
+<h2 class="relative group">count优化 
+    <div id="count%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#count%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>无优化方案，自己做一个计数器，计算数据插入删除</p>
+<p>在计数的时候不计数 null 值</p>
+<p>尽量使用 count(*) 对这个进行了优化</p>
+
+
+<h2 class="relative group">update数据优化 
+    <div id="update%E6%95%B0%E6%8D%AE%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#update%E6%95%B0%E6%8D%AE%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>InnoDB的行锁是针对索引加的锁，不是针对记录加的锁 ,并且该索引不能失效，否则会从行锁 升级为表锁 。</p>
+
+
+<h1 class="relative group">视图 
+    <div id="%E8%A7%86%E5%9B%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A7%86%E5%9B%BE" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+<p>视图（View）是一种虚拟存在的表。视图中的数据并不在数据库中实际存在，行和列数据来自定义视图的查询中使用的表，并且是在使用视图时动态生成的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 创建
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="p">[</span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">]</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="err">视图名称</span><span class="p">[(</span><span class="err">列名列表</span><span class="p">)]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SELECT语句</span><span class="w"> </span><span class="p">[</span><span class="k">WITH</span><span class="w"> </span><span class="p">[</span><span class="k">CASCADED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">LOCAL</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="k">OPTION</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 查询
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">查看创建视图语句：</span><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="err">视图名称</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">查看视图数据：</span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">视图名称</span><span class="w"> </span><span class="p">......</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 修改
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">方式一：</span><span class="k">CREATE</span><span class="w"> </span><span class="p">[</span><span class="k">OR</span><span class="w"> </span><span class="k">REPLACE</span><span class="p">]</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="err">视图名称</span><span class="p">[(</span><span class="err">列名列表</span><span class="p">)]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SELECT语句</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">WITH</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="w"> </span><span class="k">CASCADED</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">LOCAL</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="k">OPTION</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="err">方式二：</span><span class="k">ALTER</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="err">视图名称</span><span class="p">[(</span><span class="err">列名列表</span><span class="p">)]</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">SELECT语句</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">CASCADED</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LOCAL</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="k">OPTION</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">1</span><span class="w"> </span><span class="k">DROP</span><span class="w"> </span><span class="k">VIEW</span><span class="w"> </span><span class="p">[</span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="p">]</span><span class="w"> </span><span class="err">视图名称</span><span class="w"> </span><span class="p">[,</span><span class="err">视图名称</span><span class="p">]</span><span class="w"> </span><span class="p">..</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">视图检查选项 
+    <div id="%E8%A7%86%E5%9B%BE%E6%A3%80%E6%9F%A5%E9%80%89%E9%A1%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A7%86%E5%9B%BE%E6%A3%80%E6%9F%A5%E9%80%89%E9%A1%B9" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p><strong>WITH [ CASCADED | LOCAL ]  CHECK OPTION</strong>：在创建视图的时候添加，在对视图进行数据操作时，对该条件进行检查</p>
+<ul>
+<li>CASCADED ：级联，检查所有父视图的检查选项，当父视图只有条件没有指定with check ，也会强制检查</li>
+<li>LOCAL ：本地，只检查当前视图的检查选项，当相关视图只有条件没有指定with check ，也会强制检查</li>
+</ul>
+
+
+<h3 class="relative group">视图更新及作用 
+    <div id="%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%96%B0%E5%8F%8A%E4%BD%9C%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A7%86%E5%9B%BE%E6%9B%B4%E6%96%B0%E5%8F%8A%E4%BD%9C%E7%94%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>更新注意</p>
+<p>在更新时，视图中的数据必须与基表数据保持一对一关系</p>
+
+
+<h1 class="relative group">存储过程 
+    <div id="%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">基本语法 
+    <div id="%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">创建 
+    <div id="%E5%88%9B%E5%BB%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%9B%E5%BB%BA" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="err">存储过程名称</span><span class="w"> </span><span class="p">([</span><span class="w"> </span><span class="err">参数列表</span><span class="w"> </span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">BEGIN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- SQL语句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">END</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">调用 
+    <div id="%E8%B0%83%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%B0%83%E7%94%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CALL</span><span class="w"> </span><span class="err">名称</span><span class="w"> </span><span class="p">([</span><span class="w"> </span><span class="err">参数</span><span class="w"> </span><span class="p">]);</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">查看 
+    <div id="%E6%9F%A5%E7%9C%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9F%A5%E7%9C%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">ROUTINES</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">ROUTINE_SCHEMA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;xxx&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查询指
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">定数据库的存储过程及状态信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SHOW</span><span class="w"> </span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="err">存储过程名称</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查询某个存储过程的定义
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">删除 
+    <div id="%E5%88%A0%E9%99%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%A0%E9%99%A4" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DROP</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="err">存储过程名称</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">变量 
+    <div id="%E5%8F%98%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%98%E9%87%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>变量分为三种类型: 系统变量、用户定义变量、局部变量。</p>
+
+
+<h3 class="relative group">系统变量 
+    <div id="%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>MySQL服务器提供，不是用户定义的，属于服务器层面。分为全局变量（GLOBAL）、会话变量（SESSION）</p>
+
+
+<h4 class="relative group">基本使用语法 
+    <div id="%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="cm">/*查看系统变量*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SHOW</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">SESSION</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查看所有系统变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SHOW</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">SESSION</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="n">VARIABLES</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;......&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 可以通过LIKE模糊匹配方式查找变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">@@</span><span class="p">[</span><span class="k">SESSION</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">GLOBAL</span><span class="p">]</span><span class="w"> </span><span class="err">系统变量名</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 查看指定变量的值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="cm">/*设置系统变量*/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 默认是SESSION，会话变量。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SET</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="k">SESSION</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">GLOBAL</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="err">系统变量名</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">值</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="o">@@</span><span class="p">[</span><span class="k">SESSION</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">GLOBAL</span><span class="p">]</span><span class="err">系统变量名</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">值</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">用户定义变量 
+    <div id="%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%94%A8%E6%88%B7%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">基本使用语法 
+    <div id="%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">var_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="o">@</span><span class="n">var_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="p">]</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">var_name</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="o">@</span><span class="n">var_name</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="p">]</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">var_name</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="o">@</span><span class="n">var_name</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="n">expr</span><span class="p">]</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="o">@</span><span class="n">var_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 使用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">var_name</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p><em>用户定义的变量无需对其进行声明或初始化，只不过获取到的值为NULL。</em></p>
+
+
+<h3 class="relative group">局部变量 
+    <div id="%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>在局部生效的变量，访问之前，需要DECLARE声明。可用作存储过程内的 局部变量和输入参数，局部变量的范围是在其内声明的BEGIN &hellip; END块。</p>
+
+
+<h4 class="relative group">基本使用语法 
+    <div id="%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E8%AF%AD%E6%B3%95-2" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DECLARE</span><span class="w"> </span><span class="err">变量名</span><span class="w"> </span><span class="err">变量类型</span><span class="w"> </span><span class="p">[</span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 赋值
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SET</span><span class="w"> </span><span class="err">变量名</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">值</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SET</span><span class="w"> </span><span class="err">变量名</span><span class="w"> </span><span class="p">:</span><span class="o">=</span><span class="w"> </span><span class="err">值</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SELECT</span><span class="w"> </span><span class="err">字段名</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">变量名</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="err">表名</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">if 判断 
+    <div id="if-%E5%88%A4%E6%96%AD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#if-%E5%88%A4%E6%96%AD" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">IF</span><span class="w"> </span><span class="err">条件</span><span class="mi">1</span><span class="w"> </span><span class="k">THEN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">.....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">ELSEIF</span><span class="w"> </span><span class="err">条件</span><span class="mi">2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="c1">-- 可选
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">.....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ELSE</span><span class="w"> </span><span class="c1">-- 可选
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">.....</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">END</span><span class="w"> </span><span class="k">IF</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- ELSE IF 结构可以有多个，也可以没有。 ELSE结构可以有，也可以没有。
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">参数 
+    <div id="%E5%8F%82%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%82%E6%95%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>主要分为以下三种：IN、OUT、INOUT。</p>
+<ul>
+<li>IN 该类参数作为输入，也就是需要调用时传入值 默认</li>
+<li>OUT 该类参数作为输出，也就是该参数可以作为返回值</li>
+<li>INOUT 既可以作为输入参数，也可以作为输出参数</li>
+</ul>
+
+
+<h2 class="relative group">case 
+    <div id="case" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 方式一
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CASE</span><span class="w"> </span><span class="n">case_value</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHEN</span><span class="w"> </span><span class="n">when_value1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">statement_list1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">when_value2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">statement_list2</span><span class="p">]</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="n">statement_list</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">END</span><span class="w"> </span><span class="k">CASE</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 方式二
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CASE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHEN</span><span class="w"> </span><span class="n">search_condition1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">statement_list1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">WHEN</span><span class="w"> </span><span class="n">search_condition2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">statement_list2</span><span class="p">]</span><span class="w"> </span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">[</span><span class="k">ELSE</span><span class="w"> </span><span class="n">statement_list</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">END</span><span class="w"> </span><span class="k">CASE</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">while 
+    <div id="while" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#while" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">WHILE</span><span class="w"> </span><span class="err">条件</span><span class="w"> </span><span class="k">DO</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">SQL逻辑</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">END</span><span class="w"> </span><span class="n">WHILE</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">repeat 
+    <div id="repeat" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#repeat" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">REPEAT</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SQL逻辑</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">UNTIL</span><span class="w"> </span><span class="err">条件</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">END</span><span class="w"> </span><span class="n">REPEAT</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">loop 
+    <div id="loop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#loop" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>LOOP 实现简单的循环，如果不在SQL逻辑中增加退出循环的条件，可以用其来实现简单的死循环。 LOOP可以配合一下两个语句使用：</p>
+<ul>
+<li>LEAVE ：配合循环使用，退出循环。</li>
+<li>ITERATE：必须用在循环中，作用是跳过当前循环剩下的语句，直接进入下一次循环。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="p">[</span><span class="n">begin_label</span><span class="p">:]</span><span class="w"> </span><span class="n">LOOP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">SQL逻辑</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">END</span><span class="w"> </span><span class="n">LOOP</span><span class="w"> </span><span class="p">[</span><span class="n">end_label</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">LEAVE</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 退出指定标记的循环体
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">ITERATE</span><span class="w"> </span><span class="n">label</span><span class="p">;</span><span class="w"> </span><span class="c1">-- 直接进入下一次循环
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">游标 
+    <div id="%E6%B8%B8%E6%A0%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B8%B8%E6%A0%87" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>游标（CURSOR）是用来存储查询结果集的数据类型</p>
+<p>先声明普通变量，在声明游标</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DECLARE</span><span class="w"> </span><span class="err">游标名称</span><span class="w"> </span><span class="k">CURSOR</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="err">查询语句</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 打开
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">OPEN</span><span class="w"> </span><span class="err">游标名称</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 获取
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">FETCH</span><span class="w"> </span><span class="err">游标名称</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">变量</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="err">变量</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 关闭
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CLOSE</span><span class="w"> </span><span class="err">游标名称</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">条件处理程序 
+    <div id="%E6%9D%A1%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9D%A1%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>条件处理程序（Handler）可以用来定义在流程控制结构执行过程中遇到问题时相应的处理步骤。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">DECLARE</span><span class="w"> </span><span class="n">handler_action</span><span class="w"> </span><span class="k">HANDLER</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="n">condition_value</span><span class="w"> </span><span class="p">[,</span><span class="w"> </span><span class="n">condition_value</span><span class="p">]...</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- handler_action 的取值：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CONTINUE</span><span class="p">:</span><span class="w"> </span><span class="err">继续执行当前程序</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">EXIT</span><span class="p">:</span><span class="w"> </span><span class="err">终止执行当前程序</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- condition_value 的取值：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SQLSTATE</span><span class="w"> </span><span class="n">sqlstate_value</span><span class="p">:</span><span class="w"> </span><span class="err">状态码，如</span><span class="w"> </span><span class="mi">02000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SQLWARNING</span><span class="p">:</span><span class="w"> </span><span class="err">所有以</span><span class="mi">01</span><span class="err">开头的</span><span class="n">SQLSTATE代码的简写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">NOT</span><span class="w"> </span><span class="k">FOUND</span><span class="p">:</span><span class="w"> </span><span class="err">所有以</span><span class="mi">02</span><span class="err">开头的</span><span class="n">SQLSTATE代码的简写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">SQLEXCEPTION</span><span class="p">:</span><span class="w"> </span><span class="err">所有没有被</span><span class="n">SQLWARNING</span><span class="w"> </span><span class="err">或</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">FOUND捕获的SQLSTATE代码的简写</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">存储函数 
+    <div id="%E5%AD%98%E5%82%A8%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%98%E5%82%A8%E5%87%BD%E6%95%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>存储函数是有返回值的存储过程，存储函数的参数只能是IN类型的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">FUNCTION</span><span class="w"> </span><span class="err">存储函数名称</span><span class="w"> </span><span class="p">([</span><span class="w"> </span><span class="err">参数列表</span><span class="w"> </span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">RETURNS</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="p">[</span><span class="n">characteristic</span><span class="w"> </span><span class="p">...]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">BEGIN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- SQL语句
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">RETURN</span><span class="w"> </span><span class="p">...;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">END</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>characteristic说明：</p>
+<ul>
+<li>DETERMINISTIC：相同的输入参数总是产生相同的结果</li>
+<li>NO SQL ：不包含 SQL 语句</li>
+<li>READS SQL DATA：包含读取数据的语句，但不包含写入数据的语句。</li>
+</ul>
+
+
+<h1 class="relative group">触发器 
+    <div id="%E8%A7%A6%E5%8F%91%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A7%A6%E5%8F%91%E5%99%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+<p>mysql只支持行级触发，不支持语句级触发。</p>
+<p>触发器的这种特性可以协助应用在数据库端确保数据的完整性 , 日志记录 , 数据校验等操作</p>
+
+
+<h2 class="relative group">基本语法 
+    <div id="%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 创建
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="k">trigger_name</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">BEFORE</span><span class="o">/</span><span class="k">AFTER</span><span class="w"> </span><span class="k">INSERT</span><span class="o">/</span><span class="k">UPDATE</span><span class="o">/</span><span class="k">DELETE</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ON</span><span class="w"> </span><span class="n">tbl_name</span><span class="w"> </span><span class="k">FOR</span><span class="w"> </span><span class="k">EACH</span><span class="w"> </span><span class="k">ROW</span><span class="w"> </span><span class="c1">-- 行级触发器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">BEGIN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">trigger_stmt</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">END</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 查看
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">SHOW</span><span class="w"> </span><span class="n">TRIGGERS</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">DROP</span><span class="w"> </span><span class="k">TRIGGER</span><span class="w"> </span><span class="p">[</span><span class="k">schema_name</span><span class="p">.]</span><span class="k">trigger_name</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="c1">-- 如果没有指定 schema_name，默认为当前数据库 。
+</span></span></span></code></pre></div>
+
+<h1 class="relative group">锁 
+    <div id="%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">全局锁 
+    <div id="%E5%85%A8%E5%B1%80%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%A8%E5%B1%80%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>对整个数据库实例加锁，加锁后整个实例就处于只读状态</p>
+<p>主要用于对数据库进行备份</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 加锁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">flush</span><span class="w"> </span><span class="n">tables</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="k">read</span><span class="w"> </span><span class="k">lock</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 解锁
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">unlock</span><span class="w"> </span><span class="n">tables</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 数据备份
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">$</span><span class="w"> </span><span class="n">mysqldump</span><span class="w"> </span><span class="o">-</span><span class="n">uroot</span><span class="w"> </span><span class="err">–</span><span class="n">p1234</span><span class="w"> </span><span class="n">itcast</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">itcast</span><span class="p">.</span><span class="k">sql</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">表级锁 
+    <div id="%E8%A1%A8%E7%BA%A7%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%A8%E7%BA%A7%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>表级锁，每次操作锁住整张表。锁定粒度大，发生锁冲突的概率最高，并发度最低。</p>
+<p>表级锁，有三种分类：表锁、元数据锁、意向锁</p>
+
+
+<h3 class="relative group">表锁 
+    <div id="%E8%A1%A8%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%A8%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="c1">-- 加锁：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">lock</span><span class="w"> </span><span class="n">tables</span><span class="w"> </span><span class="err">表名</span><span class="p">...</span><span class="w"> </span><span class="k">read</span><span class="o">/</span><span class="k">write</span><span class="err">。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">-- 释放锁：
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">unlock</span><span class="w"> </span><span class="n">tables</span><span class="w"> 
+</span></span></span></code></pre></div><p>读锁：别的客户端不能写入，但可以读</p>
+<p>写锁：别的客户端不能写，也不能读</p>
+
+
+<h3 class="relative group">元数据锁 
+    <div id="%E5%85%83%E6%95%B0%E6%8D%AE%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>加锁过程系统自动控制，在访问一张表的时候会自动加上。</p>
+<p>MDL锁主要作用：</p>
+<ul>
+<li>维护表元数据的数据一致性，在表上有活动事务的时候，不可以对元数据进行写入操作</li>
+<li>为了避免DML与DDL冲突，保证读写的正确性。</li>
+<li>某一张表涉及到未提交的事务时，是不能够修改这张表的表结构的。</li>
+</ul>
+<p>MySQL5.5中引入了MDL，当对一张表进行增删改查的时候，加MDL读锁(共享)；当对表结构进行变 更操作的时候，加MDL写锁(排他)。</p>
+<p>查看锁</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">查看所有锁</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">object_type</span><span class="p">,</span><span class="n">object_schema</span><span class="p">,</span><span class="n">object_name</span><span class="p">,</span><span class="n">lock_type</span><span class="p">,</span><span class="n">lock_duration</span><span class="w"> </span><span class="n">fromperformance_schema</span><span class="p">.</span><span class="n">metadata_locks</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">意向锁 
+    <div id="%E6%84%8F%E5%90%91%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%84%8F%E5%90%91%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>为了避免DML在执行时，加的行锁与表锁的冲突，在InnoDB中引入了意向锁，使得表锁不用检查每行数据是否加锁，使用意向锁来减少表锁的检查。</p>
+<p>分类：</p>
+<ul>
+<li>意向共享锁(IS): 由语句select &hellip; lock in share mode添加 。 与 表锁共享锁 (read)兼容，与表锁排他锁(write)互斥。</li>
+<li>意向排他锁(IX): 由insert、update、delete、select&hellip;for update添加 。与表锁共 享锁(read)及排他锁(write)都互斥，意向锁之间不会互斥。</li>
+</ul>
+
+
+<h3 class="relative group">行级锁 
+    <div id="%E8%A1%8C%E7%BA%A7%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%8C%E7%BA%A7%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>锁对应的行数据，每次操作锁住对应的行数据。锁定粒度最小，发生锁冲突的概率最低，并发度最高。应用在 InnoDB存储引擎中。</p>
+<ul>
+<li>对于行级锁，主要分为以下三类：
+<ol>
+<li>行锁：
+<ul>
+<li>锁定单个行记录的锁，防止其他事务对此行进行update和delete。</li>
+<li>在RC、RR隔离级别下都支持。</li>
+</ul>
+</li>
+<li>间隙锁（Gap Lock）：
+<ul>
+<li>锁定索引记录间隙（不含该记录），确保索引记录间隙不变，防止其他事务在这个间隙进行insert，产生幻读。</li>
+<li>在RR隔离级别下都支持。</li>
+</ul>
+</li>
+<li>临键锁（Next-Key Lock）：
+<ul>
+<li>行锁和间隙锁组合，同时锁住数据，并锁住数据前面的间隙Gap。</li>
+<li>在RR隔离级别下支持。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+
+
+<h4 class="relative group">行锁 
+    <div id="%E8%A1%8C%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%8C%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>InnoDB实现了以下两种类型的行锁 ：</p>
+<ul>
+<li>共享锁（S）：允许一个事务去读一行，阻止其他事务获得相同数据集的排它锁。</li>
+<li>排他锁（X）：允许获取排他锁的事务更新数据，阻止其他事务获得相同数据集的共享锁和排他锁。</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>仅当共享锁和共享锁共存时兼容</li>
+<li>其他情况兼不兼容</li>
+</ul>
+<p>下面我们给出不同SQL语句相对应的行锁级别：</p>
+<table>
+  <thead>
+      <tr>
+          <th>SQL</th>
+          <th>行锁类型</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>INSERT</td>
+          <td>排他锁</td>
+          <td>自动加锁</td>
+      </tr>
+      <tr>
+          <td>UPDATE</td>
+          <td>排他锁</td>
+          <td>自动加锁</td>
+      </tr>
+      <tr>
+          <td>DELETE</td>
+          <td>排他锁</td>
+          <td>自动加锁</td>
+      </tr>
+      <tr>
+          <td>SELECT</td>
+          <td>不加锁</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>SELECT &hellip; LOCK IN SHARE MOOE</td>
+          <td>共享锁</td>
+          <td>需要手动在SELECT之后加LOCK IN SHARE MODE</td>
+      </tr>
+      <tr>
+          <td>SELECT &hellip; FOR UPDATE</td>
+          <td>排他锁</td>
+          <td>需要手动在SELECT之后加FOR UPDATE</td>
+      </tr>
+  </tbody>
+</table>
+<p>行锁特点：</p>
+<ul>
+<li>默认情况下，InnoDB在 REPEATABLE READ事务隔离级别运行，InnoDB使用 next-key 锁进行搜索和索引扫描，以防止幻读。</li>
+<li>针对唯一索引进行检索时，对已存在的记录进行等值匹配时，将会自动优化为行锁。</li>
+<li>InnoDB的行锁是针对于索引加的锁，不通过索引条件检索数据，那么InnoDB将对表中的所有记录加锁，此时就会升级为表锁。</li>
+</ul>
+
+
+<h4 class="relative group">间隙锁&amp;临键锁 
+    <div id="%E9%97%B4%E9%9A%99%E9%94%81%E4%B8%B4%E9%94%AE%E9%94%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%97%B4%E9%9A%99%E9%94%81%E4%B8%B4%E9%94%AE%E9%94%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>默认情况下，InnoDB在 REPEATABLE READ事务隔离级别运行，InnoDB使用 next-key 锁进行搜索和索引扫描，以防止幻读。</p>
+<p>一般出现上述锁有以下三种情况：</p>
+<ul>
+<li>索引上的等值查询(唯一索引)，给不存在的记录加锁时, 优化为间隙锁 。</li>
+<li>索引上的等值查询(非唯一普通索引)，向右遍历时最后一个值不满足查询需求时，next-keylock 退化为间隙锁。</li>
+<li>索引上的范围查询(唯一索引)&ndash;会访问到不满足条件的第一个值为止。</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>间隙锁唯一目的是防止其他事务插入间隙。间隙锁可以共存，一个事务采用的间隙锁不会阻止另一个事务在同一间隙上采用间隙锁。</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+  
+  
+    <h2 class="mt-8 text-2xl font-extrabold mb-10">相关文章</h2>
+    <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      
+        
+
+  <a href="/posts/studyspace/linuxstudy/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/studyspace/linuxstudy/">Linux学习笔记</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-09T18:09:02&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>6152 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">13 分钟</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Linux
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+      
+        
+
+  <a href="/posts/studyspace/vuestudy/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/studyspace/vuestudy/">Vue学习笔记</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-09T18:14:49&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>376 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/vue/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Vue
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+      
+        
+
+  <a href="/posts/studyspace/redisstudy/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/studyspace/redisstudy/">Redis学习笔记</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-09T18:14:07&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>2298 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/redis/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Redis
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+      
+    </section>
+  
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_posts\\studySpace\\MySqlStudy\\index.md"
+        var oid_likes = "likes_posts\\studySpace\\MySqlStudy\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/studyspace/rabbitmqstudy/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >RabbitMQ学习笔记</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-05-09T18:13:15&#43;08:00">2025-05-09</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/studyspace/mongodb/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >MongoDB学习笔记</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-05-09T18:10:21&#43;08:00">2025-05-09</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部" title="返回顶部">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/categories/"
+            title="主题">
+            
+            主题
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="标签">
+            
+            标签
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Ting
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      由 <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> 强力驱动
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="搜索"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="关闭 (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

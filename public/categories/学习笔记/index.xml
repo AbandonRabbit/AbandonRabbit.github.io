@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>学习笔记 on Ting&#39;s Space</title>
+    <link>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in 学习笔记 on Ting&#39;s Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>604102668@qq.com (Ting)</managingEditor>
+    <webMaster>604102668@qq.com (Ting)</webMaster>
+    <copyright>© 2025 Ting</copyright>
+    <lastBuildDate>Fri, 09 May 2025 18:14:49 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Vue学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/vuestudy/</link>
+      <pubDate>Fri, 09 May 2025 18:14:49 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/vuestudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Redis学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/redisstudy/</link>
+      <pubDate>Fri, 09 May 2025 18:14:07 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/redisstudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RabbitMQ学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/rabbitmqstudy/</link>
+      <pubDate>Fri, 09 May 2025 18:13:15 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/rabbitmqstudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MySql学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/mysqlstudy/</link>
+      <pubDate>Fri, 09 May 2025 18:12:03 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/mysqlstudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MongoDB学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/mongodb/</link>
+      <pubDate>Fri, 09 May 2025 18:10:21 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/mongodb/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Linux学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/linuxstudy/</link>
+      <pubDate>Fri, 09 May 2025 18:09:02 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/linuxstudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>KafkaStudy</title>
+      <link>http://localhost:1313/posts/studyspace/kafkastudy/</link>
+      <pubDate>Fri, 09 May 2025 18:08:04 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/kafkastudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>GRPCStudy</title>
+      <link>http://localhost:1313/posts/studyspace/grpcstudy/</link>
+      <pubDate>Fri, 09 May 2025 18:07:10 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/grpcstudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Go-Zero学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/go-zero/</link>
+      <pubDate>Fri, 09 May 2025 17:58:40 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/go-zero/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Git学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/gitstudy/</link>
+      <pubDate>Fri, 09 May 2025 17:56:17 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/gitstudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ETCD学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/etcdstudy/</link>
+      <pubDate>Fri, 09 May 2025 17:54:41 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/etcdstudy/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>计算机组成原理</title>
+      <link>http://localhost:1313/posts/studyspace/computerorganization/</link>
+      <pubDate>Fri, 09 May 2025 15:24:46 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/computerorganization/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/computerorganization/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>操作系统</title>
+      <link>http://localhost:1313/posts/studyspace/operatingsystem/</link>
+      <pubDate>Fri, 09 May 2025 15:13:14 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/operatingsystem/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/operatingsystem/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>数据结构</title>
+      <link>http://localhost:1313/posts/studyspace/datastructure/</link>
+      <pubDate>Fri, 09 May 2025 14:49:56 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/datastructure/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/datastructure/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>Docker学习笔记</title>
+      <link>http://localhost:1313/posts/studyspace/dockerstudy/</link>
+      <pubDate>Sat, 09 Nov 2024 17:44:17 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>http://localhost:1313/posts/studyspace/dockerstudy/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/dockerstudy/featured.png" />
+    </item>
+    
+  </channel>
+</rss>
