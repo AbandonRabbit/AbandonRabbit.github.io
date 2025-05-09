@@ -12,3 +12,6 @@ weight = 100
 [[related.indices]]
 name = "categories"
 weight = 80
+
+[params]
+favicon = "favicon.ico"

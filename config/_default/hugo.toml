@@ -21,8 +21,6 @@ enableEmoji = true
 [pagination]
 pagerSize = 100
 
-[params.assets]
-favicon = "favicon.ico"
 
 [imaging]
 anchor = 'Center'
