@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>欢迎来到我的网站！我很高兴你的来访。 on Ting&#39;s Space</title>
+    <link>http://localhost:1313/about/</link>
+    <description>Recent content in 欢迎来到我的网站！我很高兴你的来访。 on Ting&#39;s Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>604102668@qq.com (Ting)</managingEditor>
+    <webMaster>604102668@qq.com (Ting)</webMaster>
+    <copyright>© 2025 Ting</copyright>
+    <lastBuildDate>Mon, 13 Jun 2022 20:55:37 +0100</lastBuildDate><atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    
+  </channel>
+</rss>

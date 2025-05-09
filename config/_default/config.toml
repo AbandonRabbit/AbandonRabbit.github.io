@@ -1,0 +1,8 @@
+hasCJKLanguage = true
+
+[params.assets]
+favicon = "favicon.icon"
+favicon16x16 = "favicon.icon"
+favicon32x32 = "favicon.icon"
+apple_touch_icon = "favicon.icon"
+safari_pinned_tab = "favicon.icon"
