@@ -1,11 +1,11 @@
 ---
 date: '2025-05-09T17:58:40+08:00'
 draft: false
-title: 'Go-Zero学习笔记'
+title: 'Go-Zero'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
-tags: ["Go-zero","Golang"]
+tags: ["Go-zero"]
 Categories: ["Golang","学习笔记"]
 layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。

@@ -12,12 +12,12 @@
     <lastBuildDate>Sun, 14 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Go并发性能提升思路</title>
+      <title>生活记录</title>
       <link>http://localhost:1313/posts/vlog/myfirstpost/</link>
       <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
       <author>604102668@qq.com (Ting)</author>
       <guid>http://localhost:1313/posts/vlog/myfirstpost/</guid>
-      <description>Go并发性能提升思路</description>
+      <description>生活记录</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/vlog/myfirstpost/featured.jpg" />
     </item>
     

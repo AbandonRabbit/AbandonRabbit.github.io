@@ -1,7 +1,7 @@
 ---
 date: '2025-05-09T18:09:02+08:00'
 draft: false
-title: 'Linux学习笔记'
+title: 'Linux'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号

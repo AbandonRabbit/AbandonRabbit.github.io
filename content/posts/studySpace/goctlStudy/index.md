@@ -1,25 +1,18 @@
 ---
 date: '2025-05-09T18:04:29+08:00'
 draft: false
-title: 'GoctlStudy'
+title: 'Goctl'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
 showSummary: [""] #摘要信息
 tags: ["Golang基础"]
-Categories: ["Golang"]
+Categories: ["Golang","学习笔记"]
 layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
 ---
-title = 'goctl学习笔记'
-date = 2024-10-06T15:32:30+08:00
-categories =  ["学习笔记"] 
-tags = ["学习笔记","goctl"]
-
-+++
 
 # 
-
 goctl 是 go-zero 的内置脚手架，是提升开发效率的一大利器，可以一键生成代码、文档、部署 k8s yaml、dockerfile 等。
 
 官方文档：[goctl 安装 | go-zero Documentation](https://link.juejin.cn/?target=https%3A%2F%2Fgo-zero.dev%2Fdocs%2Ftasks%2Finstallation%2Fgoctl%3F_highlight%3Dgoctl)

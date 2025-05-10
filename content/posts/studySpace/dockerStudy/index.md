@@ -1,7 +1,7 @@
 ---
 date: '2024-11-09T17:44:17+08:00'
 draft: false
-title: 'Docker学习笔记'
+title: 'Docker'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号

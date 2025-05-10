@@ -1,7 +1,7 @@
 ---
 date: '2025-05-09T18:08:04+08:00'
 draft: false
-title: 'KafkaStudy'
+title: 'Kafka'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号

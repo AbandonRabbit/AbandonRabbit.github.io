@@ -1,8 +1,8 @@
 ---
-title: "Go并发性能提升思路"
+title: "生活记录"
 date: 2022-08-14
 draft: false
-summary: "Go并发性能提升思路"
+summary: "生活记录"
 language: zh-cn
 tags: ["Go"]
 ---

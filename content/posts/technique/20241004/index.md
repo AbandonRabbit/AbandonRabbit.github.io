@@ -7,7 +7,7 @@ seriesOpened: false #s是否开启系列
 # series_order: 0  #系列编号
 showSummary: true #摘要信息
 tags: ["Golang基础"]
-Categories: ["Golang"]
+Categories: ["Golang","菜鸟提升"]
 layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
 ---

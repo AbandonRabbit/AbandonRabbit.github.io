@@ -7,10 +7,9 @@ seriesOpened: false #s是否开启系列
 # series_order: 0  #系列编号
 showSummary: ["go语言实现hook效果"] #摘要信息
 tags: ["Golang基础"]
-Categories: ["Golang"]
+Categories: ["Golang","菜鸟提升"]
 layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
-
 ---
 
 在 Go 语言中，**Hook** 机制是一种在程序执行过程中插入自定义逻辑的技术，通常用于在特定事件或函数执行之前或之后触发某些动作。例如，日志系统、性能监控、调试工具等都可以通过 Hook 机制来实现。

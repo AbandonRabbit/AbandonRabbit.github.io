@@ -1,7 +1,7 @@
 ---
 date: '2025-05-09T18:07:10+08:00'
 draft: false
-title: 'GRPCStudy'
+title: 'gRPC'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号

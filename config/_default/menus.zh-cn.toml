@@ -26,6 +26,11 @@ pageRef = "posts/studySpace"
 weight = 20
 
 [[main]]
+name = "技术提升"
+pageRef = "posts/technique"
+weight = 20
+
+[[main]]
 name = "标签"
 pageRef = "tags"
 weight = 30

@@ -6,8 +6,8 @@
    # series: [""] #属于的系列 
    # series_order: 0  #系列编号
    showSummary: ["操作系统"] #摘要信息
-   tags: ["操作系统"]
-   Categories: ["计算机基础","学习笔记"]
+   tags: ["操作系统","CS基础"]
+   Categories: ["计算机基础"]
    layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。
    layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
 ---

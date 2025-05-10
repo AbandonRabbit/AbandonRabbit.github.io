@@ -8,7 +8,7 @@ seriesOpened: false #s是否开启系列
 showSummary: ["基本数据结构指导"] #摘要信息
 layoutBackgroundBlur: true #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
-tags: ["数据结构"]
+tags: ["数据结构","CS基础"]
 Categories: ["计算机基础","学习笔记"]
 toc_levels: [1, 3]
 ---

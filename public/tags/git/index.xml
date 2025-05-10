@@ -12,13 +12,13 @@
     <lastBuildDate>Fri, 09 May 2025 17:56:17 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Git学习笔记</title>
+      <title>Git</title>
       <link>http://localhost:1313/posts/studyspace/gitstudy/</link>
       <pubDate>Fri, 09 May 2025 17:56:17 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
       <guid>http://localhost:1313/posts/studyspace/gitstudy/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/gitstudy/featured.png" />
     </item>
     
   </channel>

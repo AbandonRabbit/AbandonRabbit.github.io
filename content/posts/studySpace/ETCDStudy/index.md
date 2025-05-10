@@ -1,7 +1,7 @@
 ---
 date: '2025-05-09T17:54:41+08:00'
 draft: false
-title: 'ETCD学习笔记'
+title: 'ETCD'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
