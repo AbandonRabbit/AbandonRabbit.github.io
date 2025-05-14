@@ -3,8 +3,20 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>http://localhost:1313/posts/studyspace/distributedsystem/</loc>
+    <lastmod>2025-05-10T11:45:54+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-05-09T18:14:49+08:00</lastmod>
+    <lastmod>2025-05-10T11:45:54+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/technique/20241102/</loc>
+    <lastmod>2025-05-10T10:52:44+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -130,7 +142,7 @@
   </url>
   <url>
     <loc>http://localhost:1313/posts/technique/20240809/</loc>
-    <lastmod>2024-10-02T15:33:12+08:00</lastmod>
+    <lastmod>2024-08-09T15:33:12+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
