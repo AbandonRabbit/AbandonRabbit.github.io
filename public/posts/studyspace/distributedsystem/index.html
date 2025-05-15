@@ -106,7 +106,7 @@
     "keywords": ["分布式系统"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2324"
+    "wordCount": "2638"
   }]
   </script>
 
@@ -621,7 +621,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>2324 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
+  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>2638 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
   
 
   
@@ -1136,6 +1136,20 @@
 <li>副本写入之后，按顺序写入磁盘</li>
 <li>所有副本写完之后，Primary 收集确认，并回复客户机成功</li>
 </ol>
+<blockquote>
+<p><strong>脑裂</strong>： 指原本应该协同工作的多个节点（如服务器、存储节点、网络设备等）由于通信中断，导致彼此无法感知对方的状态，从而分裂成多个独立运行的子集群，每个子集群都认为自己是“唯一存活”的，进而可能导致数据不一致、服务冲突甚至系统崩溃。</p></blockquote>
+<p>在这个系统中，如果对文件由顺序需求，应该尽可能的避免多个 Client 并发的写入文件，</p>
+<p><strong>在这个系统中，强一致性需要考虑的问题</strong></p>
+<ol>
+<li>primary 检测重复的请求，保证幂等性</li>
+<li>如果 Primary 发出执行操作的命令，那么， Secondary 就必须真的执行，而不是只返回错误</li>
+<li>如果 Secondary 出现错误，需要及时踢出去，保证其他的可以使用</li>
+<li>当 Primary 要求 Secondary 追加时，Secondary必须小心不将数据暴露给请求者，直到 Primary 确信Secondary 能够执行追加操作为止
+<blockquote>
+<p>可以将这个操作分为多个阶段
+Primary 请求 Secondeay</p></blockquote>
+</li>
+</ol>
 
           
           
@@ -1224,11 +1238,155 @@
     
   
     
+      
+    
+  
+    
   
   
   
     <h2 class="mt-8 text-2xl font-extrabold mb-10">相关文章</h2>
     <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      
+        
+
+  <a href="/posts/studyspace/javastudy/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/studyspace/javastudy/">Java基础</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>166 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/java/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Java
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/java%E5%9F%BA%E7%A1%80/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Java基础
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
       
         
 
@@ -1494,138 +1652,6 @@
   </a>
 
       
-        
-
-  <a href="/posts/studyspace/rabbitmqstudy/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/studyspace/rabbitmqstudy/">RabbitMQ</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-05-09T18:13:15&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>2350 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    学习笔记
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/rabbitmq/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    RabbitMQ
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-      
     </section>
   
 
@@ -1663,6 +1689,28 @@
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="flex justify-between pt-3">
         <span>
+          
+            <a class="flex group mr-3" href="/posts/studyspace/javastudy/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Java基础</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time>
+                  
+                </span>
+              </span>
+            </a>
           
         </span>
         <span>
