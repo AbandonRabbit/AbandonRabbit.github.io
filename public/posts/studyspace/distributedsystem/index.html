@@ -106,7 +106,7 @@
     "keywords": ["分布式系统"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2638"
+    "wordCount": "3106"
   }]
   </script>
 
@@ -621,7 +621,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>2638 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
+  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>3106 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">7 分钟</span>
   
 
   
@@ -917,6 +917,7 @@
       <ul>
         <li><a href="#read操作">Read操作</a></li>
         <li><a href="#write操作">Write操作</a></li>
+        <li><a href="#复制">复制</a></li>
       </ul>
     </li>
   </ul>
@@ -943,6 +944,7 @@
       <ul>
         <li><a href="#read操作">Read操作</a></li>
         <li><a href="#write操作">Write操作</a></li>
+        <li><a href="#复制">复制</a></li>
       </ul>
     </li>
   </ul>
@@ -1141,14 +1143,46 @@
 <p>在这个系统中，如果对文件由顺序需求，应该尽可能的避免多个 Client 并发的写入文件，</p>
 <p><strong>在这个系统中，强一致性需要考虑的问题</strong></p>
 <ol>
-<li>primary 检测重复的请求，保证幂等性</li>
-<li>如果 Primary 发出执行操作的命令，那么， Secondary 就必须真的执行，而不是只返回错误</li>
-<li>如果 Secondary 出现错误，需要及时踢出去，保证其他的可以使用</li>
-<li>当 Primary 要求 Secondary 追加时，Secondary必须小心不将数据暴露给请求者，直到 Primary 确信Secondary 能够执行追加操作为止
+<li>Primary 检测重复的请求，保证幂等性。</li>
+<li>如果 Primary 告诉 Secondary 做什么事情，那么， Secondary 就必须真的执行，而不是只返回错误。如果 Secondary 出现错误，需要及时踢出去，保证其他的可以使用。</li>
+<li>当 Primary 要求 Secondary 追加时，Secondary 必须小心不将数据暴露给请求者，直到 Primary 确信Secondary 能够执行追加操作为止。
 <blockquote>
-<p>可以将这个操作分为多个阶段
-Primary 请求 Secondeay</p></blockquote>
+<p><strong>两段式提交</strong><br>
+可以将这个操作分为多个阶段<br>
+Primary 请求 Secondeay
+Primary 确定所有的 Secondeay 都可以执行操作<br>
+Primary 发出执行操作命令</p></blockquote>
 </li>
+</ol>
+
+
+<h3 class="relative group">复制 
+    <div id="%E5%A4%8D%E5%88%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%8D%E5%88%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>复制是否值得，取决于应该有多少副本，愿意花多少钱，以及关于失败之后会带来多少损失</p>
+<p><strong>State Transfer（状态转移）</strong>
+主机定期将完整状态复制给备份，备份只保存最新状态，用于主机宕机时接管。</p>
+<p><strong>Replicated State（状态复制）</strong>
+主机只传输 Client 的操作顺序，副本按照操作顺序一步步执行相同的命令，达到相同的状态</p>
+<blockquote>
+<p><strong>备份过程</strong>
+Client 向 Primary 发起操作请求。<br>
+Primary 将请求封装为一条日志，并加上编号，然后把这条日志广播给副本节点。<br>
+副本节点把这条日志追加到本地日志中，仅写入，不执行，然后向主节点返回 ACK 。<br>
+Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志可以提交， Primary执行日志，并更新状态 机，然后通知所有副本可以执行日志。<br>
+副本按照顺序执行日志，并更新状态机。</p></blockquote>
+<p><strong>备份启动过程</strong></p>
+<ol>
+<li>判断 Primary 是否宕机，一般通过心跳机制、超时判断、 Raft 判断</li>
+<li>选出新的 Primary 通过设置好的优先级、或共识协议选出新的 Primary ，但可能会包含多个副本，选取版本最新的哪一个，如果发现自己缺数据，可以等待其他副本补齐或者主动发起同步</li>
+<li>接管服务，如果原主节点恢复，会变成新的备份。</li>
 </ol>
 
           
@@ -1301,7 +1335,7 @@ Primary 请求 Secondeay</p></blockquote>
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>166 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>200 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span>
   
 
   
