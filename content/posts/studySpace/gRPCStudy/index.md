@@ -5,10 +5,11 @@ title: 'gRPC'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
-showSummary: [""] #摘要信息
+showSummary: true #摘要信息
+summary: "RPC的全称是Remote Procedure Call，远程过程调用。这是一种协议，是用来屏蔽分布式计算中的各种调用细节，使得你可以像是本地调用一样直接调用一个远程的函数。"
 tags: ["Golang基础"]
 Categories: ["Golang","学习笔记"]
-layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。
+layoutBackgroundBlur: true #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
 ---
 # 简介

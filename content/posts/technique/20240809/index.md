@@ -5,7 +5,7 @@ title: '并发提升思路'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
-showSummary: ["go语言实现hook效果"] #摘要信息
+showSummary: true #摘要信息
 tags: ["Golang基础"]
 Categories: ["Golang","菜鸟提升"]
 layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。

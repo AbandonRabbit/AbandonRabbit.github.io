@@ -5,10 +5,12 @@ title: 'MIT6.824_分布式系统'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
-showSummary: ["MIT6.824_分布式系统"] #摘要信息
+# showSummary: true"MIT6.824_分布式系统" #摘要信息
+showSummary: true
+summary: "多台计算机进行协作，完成同一项任务"
 tags: ["分布式系统"]
 Categories: ["学习笔记"]
-layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。
+layoutBackgroundBlur: true #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
 
 ---
@@ -37,7 +39,6 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
 ## MapReduce模型
 
-大数据三驾马车的其中之一。
 
 主要思想是将大的任务拆分成小的任务，分发到不同的机器上进行并行计算。
 
@@ -60,7 +61,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
    > 两台数据服务器，如果同时有多个请求，要保证处理这些请求的顺序也是相同的。  
    > 强一致性的性能代价是很大的，基本上都考虑弱一致性，把一致性控制在合理的范围之内
 
-## GFS_分布式文件系统设计
+## GFS_分布式文件系统设计（Google）
 
 为大型顺序文件读写以多种方式定制的，只处理大型文件的顺序访问，而不是随机访问，用性能换一致性，用复制换稳定。
 
@@ -118,7 +119,7 @@ Master 存储了两张表
    > Primary 发出执行操作命令
    
 
-### 复制
+## 主/备复制(Primary/Backup Replication)
 
 复制是否值得，取决于应该有多少副本，愿意花多少钱，以及关于失败之后会带来多少损失
 
@@ -127,14 +128,32 @@ Master 存储了两张表
 
 **Replicated State（状态复制）**
 主机只传输 Client 的操作顺序，副本按照操作顺序一步步执行相同的命令，达到相同的状态
-> **备份过程**
-> Client 向 Primary 发起操作请求。  
-> Primary 将请求封装为一条日志，并加上编号，然后把这条日志广播给副本节点。  
-> 副本节点把这条日志追加到本地日志中，仅写入，不执行，然后向主节点返回 ACK 。  
-> Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志可以提交， Primary执行日志，并更新状态 机，然后通知所有副本可以执行日志。  
-> 副本按照顺序执行日志，并更新状态机。
+
+*状态复制过程*  
+1. Client 向 Primary 发起操作请求。
+2. Primary 将请求封装为一条日志，并加上编号，然后把这条日志广播给副本节点。  
+3. 副本节点把这条日志追加到本地日志中，仅写入，不执行，然后向主节点返回 ACK 。  
+4. Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志可以提交， Primary执行日志，并更新状态机，然后通知所有副本可以执行日志。  
+5. 副本按照顺序执行日志，并更新状态机。
+
+> Q：为什么 client 不需要发送数据到 backup  
+> 
+> A：因为这里client发送的请求是具有确定性的操作，只需向 primary 请求就够了。主备复制机制保证 primary能够将具有确定性的操作正确同步到其他backup，即系统内部自动保证了 primary 和 backup 之间的一致性，不需要 client 额外干预。接下来的问题即，怎么确定一个操作是否具有确定性？在复制状态机(replicated state machine，RSM)方案中，即要求所有的操作都是具有确定性的，不允许存在非确定性的操作。
+>
+> Q: 是不是存在着混合的机制，即混用状态转移(state transfer)和复制状态机(replicated state machine，RSM)？
+> 
+> A: 是的。比如有的混合机制在默认情况下以复制状态机(replicated state machine，RSM)方案工作，而当集群内 primary 或 backup 故障，为此创建一个新的 replica 时则采用状态转移(state transfer)转移/复制现有副本的状态。
 
 **备份启动过程**
 1) 判断 Primary 是否宕机，一般通过心跳机制、超时判断、 Raft 判断  
 2) 选出新的 Primary 通过设置好的优先级、或共识协议选出新的 Primary ，但可能会包含多个副本，选取版本最新的哪一个，如果发现自己缺数据，可以等待其他副本补齐或者主动发起同步  
 3) 接管服务，如果原主节点恢复，会变成新的备份。
+
+## 容错 - RAFT(Fault Tolerance-Raft)
+
+> [Raft 协议原理详解，10 分钟带你掌握！ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/488916891)<= 图片很多，推荐阅读
+> 
+> [Raft 协议 - 简书 (jianshu.com)](https://www.jianshu.com/p/c9024d05887f) <= 有动图，还不错
+
+
+这章节主要介绍Raft协议，它是分布式复制协议(distributed replication protocol)示例的核心组件之一。

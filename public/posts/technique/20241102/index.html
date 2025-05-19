@@ -106,7 +106,7 @@
     "keywords": ["技术提升"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "0"
+    "wordCount": "975"
   }]
   </script>
 
@@ -600,7 +600,11 @@
 
 
 
+  
 
+
+
+  
 
 
 
@@ -617,7 +621,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-10T10:52:44&#43;08:00">2025-05-10</time>
+  <time datetime="2025-05-10T10:52:44&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>975 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span>
   
 
   
@@ -888,7 +892,79 @@
   
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#技术层面的优化">技术层面的优化</a>
+      <ul>
+        <li><a href="#减少请求次数">减少请求次数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目录
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#技术层面的优化">技术层面的优化</a>
+      <ul>
+        <li><a href="#减少请求次数">减少请求次数</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
 
       <div class="min-w-0 min-h-0 max-w-fit">
         
@@ -897,6 +973,101 @@
 
         <div class="article-content max-w-prose mb-20">
           
+
+<h2 class="relative group">技术层面的优化 
+    <div id="%E6%8A%80%E6%9C%AF%E5%B1%82%E9%9D%A2%E7%9A%84%E4%BC%98%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8A%80%E6%9C%AF%E5%B1%82%E9%9D%A2%E7%9A%84%E4%BC%98%E5%8C%96" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">减少请求次数 
+    <div id="%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%8F%E5%B0%91%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>合并接口：将多个关联的小接口合并为一个（如首页数据聚合）。</p>
+<p>批量操作：支持批量查询/提交（如 IDs=1,2,3 代替多次单条请求）。</p>
+<p>客户端缓存：利用 HTTP 缓存头（Cache-Control、ETag）减少重复请求。</p>
+<ol start="2">
+<li>降低响应数据量
+字段裁剪：按需返回字段（如 GraphQL 或 fields=id,name 参数）。</li>
+</ol>
+<p>数据压缩：启用 Gzip/Brotli 压缩响应体。</p>
+<p>分页处理：大数据集分页返回（page_size + page_token）。</p>
+<ol start="3">
+<li>提升处理速度
+异步处理：非实时任务改用消息队列（如 MQ/Kafka）异步执行。</li>
+</ol>
+<p>缓存策略：</p>
+<p>高频读：Redis 缓存结果（设置合理过期时间）。</p>
+<p>低频写：本地缓存（Caffeine） + 分布式缓存。</p>
+<p>数据库优化：</p>
+<p>索引优化：为查询条件添加合适索引。</p>
+<p>慢 SQL 治理：避免 SELECT *、大表 JOIN。</p>
+<ol start="4">
+<li>并发与稳定性
+线程池隔离：核心接口与非核心接口使用独立线程池。</li>
+</ol>
+<p>限流熔断：</p>
+<p>限流：Guava RateLimiter 或 Sentinel 控制 QPS。</p>
+<p>熔断：Hystrix 或 Resilience4j 防止雪崩。</p>
+<p>降级策略：非核心功能异常时返回兜底数据。</p>
+<ol start="5">
+<li>网络传输优化
+CDN 加速：静态资源（图片/JS/CSS）走 CDN。</li>
+</ol>
+<p>HTTP/2：多路复用降低延迟。</p>
+<p>长连接：Keep-Alive 减少 TCP 握手开销。</p>
+<p>二、业务层面的优化</p>
+<ol>
+<li>逻辑简化
+冗余校验：去除重复的参数校验（如前端已校验则后端弱化）。</li>
+</ol>
+<p>流程剪枝：分析调用链路，移除不必要的步骤。</p>
+<ol start="2">
+<li>预计算与预处理
+定时任务：提前计算热点数据（如每日销量统计）。</li>
+</ol>
+<p>空间换时间：用冗余字段减少实时计算（如订单总数缓存）。</p>
+<ol start="3">
+<li>用户行为优化
+延迟加载：先返回骨架数据，用户滚动时再加载详情。</li>
+</ol>
+<p>乐观更新：前端先展示操作结果，后台异步提交（如点赞功能）。</p>
+<p>三、监控与持续优化
+性能监控：</p>
+<p>使用 APM 工具（SkyWalking、Arthas）定位慢接口。</p>
+<p>监控 P99 响应时间、错误率等指标。</p>
+<p>日志分析：</p>
+<p>记录接口耗时细分（如 SQL 时间、网络时间）。</p>
+<p>A/B 测试：对比不同优化方案的实际效果。</p>
+<p>四、实战案例
+场景：商品详情页接口优化
+问题：接口响应慢（平均 800ms）。</p>
+<p>优化步骤：</p>
+<p>缓存：Redis 缓存商品基础信息（TTL=5分钟）。</p>
+<p>异步：评论和库存通过 MQ 异步加载。</p>
+<p>压缩：启用 Brotli 压缩响应体（减少 30% 体积）。</p>
+<p>SQL：添加 product_id 索引，拆分大查询。</p>
+<p>结果：响应时间降至 200ms 以内。</p>
+<p>总结
+接口优化需要结合 技术手段 和 业务场景，核心目标是：</p>
+<p>更快：减少延迟，提升吞吐量。</p>
+<p>更稳：避免崩溃，保障可用性。</p>
+<p>更省：降低服务器和带宽成本。</p>
+<p>根据实际监控数据持续迭代，避免过度优化！</p>
+
           
           
           
@@ -1043,7 +1214,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>1314 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">3 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2455 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
   
 
   
@@ -1467,7 +1638,13 @@
   </footer>
 </article>
 
-      
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="返回顶部" title="返回顶部">
+    &uarr;
+  </a>
+</div>
     </main><footer id="site-footer" class="py-10 print:hidden">
   
   

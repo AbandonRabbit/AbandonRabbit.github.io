@@ -5,7 +5,7 @@ title: '计算机组成原理'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
-showSummary: ["计算机组成原理"] #摘要信息
+showSummary: true #摘要信息
 tags: ["计算机组成原理","CS基础"]
 Categories: ["计算机基础","学习笔记"]
 layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。

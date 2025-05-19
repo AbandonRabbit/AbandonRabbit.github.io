@@ -5,13 +5,13 @@ title: 'Redis'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
-showSummary: [""] #摘要信息
+showSummary: true #摘要信息
 tags: ["Redis"]
 Categories: ["学习笔记"]
 layoutBackgroundBlur: false #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
 ---
-# 字符串String
+## 字符串String
 
 1. 设置
 
@@ -44,7 +44,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 10. 当键不存在时设置该键值对
     `SETNX key value`
 
-# 列表List
+## 列表List
 
 存储或操作一组有顺序的数据
 
@@ -61,7 +61,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 6. 指定范围删除
    ```LTRIM key start stop```
 
-# 集合Set
+## 集合Set
 
 无序集合，不允许重复元素
 
@@ -74,7 +74,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 4. 查看集合元素
    ```SMEMBERS key```
 
-# 有序集合SortedSet
+## 有序集合SortedSet
 
 每个元素关联一个浮点类型的分数，按照分数对集合中的元素进行从小到大排序，成员是唯一的，分数是可以重复的
 
@@ -95,7 +95,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
    ```
 
 
-# 哈希Hash
+## 哈希Hash
 
    字符类型的字段和值的映射表，简单来说就是一个键值对的集合，特别适合存储对象
 
@@ -118,7 +118,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
       ```HLEN key```
 
-# 发布订阅模式
+## 发布订阅模式
 
 无法持久化，无法记录历史
 
@@ -126,7 +126,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
 接受：SUBSCRIBE 频道名称
 
-# 消息队列Stream
+## 消息队列Stream
 
 轻量级消息队列，解决发布订阅功能的一些局限性，大部分命令用 X 开头
 
@@ -164,7 +164,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
    读取消息：`XREADGROUP GROUP 组名称 消费者名称 COUNT 消息数量 BLOCK 阻塞的时间 STREAMS 消息名称`
 
-# 地理空间Geospatial
+## 地理空间Geospatial
 
 存储地理位置信息的数据结构，支持对地理位置进行各种计算操作，命令以GEO开头
 
@@ -186,7 +186,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
    `GEOSEARCH 信息名字 FROMMEMBER 城市名字1  `
 
-# hyperloglog
+## hyperloglog
 
 做基数统计的算法，使用随机算法来计算，通过牺牲一定的精确度换取更小的内存消耗，优点占用内存小，缺点会有一定的误差，适合做一些对精确度要求不高，而数据量非常大的统计工作
 
@@ -204,7 +204,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
    `PFMERGE new元素名 元素名1 元素名2`
 
-# 位图Bitmap
+## 位图Bitmap
 
 由二进制位组成的数组，每个位只能是0或1，可以很方便的存储只有是否两个状态信息的数据
 
@@ -221,11 +221,11 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
    `SET key "数值"`
 
-# 位域Bitfield ？？？？？？？？？？？
+## 位域Bitfield ？？？？？？？？？？？
 
 将很多小的整数存储到一个较大的位图中
 
-# 事务
+## 事务
 
 不能保证所有命令执行成功，执行结果取决于事务中的命令
 
@@ -235,15 +235,15 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 2. 在收到 EXEC 命令之后，事务开始执行，其中任何一个命令执行失败，其他命令依然会执行
 3. 在事务执行过程中，其他客户端提交的命令请求不会被插入到事务的执行命令序列中
 
-# 持久化
+## 持久化
 
-## RDB方式
+### RDB
 
 在指定时间内，将内存中的数据快照写入磁盘，是某一个时间点上数据的完整副本，可以通过配置文件中的 save 参数来配置，如果宕机，在最后一次快照之后的数据全部丢失，所以这种方式只适合备份，当为redis开辟的空间比较大，那么写入磁盘的时间会很长，这期间redis处于阻塞状态，不能处理任何求情
 
 为此，redis提供了一种 bgsave 命令，这个命令会创建一个单独的子进程负责将数据写入磁盘，但是这中间还会有性能损耗，因为fork一个子进程也需要时间，这期间redis也是不能响应请求
 
-## AOF方式
+### AOF
 
 在执行写命令的时候，不仅会写入数据，还会将命令写入到一个追加的文件中，这个文件就是AOF文件，已日志的形式记录每一个写操作，当redis重启之后，会通过执行 AOF 文件中的命令再内存中重建整个数据库的内容
 
@@ -251,11 +251,11 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
 再配置文件中将 appendonly 这个参数的值改成 yes 就可以了
 
-# 主从复制
+## 主从复制
 
 将一台 redis 的数据复制到其他 redis 服务器，主节点和从节点为一对多关系，数据的复制为单向的，只能主到从，一般来说主负责写操作，从负责读操作
 
-## 配置方式
+### 配置方式
 
 默认为主节点，不需要配置
 
@@ -270,7 +270,7 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
 链接成功后使用 info replication 查看链接信息
 
-# 哨兵模式
+## 哨兵模式
 
 自动故障转移，哨兵会以一个独立的进程运行再Redis集群中，用来监控Redis集群中的各个节点是否运行正常，主要功能有：
 

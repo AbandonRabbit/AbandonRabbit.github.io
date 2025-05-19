@@ -18,7 +18,7 @@
       <author>604102668@qq.com (Ting)</author>
       <guid>http://localhost:1313/posts/studyspace/kafkastudy/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/kafkastudy/featured.png" />
     </item>
     
   </channel>

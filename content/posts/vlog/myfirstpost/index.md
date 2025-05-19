@@ -4,7 +4,7 @@ date: 2022-08-14
 draft: false
 summary: "生活记录"
 language: zh-cn
-tags: ["Go"]
+tags: ["生活记录"]
 ---
 
 

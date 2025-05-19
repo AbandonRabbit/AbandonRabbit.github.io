@@ -5,7 +5,7 @@ title: '数据结构'
 seriesOpened: false #s是否开启系列
 # series: [""] #属于的系列 
 # series_order: 0  #系列编号
-showSummary: ["基本数据结构指导"] #摘要信息
+showSummary: true #摘要信息
 layoutBackgroundBlur: true #向下滚动主页时，是否模糊背景图。
 layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间隔。
 tags: ["数据结构","CS基础"]

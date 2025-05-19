@@ -11,7 +11,7 @@
   <title>MIT6.824_分布式系统 &middot; Ting&#39;s Space</title>
   <meta name="title" content="MIT6.824_分布式系统 &middot; Ting&#39;s Space" />
   
-  
+  <meta name="description" content="多台计算机进行协作，完成同一项任务" />
   <meta name="keywords" content="分布式系统, " />
   
   
@@ -26,8 +26,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.6835005deb03361a63daa0f215c157c04a02d4105393c699a083c9b5b4646983ea9e8226a58d603f65328e01ff0ba67c42716cbb5e5d322feafa09718538bd00.css"
-    integrity="sha512-aDUAXesDNhpj2qDyFcFXwEoC1BBTk8aZoIPJtbRkaYPqnoImpY1gP2UyjgH/C6Z8QnFsu15dMi/q&#43;glxhTi9AA==" />
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.36c3cd7950e4533fa7da3150d972e3edf34d07f83c0264ff04cad0969dfdb3b8a7065b0ed6c730c6d34a7bad516cfc6f6a5917ab1fdb10b25f481f8a17b54c16.css"
+    integrity="sha512-NsPNeVDkUz&#43;n2jFQ2XLj7fNNB/g8AmT/BMrQlp39s7inBlsO1scwxtNKe61RbPxvalkXqx/bELJfSB&#43;KF7VMFg==" />
   
   
   <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -70,6 +70,7 @@
   <meta property="og:url" content="http://localhost:1313/posts/studyspace/distributedsystem/">
   <meta property="og:site_name" content="Ting&#39;s Space">
   <meta property="og:title" content="MIT6.824_分布式系统">
+  <meta property="og:description" content="多台计算机进行协作，完成同一项任务">
   <meta property="og:locale" content="zh_cn">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -80,6 +81,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="MIT6.824_分布式系统">
+  <meta name="twitter:description" content="多台计算机进行协作，完成同一项任务">
 
   
   <script type="application/ld+json">
@@ -90,7 +92,7 @@
     "name": "MIT6.824_分布式系统",
     "headline": "MIT6.824_分布式系统",
     
-    
+    "abstract": "多台计算机进行协作，完成同一项任务",
     "inLanguage": "zh-cn",
     "url" : "http:\/\/localhost:1313\/posts\/studyspace\/distributedsystem\/",
     "author" : {
@@ -106,7 +108,7 @@
     "keywords": ["分布式系统"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3106"
+    "wordCount": "3612"
   }]
   </script>
 
@@ -570,6 +572,15 @@
     </div>
 </div>
 
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
   
   
 
@@ -621,7 +632,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>3106 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">7 分钟</span>
+  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>3612 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
   
 
   
@@ -913,13 +924,14 @@
         <li><a href="#容错系统">容错系统</a></li>
       </ul>
     </li>
-    <li><a href="#gfs_分布式文件系统设计">GFS_分布式文件系统设计</a>
+    <li><a href="#gfs_分布式文件系统设计google">GFS_分布式文件系统设计（Google）</a>
       <ul>
         <li><a href="#read操作">Read操作</a></li>
         <li><a href="#write操作">Write操作</a></li>
-        <li><a href="#复制">复制</a></li>
       </ul>
     </li>
+    <li><a href="#主备复制primarybackup-replication">主/备复制(Primary/Backup Replication)</a></li>
+    <li><a href="#容错---raftfault-tolerance-raft">容错 - RAFT(Fault Tolerance-Raft)</a></li>
   </ul>
 </nav>
   </div>
@@ -940,13 +952,14 @@
         <li><a href="#容错系统">容错系统</a></li>
       </ul>
     </li>
-    <li><a href="#gfs_分布式文件系统设计">GFS_分布式文件系统设计</a>
+    <li><a href="#gfs_分布式文件系统设计google">GFS_分布式文件系统设计（Google）</a>
       <ul>
         <li><a href="#read操作">Read操作</a></li>
         <li><a href="#write操作">Write操作</a></li>
-        <li><a href="#复制">复制</a></li>
       </ul>
     </li>
+    <li><a href="#主备复制primarybackup-replication">主/备复制(Primary/Backup Replication)</a></li>
+    <li><a href="#容错---raftfault-tolerance-raft">容错 - RAFT(Fault Tolerance-Raft)</a></li>
   </ul>
 </nav>
   </div>
@@ -1018,7 +1031,6 @@
     </span>        
     
 </h2>
-<p>大数据三驾马车的其中之一。</p>
 <p>主要思想是将大的任务拆分成小的任务，分发到不同的机器上进行并行计算。</p>
 <p>大致可以分为 <strong>Map</strong>、<strong>Shuffle</strong>、<strong>Reduce</strong> 三个过程。</p>
 <p><strong>Map</strong>：根据任务量大小分为多个 Map ，每个 Map 任务会读取源数据，会最终生成一个 <code>&lt; K , v &gt;</code> 键值对，然后根据 K 计算所属分区，并生成一个逻辑标识 P ，表示应该应该去到的 Reduce。</p>
@@ -1068,13 +1080,13 @@
 强一致性的性能代价是很大的，基本上都考虑弱一致性，把一致性控制在合理的范围之内</p></blockquote>
 
 
-<h2 class="relative group">GFS_分布式文件系统设计 
-    <div id="gfs_%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1" class="anchor"></div>
+<h2 class="relative group">GFS_分布式文件系统设计（Google） 
+    <div id="gfs_%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1google" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#gfs_%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1" aria-label="锚点">#</a>
+            style="text-decoration-line: none !important;" href="#gfs_%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1google" aria-label="锚点">#</a>
     </span>        
     
 </h2>
@@ -1156,34 +1168,56 @@ Primary 发出执行操作命令</p></blockquote>
 </ol>
 
 
-<h3 class="relative group">复制 
-    <div id="%E5%A4%8D%E5%88%B6" class="anchor"></div>
+<h2 class="relative group">主/备复制(Primary/Backup Replication) 
+    <div id="%E4%B8%BB%E5%A4%87%E5%A4%8D%E5%88%B6primarybackup-replication" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%A4%8D%E5%88%B6" aria-label="锚点">#</a>
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E5%A4%87%E5%A4%8D%E5%88%B6primarybackup-replication" aria-label="锚点">#</a>
     </span>        
     
-</h3>
+</h2>
 <p>复制是否值得，取决于应该有多少副本，愿意花多少钱，以及关于失败之后会带来多少损失</p>
 <p><strong>State Transfer（状态转移）</strong>
 主机定期将完整状态复制给备份，备份只保存最新状态，用于主机宕机时接管。</p>
 <p><strong>Replicated State（状态复制）</strong>
 主机只传输 Client 的操作顺序，副本按照操作顺序一步步执行相同的命令，达到相同的状态</p>
+<p><em>状态复制过程</em></p>
+<ol>
+<li>Client 向 Primary 发起操作请求。</li>
+<li>Primary 将请求封装为一条日志，并加上编号，然后把这条日志广播给副本节点。</li>
+<li>副本节点把这条日志追加到本地日志中，仅写入，不执行，然后向主节点返回 ACK 。</li>
+<li>Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志可以提交， Primary执行日志，并更新状态机，然后通知所有副本可以执行日志。</li>
+<li>副本按照顺序执行日志，并更新状态机。</li>
+</ol>
 <blockquote>
-<p><strong>备份过程</strong>
-Client 向 Primary 发起操作请求。<br>
-Primary 将请求封装为一条日志，并加上编号，然后把这条日志广播给副本节点。<br>
-副本节点把这条日志追加到本地日志中，仅写入，不执行，然后向主节点返回 ACK 。<br>
-Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志可以提交， Primary执行日志，并更新状态 机，然后通知所有副本可以执行日志。<br>
-副本按照顺序执行日志，并更新状态机。</p></blockquote>
+<p>Q：为什么 client 不需要发送数据到 backup</p>
+<p>A：因为这里client发送的请求是具有确定性的操作，只需向 primary 请求就够了。主备复制机制保证 primary能够将具有确定性的操作正确同步到其他backup，即系统内部自动保证了 primary 和 backup 之间的一致性，不需要 client 额外干预。接下来的问题即，怎么确定一个操作是否具有确定性？在复制状态机(replicated state machine，RSM)方案中，即要求所有的操作都是具有确定性的，不允许存在非确定性的操作。</p>
+<p>Q: 是不是存在着混合的机制，即混用状态转移(state transfer)和复制状态机(replicated state machine，RSM)？</p>
+<p>A: 是的。比如有的混合机制在默认情况下以复制状态机(replicated state machine，RSM)方案工作，而当集群内 primary 或 backup 故障，为此创建一个新的 replica 时则采用状态转移(state transfer)转移/复制现有副本的状态。</p></blockquote>
 <p><strong>备份启动过程</strong></p>
 <ol>
 <li>判断 Primary 是否宕机，一般通过心跳机制、超时判断、 Raft 判断</li>
 <li>选出新的 Primary 通过设置好的优先级、或共识协议选出新的 Primary ，但可能会包含多个副本，选取版本最新的哪一个，如果发现自己缺数据，可以等待其他副本补齐或者主动发起同步</li>
 <li>接管服务，如果原主节点恢复，会变成新的备份。</li>
 </ol>
+
+
+<h2 class="relative group">容错 - RAFT(Fault Tolerance-Raft) 
+    <div id="%E5%AE%B9%E9%94%99---raftfault-tolerance-raft" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AE%B9%E9%94%99---raftfault-tolerance-raft" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/488916891" target="_blank">Raft 协议原理详解，10 分钟带你掌握！ - 知乎 (zhihu.com)</a>&lt;= 图片很多，推荐阅读</p>
+<p><a href="https://www.jianshu.com/p/c9024d05887f" target="_blank">Raft 协议 - 简书 (jianshu.com)</a> &lt;= 有动图，还不错</p></blockquote>
+<p>这章节主要介绍Raft协议，它是分布式复制协议(distributed replication protocol)示例的核心组件之一。</p>
 
           
           
@@ -1198,10 +1232,6 @@ Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志�
         
   
   
-  
-    
-      
-    
   
     
       
@@ -1335,7 +1365,7 @@ Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志�
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2439 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2455 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
   
 
   
@@ -1607,7 +1637,7 @@ Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志�
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-09T18:14:07&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>2298 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
+  <time datetime="2025-05-09T18:14:07&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>2290 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
   
 
   
