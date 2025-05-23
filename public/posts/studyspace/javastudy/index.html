@@ -106,7 +106,7 @@
     "keywords": ["Java基础"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2455"
+    "wordCount": "2875"
   }]
   </script>
 
@@ -257,7 +257,7 @@
             
   <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <p class="text-base font-medium" title="标签">
+    <p class="text-base font-medium" title="Tags">
         标签
     </p>
 </a>
@@ -468,7 +468,7 @@
   <li class="mt-1">
     <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="标签">
+        <p class="text-bg font-bg" title="Tags">
             标签
         </p>
     </a>
@@ -621,7 +621,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2455 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2875 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
   
 
   
@@ -929,17 +929,22 @@
       </ul>
     </li>
     <li><a href="#数组">数组</a></li>
+    <li><a href="#内存划分">内存划分</a></li>
     <li><a href="#面向对象入门">面向对象入门</a></li>
     <li><a href="#面向对象-static-继承">面向对象 static 、继承</a>
       <ul>
         <li><a href="#static">static</a></li>
-        <li><a href="#继承">继承</a></li>
+      </ul>
+    </li>
+    <li><a href="#继承">继承</a>
+      <ul>
         <li><a href="#权限修饰符">权限修饰符</a></li>
         <li><a href="#继承的特点">继承的特点</a></li>
         <li><a href="#方法重写">方法重写</a></li>
-        <li><a href="#子类构造器">子类构造器？？？</a></li>
+        <li><a href="#子类构造器">子类构造器</a></li>
       </ul>
     </li>
+    <li><a href="#多态">多态</a></li>
   </ul>
 </nav>
   </div>
@@ -968,17 +973,22 @@
       </ul>
     </li>
     <li><a href="#数组">数组</a></li>
+    <li><a href="#内存划分">内存划分</a></li>
     <li><a href="#面向对象入门">面向对象入门</a></li>
     <li><a href="#面向对象-static-继承">面向对象 static 、继承</a>
       <ul>
         <li><a href="#static">static</a></li>
-        <li><a href="#继承">继承</a></li>
+      </ul>
+    </li>
+    <li><a href="#继承">继承</a>
+      <ul>
         <li><a href="#权限修饰符">权限修饰符</a></li>
         <li><a href="#继承的特点">继承的特点</a></li>
         <li><a href="#方法重写">方法重写</a></li>
-        <li><a href="#子类构造器">子类构造器？？？</a></li>
+        <li><a href="#子类构造器">子类构造器</a></li>
       </ul>
     </li>
+    <li><a href="#多态">多态</a></li>
   </ul>
 </nav>
   </div>
@@ -1241,6 +1251,19 @@ if (条件 1){
 }; 
 </code></pre>
 
+<h2 class="relative group">内存划分 
+    <div id="%E5%86%85%E5%AD%98%E5%88%92%E5%88%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%86%85%E5%AD%98%E5%88%92%E5%88%86" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>当一个方法开始执行，该方法会被加载到方法区（栈结构，栈顶为正在执行的方法），方法的内部使用 new 关键字初始化的对象会被加载到堆中，堆中开辟出来的对象都带默认值。由 JVM 的垃圾回收器管理内存回收，生命周期不确定，可能长期存在，直到没有引用指向它，一些局部变量会被存储到栈中，栈中主要存储基本数据类型的变量和对象的引用（指针）。随着方法调用入栈，方法结束释放。</p>
+
+
 <h2 class="relative group">面向对象入门 
     <div id="%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%85%A5%E9%97%A8" class="anchor"></div>
     
@@ -1307,6 +1330,7 @@ if (条件 1){
 <p>访问类变量的格式为: 类名.静态变量（推荐）或对象.静态变量（不推荐）。</p>
 <p><strong>修饰方法</strong></p>
 <p>属于类，访问类方法的格式: 可以直接用类名访问（推荐），也可以用对象访问（不推荐）。</p>
+<p>使用 static 修饰的变量或者放啊随着类的加载而被加载到堆的静态区，变量被所有对象共享。</p>
 <blockquote>
 <p>静态方法主要用来做工具类，调用方便，代码复用性高</p></blockquote>
 
@@ -1341,13 +1365,14 @@ if (条件 1){
 <li>静态方法中可以直接访问静态成员，不可以直接访问实例成员。</li>
 <li>实例方法中既可以直接访问静态成员，也可以直接访问实例成员。</li>
 <li>实例方法中可以出现this关键字，静态方法中不可以出现this关键字。</li>
+<li>使用 static 修饰的成员不能被继承。</li>
 </ol>
 </span>
 </div>
 
 
 
-<h3 class="relative group">继承 
+<h2 class="relative group">继承 
     <div id="%E7%BB%A7%E6%89%BF" class="anchor"></div>
     
     <span
@@ -1356,7 +1381,7 @@ if (条件 1){
             style="text-decoration-line: none !important;" href="#%E7%BB%A7%E6%89%BF" aria-label="锚点">#</a>
     </span>        
     
-</h3>
+</h2>
 <p>提高代码重用性，减少重复代码书写。</p>
 <pre tabindex="0"><code>public class 子类 extends 父类{
 
@@ -1365,7 +1390,9 @@ if (条件 1){
 <li>子类能继承父类的非私有成员（成员变量、成员方法）。</li>
 <li>子类的对象由子类和父类共同完成。</li>
 </ul>
-
+<p><code>super</code> 在子类中访问父类的属性或方法。</p>
+<pre tabindex="0"><code>super.父类方法
+</code></pre>
 
 <h3 class="relative group">权限修饰符 
     <div id="%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0%E7%AC%A6" class="anchor"></div>
@@ -1466,13 +1493,13 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
 <p>重写父类的方法，需要方法名、参数列表保证一致。</p>
 <p>建议使用@Override注解，可检查重写格式是否正确且提高代码可读性。</p>
 <ul>
-<li>子类重写父类方法时，访问权限必须大于或等于父类该方法的权限（public&gt;protected&gt; 缺省）。</li>
+<li>子类重写父类方法时，访问权限必须大于或等于父类该方法的权限（public &gt; protected &gt; 缺省）。</li>
 <li>重写的方法返回值类型必须与被重写方法的返回值类型一样或范围更小。</li>
 <li>私有方法、静态方法不能被重写，否则报错。</li>
 </ul>
 
 
-<h3 class="relative group">子类构造器？？？ 
+<h3 class="relative group">子类构造器 
     <div id="%E5%AD%90%E7%B1%BB%E6%9E%84%E9%80%A0%E5%99%A8" class="anchor"></div>
     
     <span
@@ -1482,7 +1509,27 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
     </span>        
     
 </h3>
-<p>子类的全部构造器都会先调用父类的构造器，再执行自己。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">super</span><span class="p">(</span><span class="n">value1</span><span class="err">，</span><span class="n">value2</span><span class="err">，</span><span class="p">...)</span><span class="w">
+</span></span></span></code></pre></div><p>在子类的构造器里面使用，必须写在第一行。</p>
+<p>括号里面可以加参数，会自动匹配相应参数的构造器</p>
+<p>如果父类没有无参构造器，则子类必须显示使用 super( value&hellip; )。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">this</span><span class="p">(</span><span class="n">value1</span><span class="err">，</span><span class="n">value2</span><span class="err">，</span><span class="p">...)</span><span class="w">
+</span></span></span></code></pre></div><p>在当前类的构造器里面使用，调用当前类的构造器，必须卸载第一行。</p>
+<p>可以加入参数，自动匹配相应参数的构造器。</p>
+<p>不能和 <code>super()</code> 一起使用</p>
+
+
+<h2 class="relative group">多态 
+    <div id="%E5%A4%9A%E6%80%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%9A%E6%80%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>在继承 / 实现情况下的一种现象，表现为对象多态、行为多态。</p>
 
           
           
@@ -1497,6 +1544,10 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
         
   
   
+  
+    
+      
+    
   
     
       
@@ -1723,6 +1774,138 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
       
         
 
+  <a href="/posts/studyspace/aifoundationmodel/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/studyspace/aifoundationmodel/">AI 大模型基础</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time><span class="px-2 text-primary-500">&middot;</span><span>1704 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">4 分钟</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ai/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AI
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          AI 大模型基础到实战 B站课程学习笔记
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+      
+        
+
   <a href="/posts/studyspace/distributedsystem/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
@@ -1774,7 +1957,7 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>3612 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
+  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>4629 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">10 分钟</span>
   
 
   
@@ -1853,138 +2036,6 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
   </a>
 
       
-        
-
-  <a href="/posts/studyspace/vuestudy/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/studyspace/vuestudy/">Vue</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-05-09T18:14:49&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>376 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">1 分钟</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    学习笔记
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/vue/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Vue
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-      
     </section>
   
 
@@ -2022,6 +2073,28 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
       <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
       <div class="flex justify-between pt-3">
         <span>
+          
+            <a class="flex group mr-3" href="/posts/studyspace/aifoundationmodel/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >AI 大模型基础</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time>
+                  
+                </span>
+              </span>
+            </a>
           
         </span>
         <span>
@@ -2082,7 +2155,7 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="标签">
+            title="Tags">
             
             标签
           </a>

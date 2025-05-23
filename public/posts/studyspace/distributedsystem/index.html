@@ -108,7 +108,7 @@
     "keywords": ["分布式系统"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3612"
+    "wordCount": "4724"
   }]
   </script>
 
@@ -259,7 +259,7 @@
             
   <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <p class="text-base font-medium" title="标签">
+    <p class="text-base font-medium" title="Tags">
         标签
     </p>
 </a>
@@ -470,7 +470,7 @@
   <li class="mt-1">
     <a href="/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="标签">
+        <p class="text-bg font-bg" title="Tags">
             标签
         </p>
     </a>
@@ -632,7 +632,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>3612 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
+  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>4724 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">10 分钟</span>
   
 
   
@@ -930,8 +930,14 @@
         <li><a href="#write操作">Write操作</a></li>
       </ul>
     </li>
-    <li><a href="#主备复制primarybackup-replication">主/备复制(Primary/Backup Replication)</a></li>
-    <li><a href="#容错---raftfault-tolerance-raft">容错 - RAFT(Fault Tolerance-Raft)</a></li>
+    <li><a href="#主备复制">主/备复制</a></li>
+    <li><a href="#容错---raft">容错 - RAFT</a>
+      <ul>
+        <li><a href="#大多数原则">大多数原则</a></li>
+        <li><a href="#使用raft构造复制状态机rsm">使用Raft构造复制状态机RSM</a></li>
+        <li><a href="#leader-选举">Leader 选举</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -958,8 +964,14 @@
         <li><a href="#write操作">Write操作</a></li>
       </ul>
     </li>
-    <li><a href="#主备复制primarybackup-replication">主/备复制(Primary/Backup Replication)</a></li>
-    <li><a href="#容错---raftfault-tolerance-raft">容错 - RAFT(Fault Tolerance-Raft)</a></li>
+    <li><a href="#主备复制">主/备复制</a></li>
+    <li><a href="#容错---raft">容错 - RAFT</a>
+      <ul>
+        <li><a href="#大多数原则">大多数原则</a></li>
+        <li><a href="#使用raft构造复制状态机rsm">使用Raft构造复制状态机RSM</a></li>
+        <li><a href="#leader-选举">Leader 选举</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -1168,13 +1180,13 @@ Primary 发出执行操作命令</p></blockquote>
 </ol>
 
 
-<h2 class="relative group">主/备复制(Primary/Backup Replication) 
-    <div id="%E4%B8%BB%E5%A4%87%E5%A4%8D%E5%88%B6primarybackup-replication" class="anchor"></div>
+<h2 class="relative group">主/备复制 
+    <div id="%E4%B8%BB%E5%A4%87%E5%A4%8D%E5%88%B6" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E5%A4%87%E5%A4%8D%E5%88%B6primarybackup-replication" aria-label="锚点">#</a>
+            style="text-decoration-line: none !important;" href="#%E4%B8%BB%E5%A4%87%E5%A4%8D%E5%88%B6" aria-label="锚点">#</a>
     </span>        
     
 </h2>
@@ -1191,11 +1203,13 @@ Primary 发出执行操作命令</p></blockquote>
 <li>Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志可以提交， Primary执行日志，并更新状态机，然后通知所有副本可以执行日志。</li>
 <li>副本按照顺序执行日志，并更新状态机。</li>
 </ol>
+<p>论文中提到，在 Primary 和 Backup 两个VM-FT以外，假设还通过网络和外部一个 Storage 存储保持通讯。外部 Storage 通过一个 flag 记录 Primary 和 Backup 状态，记录谁是 Primary 等信息。</p>
+<p>当 Primary 和 Backup 之间发生网络分区问题，而 Primary 、 Backup 仍可以与这个外部 Storage 通信时， Primary 和 Backup 互相会认为对方宕机了，都想把自己当作新的 Primary 为外界的 Client 提供服务。此时，原 Primary 和原 Backup 都试图通过 test-and-set 原子操作在外部 Storage 修改flag记录（比如由0改成1之类的），谁先完成修改修改，谁就被外部 Storage 认定为新的 Primary ；而后来者 test-and-set 操作会返回1( test-and-set 会返回旧值，这里返回1而不是0，表示已经有人领先自己把0改成1了)，其得知自己是后来者，会主动放弃称为 Primary 的机会，在论文中提到会选择终结自己 (terminate itself)。</p>
 <blockquote>
-<p>Q：为什么 client 不需要发送数据到 backup</p>
-<p>A：因为这里client发送的请求是具有确定性的操作，只需向 primary 请求就够了。主备复制机制保证 primary能够将具有确定性的操作正确同步到其他backup，即系统内部自动保证了 primary 和 backup 之间的一致性，不需要 client 额外干预。接下来的问题即，怎么确定一个操作是否具有确定性？在复制状态机(replicated state machine，RSM)方案中，即要求所有的操作都是具有确定性的，不允许存在非确定性的操作。</p>
+<p>Q：为什么 Client 不需要发送数据到 Backup</p>
+<p>A：因为这里Client发送的请求是具有确定性的操作，只需向 Primary 请求就够了。主备复制机制保证 Primary能够将具有确定性的操作正确同步到其他Backup，即系统内部自动保证了 Primary 和 Backup 之间的一致性，不需要 Client 额外干预。接下来的问题即，怎么确定一个操作是否具有确定性？在复制状态机(replicated state machine，RSM)方案中，即要求所有的操作都是具有确定性的，不允许存在非确定性的操作。</p>
 <p>Q: 是不是存在着混合的机制，即混用状态转移(state transfer)和复制状态机(replicated state machine，RSM)？</p>
-<p>A: 是的。比如有的混合机制在默认情况下以复制状态机(replicated state machine，RSM)方案工作，而当集群内 primary 或 backup 故障，为此创建一个新的 replica 时则采用状态转移(state transfer)转移/复制现有副本的状态。</p></blockquote>
+<p>A: 是的。比如有的混合机制在默认情况下以复制状态机(replicated state machine，RSM)方案工作，而当集群内 Primary 或 Backup 故障，为此创建一个新的 replica 时则采用状态转移(state transfer)转移/复制现有副本的状态。</p></blockquote>
 <p><strong>备份启动过程</strong></p>
 <ol>
 <li>判断 Primary 是否宕机，一般通过心跳机制、超时判断、 Raft 判断</li>
@@ -1204,20 +1218,93 @@ Primary 发出执行操作命令</p></blockquote>
 </ol>
 
 
-<h2 class="relative group">容错 - RAFT(Fault Tolerance-Raft) 
-    <div id="%E5%AE%B9%E9%94%99---raftfault-tolerance-raft" class="anchor"></div>
+<h2 class="relative group">容错 - RAFT 
+    <div id="%E5%AE%B9%E9%94%99---raft" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%AE%B9%E9%94%99---raftfault-tolerance-raft" aria-label="锚点">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%AE%B9%E9%94%99---raft" aria-label="锚点">#</a>
     </span>        
     
 </h2>
 <blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/488916891" target="_blank">Raft 协议原理详解，10 分钟带你掌握！ - 知乎 (zhihu.com)</a>&lt;= 图片很多，推荐阅读</p>
-<p><a href="https://www.jianshu.com/p/c9024d05887f" target="_blank">Raft 协议 - 简书 (jianshu.com)</a> &lt;= 有动图，还不错</p></blockquote>
-<p>这章节主要介绍Raft协议，它是分布式复制协议(distributed replication protocol)示例的核心组件之一。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/488916891" target="_blank">Raft 协议原理详解，10 分钟带你掌握！ - 知乎 (zhihu.com)</a> &lt;= 图片很多，推荐阅读</p>
+<p><a href="https://www.jianshu.com/p/c9024d05887f" target="_blank">Raft 协议 - 简书 (jianshu.com)</a> &lt;= 有动图，还不错</p>
+<p><a href="https://thesecretlivesofdata.com/raft/#home" target="_blank">Raft 协议动态演示</a> &lt;= 每个步骤都带动画讲解，非常 nice</p></blockquote>
+<p>Raft协议是分布式复制协议(distributed replication protocol)示例的核心组件之一。</p>
+<p>大多数情况下，单点故障是可以接受的，因为单机故障率显著比多机出现一台故障的概率低，并且重启单机以恢复工作的成本也相对较低，只需要容忍一小段时间的重启恢复工作。</p>
+<p>而上诉的方案中，采用单机管理而不是采用多实例/多机器的原因，是为了避免 <strong>脑裂(Split-Brain)</strong> 问题。</p>
+
+
+<h3 class="relative group">大多数原则 
+    <div id="%E5%A4%A7%E5%A4%9A%E6%95%B0%E5%8E%9F%E5%88%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%A7%E5%A4%9A%E6%95%B0%E5%8E%9F%E5%88%99" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>用于解决单点故障问题，同时也用于解决网络分区问题。这类解决方案的基本思想即：大多数原则(majority rule)，<strong>简单理解就是少数服从多数</strong>。</p>
+<p>这里的 majority 指的是整个系统中无论机器的状态如何，只要获取到大于一半的赞成，则认为获取到majority 。</p>
+<p>ps： 如果极端情况下所有分区都不占多数（ 比如这里3台被拆成1台、1台、1台的分区），那么整个系统都不能运行。</p>
+<p>如果允许 f 台机器宕机，一般扩展到 2f + 1 台机器。</p>
+
+
+<h3 class="relative group">使用Raft构造复制状态机RSM 
+    <div id="%E4%BD%BF%E7%94%A8raft%E6%9E%84%E9%80%A0%E5%A4%8D%E5%88%B6%E7%8A%B6%E6%80%81%E6%9C%BArsm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BD%BF%E7%94%A8raft%E6%9E%84%E9%80%A0%E5%A4%8D%E5%88%B6%E7%8A%B6%E6%80%81%E6%9C%BArsm" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p><strong>系统工作大致流程</strong></p>
+<ol>
+<li>Client 发送请求到 Leader ，随机连接集群中的一个节点，如果不是 Leader ，则返回 Leader 的地址，客户机重定向到 Leader。</li>
+<li>Leader 收到请求并写入日志，并本地持久化。</li>
+<li>Leader 广播日志给所有的 Followers ，Follower 收到之后会校验任期和日志连续性，通过校验持久化日志并向 Leader 返回成功。</li>
+<li>Leader 等待 majority 确认，达成之后 Leader 提交日志，并标记为可执行。</li>
+<li>Leader 执行操作，并将结果返回给 Client 。</li>
+<li>在下一次的 AppendEntries 中，会携带最新已提交的日志索引。</li>
+</ol>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="imgs/image_01.png" alt="123" />
+      
+    </figure>
+</p>
+<p><strong>系统出现故障</strong></p>
+<ul>
+<li>Client 向 Leader 请求</li>
+<li>Leader 向其他2台机器同步 log 并且获得 ACK</li>
+<li>Leader 准备响应时突然宕机，无法响应 Client</li>
+<li>其他2台机器重新选举出其中1台作为新的 Leader</li>
+<li>Client 请求超时或失败，重新发起请求，系统内部 failover 故障转移，所以这次 Client 请求到的是新 Leader</li>
+<li>新 Leader 同样记录log并且同步log到另一台机器获取到ACK</li>
+<li>新 Leader 响应 Client</li>
+</ul>
+<p>需要考虑的是存活的两台机器的log中会有重复请求，而我们需要能够检测(detect)出这些重复请求。</p>
+
+
+<h3 class="relative group">Leader 选举 
+    <div id="leader-%E9%80%89%E4%B8%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#leader-%E9%80%89%E4%B8%BE" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Leader 使用 term(任期) 号标识不同的 Leader</p>
+<p>Follower 不需要知道 Leader 的标识号，只需要知道当前 term 号</p>
+<p>每个 term 至多由一个 Leader</p>
+<p>如果选举周期到了之后还没有收到当前 Leader 的消息，server 就假设 Leader已经挂了，发起新一次的选举</p>
 
           
           
@@ -1306,11 +1393,147 @@ Primary 发出执行操作命令</p></blockquote>
     
   
     
+      
+    
+  
+    
   
   
   
     <h2 class="mt-8 text-2xl font-extrabold mb-10">相关文章</h2>
     <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      
+        
+
+  <a href="/posts/studyspace/aifoundationmodel/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/studyspace/aifoundationmodel/">AI 大模型基础</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time><span class="px-2 text-primary-500">&middot;</span><span>1704 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">4 分钟</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ai/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AI
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          AI 大模型基础到实战 B站课程学习笔记
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
       
         
 
@@ -1365,7 +1588,7 @@ Primary 发出执行操作命令</p></blockquote>
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2455 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2875 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
   
 
   
@@ -1584,138 +1807,6 @@ Primary 发出执行操作命令</p></blockquote>
   </a>
 
       
-        
-
-  <a href="/posts/studyspace/redisstudy/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/studyspace/redisstudy/">Redis</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-05-09T18:14:07&#43;08:00">2025-05-09</time><span class="px-2 text-primary-500">&middot;</span><span>2290 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    学习笔记
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/redis/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Redis
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-      
     </section>
   
 
@@ -1835,7 +1926,7 @@ Primary 发出执行操作命令</p></blockquote>
         
         <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
           <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="标签">
+            title="Tags">
             
             标签
           </a>

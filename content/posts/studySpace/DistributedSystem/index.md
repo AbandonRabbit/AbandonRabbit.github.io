@@ -119,7 +119,7 @@ Master 存储了两张表
    > Primary 发出执行操作命令
    
 
-## 主/备复制(Primary/Backup Replication)
+## 主/备复制
 
 复制是否值得，取决于应该有多少副本，愿意花多少钱，以及关于失败之后会带来多少损失
 
@@ -136,24 +136,76 @@ Master 存储了两张表
 4. Primary 收到多数副本的确认（通常是 N/2 +1）之后，认为日志可以提交， Primary执行日志，并更新状态机，然后通知所有副本可以执行日志。  
 5. 副本按照顺序执行日志，并更新状态机。
 
-> Q：为什么 client 不需要发送数据到 backup  
+论文中提到，在 Primary 和 Backup 两个VM-FT以外，假设还通过网络和外部一个 Storage 存储保持通讯。外部 Storage 通过一个 flag 记录 Primary 和 Backup 状态，记录谁是 Primary 等信息。
+
+当 Primary 和 Backup 之间发生网络分区问题，而 Primary 、 Backup 仍可以与这个外部 Storage 通信时， Primary 和 Backup 互相会认为对方宕机了，都想把自己当作新的 Primary 为外界的 Client 提供服务。此时，原 Primary 和原 Backup 都试图通过 test-and-set 原子操作在外部 Storage 修改flag记录（比如由0改成1之类的），谁先完成修改修改，谁就被外部 Storage 认定为新的 Primary ；而后来者 test-and-set 操作会返回1( test-and-set 会返回旧值，这里返回1而不是0，表示已经有人领先自己把0改成1了)，其得知自己是后来者，会主动放弃称为 Primary 的机会，在论文中提到会选择终结自己 (terminate itself)。
+
+> Q：为什么 Client 不需要发送数据到 Backup  
 > 
-> A：因为这里client发送的请求是具有确定性的操作，只需向 primary 请求就够了。主备复制机制保证 primary能够将具有确定性的操作正确同步到其他backup，即系统内部自动保证了 primary 和 backup 之间的一致性，不需要 client 额外干预。接下来的问题即，怎么确定一个操作是否具有确定性？在复制状态机(replicated state machine，RSM)方案中，即要求所有的操作都是具有确定性的，不允许存在非确定性的操作。
+> A：因为这里Client发送的请求是具有确定性的操作，只需向 Primary 请求就够了。主备复制机制保证 Primary能够将具有确定性的操作正确同步到其他Backup，即系统内部自动保证了 Primary 和 Backup 之间的一致性，不需要 Client 额外干预。接下来的问题即，怎么确定一个操作是否具有确定性？在复制状态机(replicated state machine，RSM)方案中，即要求所有的操作都是具有确定性的，不允许存在非确定性的操作。
 >
 > Q: 是不是存在着混合的机制，即混用状态转移(state transfer)和复制状态机(replicated state machine，RSM)？
 > 
-> A: 是的。比如有的混合机制在默认情况下以复制状态机(replicated state machine，RSM)方案工作，而当集群内 primary 或 backup 故障，为此创建一个新的 replica 时则采用状态转移(state transfer)转移/复制现有副本的状态。
+> A: 是的。比如有的混合机制在默认情况下以复制状态机(replicated state machine，RSM)方案工作，而当集群内 Primary 或 Backup 故障，为此创建一个新的 replica 时则采用状态转移(state transfer)转移/复制现有副本的状态。
 
 **备份启动过程**
 1) 判断 Primary 是否宕机，一般通过心跳机制、超时判断、 Raft 判断  
 2) 选出新的 Primary 通过设置好的优先级、或共识协议选出新的 Primary ，但可能会包含多个副本，选取版本最新的哪一个，如果发现自己缺数据，可以等待其他副本补齐或者主动发起同步  
 3) 接管服务，如果原主节点恢复，会变成新的备份。
 
-## 容错 - RAFT(Fault Tolerance-Raft)
+## 容错 - RAFT
 
-> [Raft 协议原理详解，10 分钟带你掌握！ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/488916891)<= 图片很多，推荐阅读
+> [Raft 协议原理详解，10 分钟带你掌握！ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/488916891) <= 图片很多，推荐阅读
 > 
 > [Raft 协议 - 简书 (jianshu.com)](https://www.jianshu.com/p/c9024d05887f) <= 有动图，还不错
+>
+> [Raft 协议动态演示](https://thesecretlivesofdata.com/raft/#home) <= 每个步骤都带动画讲解，非常 nice
 
+Raft协议是分布式复制协议(distributed replication protocol)示例的核心组件之一。
 
-这章节主要介绍Raft协议，它是分布式复制协议(distributed replication protocol)示例的核心组件之一。
+大多数情况下，单点故障是可以接受的，因为单机故障率显著比多机出现一台故障的概率低，并且重启单机以恢复工作的成本也相对较低，只需要容忍一小段时间的重启恢复工作。
+
+而上诉的方案中，采用单机管理而不是采用多实例/多机器的原因，是为了避免 **脑裂(Split-Brain)** 问题。
+
+### 大多数原则
+
+用于解决单点故障问题，同时也用于解决网络分区问题。这类解决方案的基本思想即：大多数原则(majority rule)，**简单理解就是少数服从多数**。
+
+这里的 majority 指的是整个系统中无论机器的状态如何，只要获取到大于一半的赞成，则认为获取到majority 。
+
+ps： 如果极端情况下所有分区都不占多数（ 比如这里3台被拆成1台、1台、1台的分区），那么整个系统都不能运行。
+
+如果允许 f 台机器宕机，一般扩展到 2f + 1 台机器。
+
+### 使用Raft构造复制状态机RSM
+
+**系统工作大致流程**
+1. Client 发送请求到 Leader ，随机连接集群中的一个节点，如果不是 Leader ，则返回 Leader 的地址，客户机重定向到 Leader。
+2. Leader 收到请求并写入日志，并本地持久化。
+3. Leader 广播日志给所有的 Followers ，Follower 收到之后会校验任期和日志连续性，通过校验持久化日志并向 Leader 返回成功。
+4. Leader 等待 majority 确认，达成之后 Leader 提交日志，并标记为可执行。
+5. Leader 执行操作，并将结果返回给 Client 。
+6. 在下一次的 AppendEntries 中，会携带最新已提交的日志索引。
+
+![123](imgs/image_01.png)
+
+**系统出现故障**
+- Client 向 Leader 请求
+- Leader 向其他2台机器同步 log 并且获得 ACK
+- Leader 准备响应时突然宕机，无法响应 Client
+- 其他2台机器重新选举出其中1台作为新的 Leader
+- Client 请求超时或失败，重新发起请求，系统内部 failover 故障转移，所以这次 Client 请求到的是新 Leader
+- 新 Leader 同样记录log并且同步log到另一台机器获取到ACK
+- 新 Leader 响应 Client
+
+需要考虑的是存活的两台机器的log中会有重复请求，而我们需要能够检测(detect)出这些重复请求。
+
+### Leader 选举
+
+Leader 使用 term(任期) 号标识不同的 Leader
+
+Follower 不需要知道 Leader 的标识号，只需要知道当前 term 号
+
+每个 term 至多由一个 Leader
+
+如果选举周期到了之后还没有收到当前 Leader 的消息，server 就假设 Leader已经挂了，发起新一次的选举 
