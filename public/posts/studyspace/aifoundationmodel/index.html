@@ -108,7 +108,7 @@
     "keywords": ["AI"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1704"
+    "wordCount": "2664"
   }]
   </script>
 
@@ -639,7 +639,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time><span class="px-2 text-primary-500">&middot;</span><span>1704 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">4 分钟</span>
+  <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time><span class="px-2 text-primary-500">&middot;</span><span>2664 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
   
 
   
@@ -925,12 +925,30 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#基本概念">基本概念</a></li>
+    <li><a href="#大模型训练">大模型训练</a></li>
     <li><a href="#大模型的工作流程">大模型的工作流程</a>
       <ul>
         <li><a href="#分词化与词表映射">分词化与词表映射</a></li>
       </ul>
     </li>
-    <li><a href="#agent">Agent</a></li>
+    <li><a href="#agents">Agents</a>
+      <ul>
+        <li><a href="#流程图">流程图</a></li>
+        <li><a href="#决策流程">决策流程</a></li>
+        <li><a href="#llm-提示工程">LLM 提示工程</a>
+          <ul>
+            <li><a href="#子任务分解">子任务分解</a></li>
+            <li><a href="#反思与改进">反思与改进</a></li>
+          </ul>
+        </li>
+        <li><a href="#记忆memory">记忆（Memory）</a></li>
+      </ul>
+    </li>
+    <li><a href="#agent-框架与策略分析">Agent 框架与策略分析</a>
+      <ul>
+        <li><a href="#认知框架">认知框架</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -945,12 +963,30 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#基本概念">基本概念</a></li>
+    <li><a href="#大模型训练">大模型训练</a></li>
     <li><a href="#大模型的工作流程">大模型的工作流程</a>
       <ul>
         <li><a href="#分词化与词表映射">分词化与词表映射</a></li>
       </ul>
     </li>
-    <li><a href="#agent">Agent</a></li>
+    <li><a href="#agents">Agents</a>
+      <ul>
+        <li><a href="#流程图">流程图</a></li>
+        <li><a href="#决策流程">决策流程</a></li>
+        <li><a href="#llm-提示工程">LLM 提示工程</a>
+          <ul>
+            <li><a href="#子任务分解">子任务分解</a></li>
+            <li><a href="#反思与改进">反思与改进</a></li>
+          </ul>
+        </li>
+        <li><a href="#记忆memory">记忆（Memory）</a></li>
+      </ul>
+    </li>
+    <li><a href="#agent-框架与策略分析">Agent 框架与策略分析</a>
+      <ul>
+        <li><a href="#认知框架">认知框架</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -1021,10 +1057,27 @@
 </ul>
 <p><strong>深度学习</strong></p>
 <p>试图模拟人类大脑的工作方式，自动提取出数据的高层次特征和模式。
-按照架构不同，神经网络可以分为：卷积神经网络（CNNs）、循环神经网络（RNNS）、Transformer网络等等。</p>
-<p>大模型训练的三个阶段：
-预训练，SFT（监督微调）、RLHF（基于人类反馈的强化学习）</p>
-<p>大模型按应用场景分为</p>
+按照架构不同，神经网络可以分为：卷积神经网络（CNNs）、循环神经网络（RNNS）、Transformer网络等等。<br>
+<em>只需要指出那些是苹果，那些是香蕉，自动从复杂的视觉、嗅觉等信号中提取层次化的特征</em></p>
+
+
+<h2 class="relative group">大模型训练 
+    <div id="%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p><strong>大模型训练分为三个阶段：</strong></p>
+<ol>
+<li>预训练：相当于监督学习，主要是训练一些通用能力。</li>
+<li>SET 监督微调：指定一个特定领域，进行特定的微调。</li>
+<li>RLHF 基于人类反馈的强化学习：</li>
+</ol>
+<p><strong>大模型按应用场景分为</strong></p>
 <ul>
 <li>大语言模型（LLM）<br>
 这类大模型专注于自然语言处理(NLP)，通常基于深度学习架构(如Transformer模型)，经过大规模文本数据集训练而成，能够捕捉语言的复杂性，包括语法、语义、语境以及蕴含的文化和社会知识。</li>
@@ -1069,17 +1122,29 @@
 <p>大模型进行推理时，它会基于现有的token，根据概率最大原则预测出下一个最有可能的token，然后将该预测的token加入到输入序列中，并将更新后的输入序列继续输入大模型预测下一个token，这个过程叫做自回归。直到输出特殊token(如 &lt;EOS&gt;，end ofsentence，专门用来控制推理何时结束)或输出长度达到阈值。</p>
 
 
-<h2 class="relative group">Agent 
-    <div id="agent" class="anchor"></div>
+<h2 class="relative group">Agents 
+    <div id="agents" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#agent" aria-label="锚点">#</a>
+            style="text-decoration-line: none !important;" href="#agents" aria-label="锚点">#</a>
     </span>        
     
 </h2>
 <p>基于LLM的能够自主理解、自主规划决策、执行复杂任务的智能体。</p>
+
+
+<h3 class="relative group">流程图 
+    <div id="%E6%B5%81%E7%A8%8B%E5%9B%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
 
 
 <div id="gallery-4758433a31eceeb5415096b1b3fb47d4" class="gallery">
@@ -1122,6 +1187,19 @@
 </ul>
 
 
+<h3 class="relative group">决策流程 
+    <div id="%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%86%B3%E7%AD%96%E6%B5%81%E7%A8%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p><strong>决策流程，一个循环一个 Task</strong>
+
+
 <div id="gallery-e27ffffdc484ac9fa98fa2eec2bf4a77" class="gallery">
   
   
@@ -1150,18 +1228,145 @@
   
   
   
-  <figure>
     <img src="/posts/studyspace/aifoundationmodel/imgs/image_02.png" />
-    <figcaption>决策流程，一个循环一个 Task</figcaption>
-  <figure>
+
+</div>
+</p>
+<p><strong>感知</strong>：通过传感器获取外部信息，将原始数据转换为结构化信息。<br>
+<strong>规划</strong>：基于感知的信息指定行动决策，将大目标分为可执行的子任务。<br>
+<strong>行动</strong>：执行规划结果，影响环境。<br>
+<strong>观察</strong>：结合用户的反馈评估行动的结果，验证是否达到预期，如果没有达到预期，则再启动 Task 。</p>
+<p>在每个阶段，系统都可能根据外部环境变化和用户反馈调整操作。</p>
+<blockquote>
+<p>人类规划的思维模式：</p>
+<ol>
+<li>思考完成任务的方式。</li>
+<li>审视拥有的工具，决定使用哪些工具。</li>
+<li>拆分成子任务。</li>
+<li>对执行过程进行反思，吸取教训，完善过程。</li>
+<li>思考任务什么时候可以终止。</li>
+</ol></blockquote>
+<p>如果为智能体赋予这样的思维模式，可以通过 <strong>LLM</strong> 提示工程。</p>
+
+
+<h3 class="relative group">LLM 提示工程 
+    <div id="llm-%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#llm-%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>LLM 具备的能力主要有两个，子任务拆解、反思与改进</p>
+
+
+<h4 class="relative group">子任务分解 
+    <div id="%E5%AD%90%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%90%E4%BB%BB%E5%8A%A1%E5%88%86%E8%A7%A3" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p><strong>思维链技术（Chain of Thoughts，CoT）</strong></p>
+<p>一种比较标准的提示技术，把问题分解成多个步骤，一步一步思考和解决，一种线性思维的方式。</p>
+<p><strong>思维树技术（Tree-of-thought，ToT）</strong></p>
+<p>对 CoT 的扩展，在思维链的每一步，推理出多个分支，使用启发方式评估每个推理分支对问题解决的贡献，选择搜索算法，一般使用广度优先（BFS）或深度优先（DFS）。</p>
+
+
+<div id="gallery-d4ee35e1e152d035c9df4e1b357e8522" class="gallery">
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    
+      
+      
+      
+      
+      
+        
+        
+        
+      
+    
+  
+  
+  
+    <img src="/posts/studyspace/aifoundationmodel/imgs/image_03.png" />
 
 </div>
 
-<p><strong>感知</strong>：通过传感器获取外部信息，将原始数据转换为结构化信息。
-<strong>规划</strong>：基于感知的信息指定行动决策，将大目标分为可执行的子任务。
-<strong>行动</strong>：执行规划结果，影响环境。
-<strong>观察</strong>：结合用户的反馈评估行动的结果，验证是否达到预期，如果没有达到预期，则再启动 Task</p>
-<p>在每个阶段，系统都可能根据外部环境变化和用户反馈调整操作。</p>
+
+
+<h4 class="relative group">反思与改进 
+    <div id="%E5%8F%8D%E6%80%9D%E4%B8%8E%E6%94%B9%E8%BF%9B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%8D%E6%80%9D%E4%B8%8E%E6%94%B9%E8%BF%9B" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>Agent对过去的行动进行自我批评和反思，从错误中学习并改进未来的步骤，从而提高最终结果的质量。</p>
+<p>在实际任务中，试错是不可避免的，而自我反思在这个过程中起着至关重要的作用。它允许 Agent 通过改进过去的行动决策和纠正以前的错误来进行选代改进。</p>
+<p><a href="https://react-lm.github.io" target="_blank">《ReAct: Synergizing Reasoning and Acting in Language Models》</a>
+这篇论文提出一种用于增强大型语高模型的方法，它通过结合推理(Reasoning)和行动(Acting)来增强推理和决策的效果。</p>
+
+
+<h3 class="relative group">记忆（Memory） 
+    <div id="%E8%AE%B0%E5%BF%86memory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%B0%E5%BF%86memory" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p><strong>形成记忆</strong>：在包含世界知识的数据集上进行预训练。在预训练中，大模型通过调整神经元的权重来学习理解和生成人类语言，这可以被视为&quot;记忆&quot;的形成过程。通过使用深度学习和梯度下降等技术，大模型可以不断提高基于预测或生产文本的能力，进而形成世界记忆或长期记忆。</p>
+<p><strong>短期记忆</strong>：在当前任务执行过程中所产生的信息，比如某个工具或某个子任务执行的结果，会写入短期记忆中。记忆在当前任务过程中产生和暂存，在任务完结后被清空。</p>
+<p><strong>长期记忆</strong>：是长时间保留的信息。一般是指外部知识库，通常用向量数据库来存储和检索。</p>
+
+
+<h2 class="relative group">Agent 框架与策略分析 
+    <div id="agent-%E6%A1%86%E6%9E%B6%E4%B8%8E%E7%AD%96%E7%95%A5%E5%88%86%E6%9E%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#agent-%E6%A1%86%E6%9E%B6%E4%B8%8E%E7%AD%96%E7%95%A5%E5%88%86%E6%9E%90" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">认知框架 
+    <div id="%E8%AE%A4%E7%9F%A5%E6%A1%86%E6%9E%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%AE%A4%E7%9F%A5%E6%A1%86%E6%9E%B6" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p><strong>Plan-and-Execute</strong></p>
+<p>侧重于先规划一系列的行动，然后执行。这个框架可以使大模型能够先综合考虑任务的多个方面，然后按照计划进行行动。应用在比较复杂的项目管理中或者需要多步决策的场景下会比较合适。</p>
 
           
           
@@ -1313,7 +1518,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2875 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>3763 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
   
 
   

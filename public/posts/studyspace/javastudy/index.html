@@ -106,7 +106,7 @@
     "keywords": ["Java基础"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2875"
+    "wordCount": "3763"
   }]
   </script>
 
@@ -621,7 +621,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>2875 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>3763 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
   
 
   
@@ -944,7 +944,11 @@
         <li><a href="#子类构造器">子类构造器</a></li>
       </ul>
     </li>
-    <li><a href="#多态">多态</a></li>
+    <li><a href="#多态">多态</a>
+      <ul>
+        <li><a href="#抽象类">抽象类</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -988,7 +992,11 @@
         <li><a href="#子类构造器">子类构造器</a></li>
       </ul>
     </li>
-    <li><a href="#多态">多态</a></li>
+    <li><a href="#多态">多态</a>
+      <ul>
+        <li><a href="#抽象类">抽象类</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -1288,6 +1296,7 @@ if (条件 1){
 对象名。属性名
 </code></pre><p><strong>4. 构造器</strong></p>
 <p>构造函数一般用于结合new关键字创建对象时初始化成员变量用的</p>
+<p><em>构造器主要用来初始化数据到堆中</em></p>
 <p>类如果没有手动设置构造函数, 会默认自带无参构造器。</p>
 <p>如果定义了有参构造器，默认无参构造器会消失，若需要则需手动添加。</p>
 <pre tabindex="0"><code>修饰符  类名(参数列表){
@@ -1383,6 +1392,7 @@ if (条件 1){
     
 </h2>
 <p>提高代码重用性，减少重复代码书写。</p>
+<p>不能循环继承。</p>
 <pre tabindex="0"><code>public class 子类 extends 父类{
 
 } 
@@ -1406,10 +1416,10 @@ if (条件 1){
 </h3>
 <p>限制类中成员（成员变量、成员方法、构造器）的访问范围。</p>
 <ul>
-<li>private：只能本类访问。<br>
+<li><code>private</code>：只能本类访问。<br>
 缺省（默认，无修饰符）：本类、同一个包中的类可访问。</li>
-<li>protected：本类、同一个包中的类、子孙类中可访问。</li>
-<li>public：任意位置可访问。</li>
+<li><code>protected</code>：本类、同一个包中的类、子孙类中可访问。</li>
+<li><code>public</code>：任意位置可访问。</li>
 </ul>
 <table>
   <thead>
@@ -1472,11 +1482,11 @@ Java 中一个类只能继承一个直接父类</li>
 <li>多层继承：
 Java 不支持多继承，但支持多层继承。</li>
 <li>祖宗类：
-Java 中所有类要么直接继承Object，要么默认继承Object，要么间接继承Object，Object是所有类的祖宗类。</li>
+Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要么间接继承 Object ， Object 是所有类的祖宗类。</li>
 <li>子类访问父类成员：
 若子父类中出现重名成员，优先使用子类的，若要在子类中使用父类的，
-可通过super关键字指定访问父类成员
-格式为: （super.父类成员变量/super.父类成员方法）。</li>
+可通过 <code>super</code> 关键字指定访问父类成员<br>
+格式为: （<code>super.父类成员变量/super.父类成员方法</code>）。</li>
 </ol>
 
 
@@ -1530,6 +1540,194 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
     
 </h2>
 <p>在继承 / 实现情况下的一种现象，表现为对象多态、行为多态。</p>
+<p>一般表现形式为父类类型指向一个子类的对象。</p>
+<p>在多态下，只能访问父类的内容。如果子类对父类的方法重写，那么会访问到重写之后的方法。</p>
+
+
+<h3 class="relative group">抽象类 
+    <div id="%E6%8A%BD%E8%B1%A1%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>关键字 <code>abstract</code></p>
+<p><strong>一、核心特性</strong></p>
+<ol>
+<li>
+<p>抽象类（abstract class）</p>
+<ul>
+<li>不能直接实例化（必须通过子类继承）。</li>
+<li>可以包含 抽象方法（无实现）和 具体方法（有实现）。</li>
+<li>可以定义 成员变量、构造方法、静态方法。</li>
+</ul>
+</li>
+<li>
+<p>抽象方法（abstract method）</p>
+<ul>
+<li>只有声明，没有方法体（以分号 ; 结尾）。</li>
+<li>必须在子类中被重写（除非子类也是抽象类）。</li>
+</ul>
+</li>
+<li>
+<p>设计目的</p>
+<ul>
+<li>作为模板，强制子类实现特定行为（如 <code>Animal</code> 抽象类要求子类实现 eat()）。</li>
+</ul>
+</li>
+</ol>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><strong>注意事项</strong></span>
+</div>
+
+<ol>
+<li>构造方法的存在意义
+<ul>
+<li>虽然抽象类不能实例化，但子类构造方法会隐式调用父类构造方法（通过 <code>super()</code> ）。</li>
+<li>可用于初始化抽象类的成员变量。</li>
+</ul>
+</li>
+<li>与 <code>final</code> 冲突
+<ul>
+<li><code>abstract</code> 和 <code>final</code> 不能共用：
+<ul>
+<li><code>final</code> 类不能被继承 → 与 <code>abstract</code> 需要继承矛盾。</li>
+<li><code>final</code> 方法不能被重写 → 与 <code>abstract</code> 必须重写矛盾。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>关键字 <code>final</code></strong></p>
+<p><code>final</code> 用于声明不可变的变量、方法或类，具体作用如下：</p>
+<ol>
+<li>
+<p><code>final</code> 变量（常量）</p>
+<ul>
+<li>基本类型：值不可变（如 <code>final int x = 10;</code>）。</li>
+<li>引用类型：引用不可变（但对象内部状态可能可变）。</li>
+</ul>
+</li>
+<li>
+<p><code>final</code> 方法</p>
+<ul>
+<li>不能被子类重写（但可以重载）。</li>
+<li>适用于不希望子类修改的方法（如模板方法模式中的关键步骤）。</li>
+</ul>
+</li>
+<li>
+<p><code>final</code> 类</p>
+<ul>
+<li>不能被继承（如 <code>String</code>、<code>Integer</code> 等不可变类）。</li>
+<li>适用于安全性要求高的类（防止恶意子类化）。</li>
+</ul>
+</li>
+</ol>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><strong>注意事项</strong></span>
+</div>
+
+<ol>
+<li>
+<p><code>final</code> 变量的初始化时机</p>
+<ul>
+<li>成员变量：必须在声明时、构造方法中或初始化块中赋值。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="nf">MyClass</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// 合法  </span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>局部变量：只需在使用前赋值一次。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// 合法 法      </span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p><code>final</code> 与不可变对象</p>
+<ul>
+<li><code>final</code> 只能保证引用不变，若对象本身可变（如 <code>List</code>），仍需通过其他方式（如 <code>Collections.unmodifiableList()</code>）实现真正不可变。</li>
+</ul>
+</li>
+<li>
+<p><code>final</code> 参数</p>
+<ul>
+<li>方法参数被 <code>final</code> 修饰后，不能在方法内重新赋值（但不会影响调用方传入的变量）。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// 编译错误！  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">  
+</span></span></span></code></pre></div></li>
+<li>
+<p><code>final</code> 与性能优化</p>
+<ul>
+<li>JVM 可能对 <code>final</code> 变量进行内联优化（直接替换为常量值）。</li>
+<li>多线程环境下， <code>final</code> 变量能保证初始化安全（无需额外同步）。</li>
+</ul>
+</li>
+<li>
+<p><code>final</code> 与其他关键字的冲突</p>
+<ul>
+<li>abstract： <code>final</code> 方法不能被重写，<code>abstract</code> 方法必须被重写 → 互斥。</li>
+<li>volatile： <code>final</code> 变量本身线程安全，无需再加 <code>volatile</code>。</li>
+</ul>
+</li>
+</ol>
 
           
           
@@ -1825,7 +2023,7 @@ Java 中所有类要么直接继承Object，要么默认继承Object，要么间
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time><span class="px-2 text-primary-500">&middot;</span><span>1704 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">4 分钟</span>
+  <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time><span class="px-2 text-primary-500">&middot;</span><span>2664 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
   
 
   
