@@ -108,7 +108,7 @@
     "keywords": ["Java基础"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "6042"
+    "wordCount": "6573"
   }]
   </script>
 
@@ -626,7 +626,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>6042 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">13 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>6573 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">14 分钟</span>
   
 
   
@@ -1953,6 +1953,47 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
     </span>        
     
 </h2>
+<p>两种初始化方式</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">String</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;Hello&#34;</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;Hello&#34;</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">s3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="n">s4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span></code></pre></div><p><strong>对比</strong></p>
+<ol>
+<li>直接赋值 <code>=</code>
+<ul>
+<li>节省内存（复用常量池中的字符串）</li>
+<li>性能更高（避免重复创建对象）<br>
+<strong>底层机制</strong></li>
+<li>检查字符串常量池（String Pool），如果 <code>&quot;Hello&quot;</code> 已存在，则 <code>s2</code> 直接引用池中的对象。</li>
+<li><code>s1</code> 和 <code>s2</code> 指向同一个内存地址（<code>s1 == s2</code> 返回 <code>true</code> 。</li>
+</ul>
+</li>
+<li>new String()
+<ul>
+<li>内存浪费（每次 new 都会创建新对象）</li>
+<li>性能较低（无常量池优化）<br>
+<strong>底层机制</strong></li>
+<li>强制在堆内存中创建新对象，即使 <code>&quot;Hello&quot;</code> 已在常量池中存在。</li>
+<li><code>s3</code> 和 <code>s4</code> 指向不同的内存地址（<code>s3 == s4</code> 返回 <code>false</code>）。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>在 java 6 之前都是存储在方法区，并且是固定大小的。从 java 7 开始常量池移入堆内存，哈希表，可动态扩展。移入堆之后，允许被 GC 回收，避免永久代内存溢出。</p></blockquote>
+<p>一些<strong>面试题</strong></p>
+<blockquote>
+<p>Q： <code>String s1 = new String(&quot;Hello&quot;);</code> 这段代码创建了几个对象？</p>
+<p>A:  1 或 2 个：</p>
+<ol>
+<li>如果常量池没有 &ldquo;Hello&rdquo;，先创建字面量对象（入池），再 new 堆对象 → 共 2 个。</li>
+<li>如果常量池已有 &ldquo;Hello&rdquo;，只 new 堆对象 → 共 1 个。</li>
+</ol>
+<p>Q： <code>String s = &quot;a&quot; + &quot;b&quot;</code> 创建几个对象？</p>
+<p>A：1 个（编译期优化为 &ldquo;ab&rdquo;，直接存入常量池）。</p>
+<p>Q：<code>String s = new String(&quot;a&quot;) + new String(&quot;b&quot;)</code> 创建几个对象？</p>
+<p>A：堆中：2 个 &ldquo;a&rdquo; 和 &ldquo;b&rdquo; 的 String 对象 + 1 个 &ldquo;ab&rdquo; 的 StringBuilder 最终结果 → 至少 3 个，常量池：&ldquo;a&rdquo; 和 &ldquo;b&rdquo; 的字面量对象（如果之前不存在）→ 最多 +2 个。</p></blockquote>
 <table>
   <thead>
       <tr>
@@ -2083,8 +2124,7 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 <li>只能定义 <code>public abstract</code> 方法。</li>
 <li>所有方法默认必须被实现类重写，否则实现类也得声明为抽象类。</li>
 <li>类只能单继承，但能实现多个接口。</li>
-<li>接口里的字段默认都是 <code>public static final</code> 。</li>
-<li>接口里的字段默认是 <code>public static final</code> 的，拿来当全局常量用（但别这么干，枚举更香）。</li>
+<li>接口里的字段默认都是 <code>public static final</code> ，拿来当全局常量用（但别这么干，枚举更香）。</li>
 </ul>
 <p><strong>Java 8</strong></p>
 <ul>
