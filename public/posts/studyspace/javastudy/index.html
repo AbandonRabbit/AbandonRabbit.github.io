@@ -76,9 +76,11 @@
     <meta property="article:published_time" content="2025-05-14T09:08:14+08:00">
     <meta property="article:modified_time" content="2025-05-14T09:08:14+08:00">
     <meta property="article:tag" content="Java基础">
+    <meta property="og:image" content="http://localhost:1313/posts/studyspace/javastudy/featured.png">
 
   
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/posts/studyspace/javastudy/featured.png">
   <meta name="twitter:title" content="Java基础">
 
   
@@ -106,7 +108,7 @@
     "keywords": ["Java基础"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "3763"
+    "wordCount": "6042"
   }]
   </script>
 
@@ -545,12 +547,6 @@
   
   
   
- 
-  
-   
-  
- 
-
 
 
 <div id="hero" class="h-[150px] md:h-[200px]"></div>
@@ -559,7 +555,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/image_hu_74c11e6307a30282.jpg);">
+    style="background-image:url(/posts/studyspace/javastudy/featured_hu_84ccdb681897a319.png);">
     
 
 
@@ -569,6 +565,15 @@
         class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
     </div>
 </div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
 
   
   
@@ -621,7 +626,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>3763 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">8 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>6042 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">13 分钟</span>
   
 
   
@@ -947,8 +952,36 @@
     <li><a href="#多态">多态</a>
       <ul>
         <li><a href="#抽象类">抽象类</a></li>
+        <li><a href="#多态下的类型转换">多态下的类型转换</a></li>
       </ul>
     </li>
+    <li><a href="#枚举">枚举</a>
+      <ul>
+        <li><a href="#构造方法">构造方法</a></li>
+        <li><a href="#附加信息">附加信息</a></li>
+      </ul>
+    </li>
+    <li><a href="#列表--arraylist">列表 — ArrayList</a></li>
+    <li><a href="#字符串">字符串</a></li>
+    <li><a href="#接口">接口</a>
+      <ul>
+        <li><a href="#接口和抽象类的区别">接口和抽象类的区别</a></li>
+      </ul>
+    </li>
+    <li><a href="#内部类">内部类</a>
+      <ul>
+        <li><a href="#成员内部类">成员内部类</a></li>
+        <li><a href="#静态内部类">静态内部类</a></li>
+        <li><a href="#局部内部类">局部内部类</a></li>
+        <li><a href="#匿名内部类">匿名内部类</a></li>
+      </ul>
+    </li>
+    <li><a href="#lambda-表达式">Lambda 表达式</a>
+      <ul>
+        <li><a href="#核心语法">核心语法</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法引用">方法引用</a></li>
   </ul>
 </nav>
   </div>
@@ -995,8 +1028,36 @@
     <li><a href="#多态">多态</a>
       <ul>
         <li><a href="#抽象类">抽象类</a></li>
+        <li><a href="#多态下的类型转换">多态下的类型转换</a></li>
       </ul>
     </li>
+    <li><a href="#枚举">枚举</a>
+      <ul>
+        <li><a href="#构造方法">构造方法</a></li>
+        <li><a href="#附加信息">附加信息</a></li>
+      </ul>
+    </li>
+    <li><a href="#列表--arraylist">列表 — ArrayList</a></li>
+    <li><a href="#字符串">字符串</a></li>
+    <li><a href="#接口">接口</a>
+      <ul>
+        <li><a href="#接口和抽象类的区别">接口和抽象类的区别</a></li>
+      </ul>
+    </li>
+    <li><a href="#内部类">内部类</a>
+      <ul>
+        <li><a href="#成员内部类">成员内部类</a></li>
+        <li><a href="#静态内部类">静态内部类</a></li>
+        <li><a href="#局部内部类">局部内部类</a></li>
+        <li><a href="#匿名内部类">匿名内部类</a></li>
+      </ul>
+    </li>
+    <li><a href="#lambda-表达式">Lambda 表达式</a>
+      <ul>
+        <li><a href="#核心语法">核心语法</a></li>
+      </ul>
+    </li>
+    <li><a href="#方法引用">方法引用</a></li>
   </ul>
 </nav>
   </div>
@@ -1520,13 +1581,15 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
     
 </h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">super</span><span class="p">(</span><span class="n">value1</span><span class="err">，</span><span class="n">value2</span><span class="err">，</span><span class="p">...)</span><span class="w">
-</span></span></span></code></pre></div><p>在子类的构造器里面使用，必须写在第一行。</p>
+</span></span></span></code></pre></div><blockquote>
+<p>在子类的构造器里面使用，必须写在第一行。</p>
 <p>括号里面可以加参数，会自动匹配相应参数的构造器</p>
-<p>如果父类没有无参构造器，则子类必须显示使用 super( value&hellip; )。</p>
+<p>如果父类没有无参构造器，则子类必须显示使用 super( value&hellip; )。</p></blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">this</span><span class="p">(</span><span class="n">value1</span><span class="err">，</span><span class="n">value2</span><span class="err">，</span><span class="p">...)</span><span class="w">
-</span></span></span></code></pre></div><p>在当前类的构造器里面使用，调用当前类的构造器，必须卸载第一行。</p>
+</span></span></span></code></pre></div><blockquote>
+<p>在当前类的构造器里面使用，调用当前类的构造器，必须卸载第一行。</p>
 <p>可以加入参数，自动匹配相应参数的构造器。</p>
-<p>不能和 <code>super()</code> 一起使用</p>
+<p>不能和 <code>super()</code> 一起使用</p></blockquote>
 
 
 <h2 class="relative group">多态 
@@ -1700,10 +1763,12 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 </span></span></span></code></pre></div></li>
 <li>
 <p><code>final</code> 与不可变对象</p>
+</li>
+</ol>
 <ul>
 <li><code>final</code> 只能保证引用不变，若对象本身可变（如 <code>List</code>），仍需通过其他方式（如 <code>Collections.unmodifiableList()</code>）实现真正不可变。</li>
 </ul>
-</li>
+<ol start="3">
 <li>
 <p><code>final</code> 参数</p>
 <ul>
@@ -1727,6 +1792,640 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 <li>volatile： <code>final</code> 变量本身线程安全，无需再加 <code>volatile</code>。</li>
 </ul>
 </li>
+</ol>
+
+
+<h3 class="relative group">多态下的类型转换 
+    <div id="%E5%A4%9A%E6%80%81%E4%B8%8B%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%A4%9A%E6%80%81%E4%B8%8B%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>必须是一个还原操作, 否则会出现ClassClassException类型转换异常</p>
+<p>可以以使用 <code>instanceof</code> 方法进行检测，该方法会返回一个 boolean 值，表示是否为这个类型。</p>
+
+
+<h2 class="relative group">枚举 
+    <div id="%E6%9E%9A%E4%B8%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9E%9A%E4%B8%BE" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>枚举是一个特殊的类，一般表示一组常量，使用 <code>enum</code> 关键字来定义，各个常量使用逗号 <code>,</code> 来分割。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">UNKNOWN</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">OK</span><span class="p">(</span><span class="s">&#34;2&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ERROR</span><span class="p">(</span><span class="s">&#34;3&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Status</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">构造方法 
+    <div id="%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>构造方法名和枚举名要保证一致。</li>
+<li>枚举的构造方法必须是 <code>private</code> 的（默认不写也是 <code>private</code>），且不能手动调用！</li>
+<li>线程安全的，但内部字段如果是可变对象。则需要自己加锁。</li>
+</ul>
+
+
+<h3 class="relative group">附加信息 
+    <div id="%E9%99%84%E5%8A%A0%E4%BF%A1%E6%81%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%99%84%E5%8A%A0%E4%BF%A1%E6%81%AF" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>通过 <strong>自定义字段</strong> + <strong>构造方法</strong> 将数据和枚举绑定在一起</p>
+<p>附加信息为基础类型</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SUCCESS</span><span class="p">(</span><span class="n">200</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;OK&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">NOT_FOUND</span><span class="p">(</span><span class="n">404</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;资源不存在&#34;</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">SERVER_ERROR</span><span class="p">(</span><span class="n">500</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;服务器炸了&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">;</span><span class="w">  </span><span class="c1">// 附加字段1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span><span class="w"> </span><span class="c1">// 附加字段2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 构造方法（默认private，不写也是）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Status</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">code</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">code</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">code</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 想怎么用就怎么用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getCode</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">code</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">getMsg</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">msg</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>附加信息为对象</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="n">Book</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 枚举常量 + 关联的BookInfo对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">JAVA</span><span class="p">(</span><span class="s">&#34;《Java核心技术》&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BookInfo</span><span class="p">(</span><span class="s">&#34;Cay S. Horstmann&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">99</span><span class="p">.</span><span class="na">9</span><span class="p">)),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">PYTHON</span><span class="p">(</span><span class="s">&#34;《Python编程》&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BookInfo</span><span class="p">(</span><span class="s">&#34;Eric Matthes&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">89</span><span class="p">.</span><span class="na">5</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">title</span><span class="p">;</span><span class="w">      </span><span class="c1">// 字符串信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">BookInfo</span><span class="w"> </span><span class="n">info</span><span class="p">;</span><span class="w">    </span><span class="c1">// 关联的对象信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 枚举构造函数（自动私有）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Book</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="n">BookInfo</span><span class="w"> </span><span class="n">info</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">title</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">info</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 获取附加对象</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">BookInfo</span><span class="w"> </span><span class="nf">getInfo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">info</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 自定义对象类</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BookInfo</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">author</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">public</span><span class="w"> </span><span class="nf">BookInfo</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">author</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">price</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">author</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">price</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">price</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// Getters...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>调用</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Book</span><span class="w"> </span><span class="n">javaBook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Book</span><span class="p">.</span><span class="na">JAVA</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">javaBook</span><span class="p">.</span><span class="na">getInfo</span><span class="p">().</span><span class="na">getAuthor</span><span class="p">());</span><span class="w"> </span><span class="c1">// 输出: Cay S. Horstmann</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">javaBook</span><span class="p">.</span><span class="na">getInfo</span><span class="p">().</span><span class="na">getPrice</span><span class="p">());</span><span class="w">  </span><span class="c1">// 输出: 99.9</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">列表 — ArrayList 
+    <div id="%E5%88%97%E8%A1%A8--arraylist" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%97%E8%A1%A8--arraylist" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h2 class="relative group">字符串 
+    <div id="%E5%AD%97%E7%AC%A6%E4%B8%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>方法名</th>
+          <th>描述</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>int length();</td>
+          <td>获取字符串的长度</td>
+      </tr>
+      <tr>
+          <td>char charAt(int index);</td>
+          <td>根据索引获取对应的字符</td>
+      </tr>
+      <tr>
+          <td>char[] toCharArray();</td>
+          <td>将字符串转成字符数组</td>
+      </tr>
+      <tr>
+          <td>boolean equals(Object obj)</td>
+          <td>比较字符串的内容</td>
+      </tr>
+      <tr>
+          <td>boolean equalsIgnoreCase(String str);</td>
+          <td>忽略大小写比较字符串内容</td>
+      </tr>
+      <tr>
+          <td>String substring(int start);</td>
+          <td>从start位置截取到末尾, 原串不变, 返回新串</td>
+      </tr>
+      <tr>
+          <td>String substring(int start,int end);</td>
+          <td>从start位置截取到end-1, 原串不变, 返回新串</td>
+      </tr>
+      <tr>
+          <td>String replace(String oldStr, String newStr);</td>
+          <td>可以将字符串中所有的oldStr替换成newStr, 原串不变返回新串</td>
+      </tr>
+      <tr>
+          <td>boolean startsWith(String start);</td>
+          <td>判断字符串是否以start开头</td>
+      </tr>
+      <tr>
+          <td>boolean endsWith(String end);</td>
+          <td>判断字符串是否以end结尾</td>
+      </tr>
+      <tr>
+          <td>boolean contains(String str);</td>
+          <td>判断字符串是否包含另外一个字符串</td>
+      </tr>
+      <tr>
+          <td>int indexOf(String str);</td>
+          <td>查询str在字符串第一次出现的位置, 返回是首字母出现的位置</td>
+      </tr>
+      <tr>
+          <td>int lastIndexOf(String str)</td>
+          <td>查询str在字符串最后一次出现的位置, 返回是首字母出现的位置</td>
+      </tr>
+      <tr>
+          <td>String toUpperCase();</td>
+          <td>将字符串的小写都变成大写, 原串不变,返回新串</td>
+      </tr>
+      <tr>
+          <td>String toLowerCase();</td>
+          <td>将字符串的大写都变成小写, 原串不变,返回新串</td>
+      </tr>
+      <tr>
+          <td>String[] split(String str)</td>
+          <td>按照切割点进行字符串切割, 将结果封装数组中返回</td>
+      </tr>
+  </tbody>
+</table>
+<p>字符串的内存分配</p>
+
+
+<h2 class="relative group">接口 
+    <div id="%E6%8E%A5%E5%8F%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8E%A5%E5%8F%A3" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>使用 <code>interface</code> 关键字声明。</p>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >接口是行为的抽象，抽象类是事物的抽象。</span>
+</div>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">name</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//常量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//抽象方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><blockquote>
+<p>有且仅有一个抽象方法的接口叫做函数式接口.</p></blockquote>
+<p><strong>Java 7 之前</strong></p>
+<ul>
+<li>只能定义 <code>public abstract</code> 方法。</li>
+<li>所有方法默认必须被实现类重写，否则实现类也得声明为抽象类。</li>
+<li>类只能单继承，但能实现多个接口。</li>
+<li>接口里的字段默认都是 <code>public static final</code> 。</li>
+<li>接口里的字段默认是 <code>public static final</code> 的，拿来当全局常量用（但别这么干，枚举更香）。</li>
+</ul>
+<p><strong>Java 8</strong></p>
+<ul>
+<li>用 <code>default</code> 关键字给接口塞具体实现，打破了纯抽象原则。</li>
+<li>可以使用 <code>static</code> 修饰方法，可以直接通过接口调用。</li>
+<li>只有一个抽象方法的接口，能当 <a href="#lamdbaText">Lamdba</a> 用。</li>
+</ul>
+<blockquote>
+<p>当多个接口的 <code>default</code> 修饰的方法冲突之后，实现的类必须重写这个方法。</p></blockquote>
+<p><strong>Java 9</strong></p>
+<ul>
+<li>引入私有方法，抽取默认方法或者静态方法的共性内容，接口自己使用。</li>
+</ul>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >md 这玩意儿怎么越来越像抽象类了。</span>
+</div>
+
+
+
+<h3 class="relative group">接口和抽象类的区别 
+    <div id="%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>接口和类的关系是实现, 而抽象类和类关系是继承。</li>
+<li>接口的成员变量是常量, 抽象类成员变量是变量。</li>
+<li>接口的灵活性高, 可以让类选择性的实现规则, 而抽象类要求所有的子类都必须实现规则。</li>
+<li>接口没有构造方法, 抽象类有构造方法。</li>
+</ol>
+
+
+<h2 class="relative group">内部类 
+    <div id="%E5%86%85%E9%83%A8%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%86%85%E9%83%A8%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>定义在类内部的类，可以直接访问外部类的成员（包括 <code>private</code> ），反之不行。</p>
+<p>编译后会生成独立 <code>.class</code> 文件（如 <code>Outer$Inner.class</code>）。</p>
+
+
+<h3 class="relative group">成员内部类 
+    <div id="%E6%88%90%E5%91%98%E5%86%85%E9%83%A8%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%88%90%E5%91%98%E5%86%85%E9%83%A8%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>依附于外部类实例（必须先创建 Outer 才能创建 Inner）。</p>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >隐含持有外部类引用（内存泄漏风险点！）。</span>
+</div>
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;这时外部方法&#34;</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">class</span> <span class="nc">Inner</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// 直接访问外部类私有成员</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">Outer</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">name</span><span class="p">);</span><span class="w"> </span><span class="c1">// 访问外部同名成员变量，</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">Outer</span><span class="p">.</span><span class="na">this</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w"> </span><span class="c1">// 调用外部类同名方法</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>创建方式：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="n">Outer</span><span class="w"> </span><span class="n">outer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Outer</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Outer</span><span class="p">.</span><span class="na">Inner</span><span class="w"> </span><span class="n">inner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">outer</span><span class="p">.</span><span class="na">new</span><span class="w"> </span><span class="nf">Inner</span><span class="p">();</span><span class="w"> </span><span class="c1">// 注意 new 语法</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">静态内部类 
+    <div id="%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Java" data-lang="Java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Inner</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="c1">// 不能直接访问外部类非静态成员！</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>静态内部类只能访问外部静态的内容</li>
+<li>不依赖外部类实例，可以通过 <code>new Outer.Inner()</code></li>
+</ul>
+
+
+<h3 class="relative group">局部内部类 
+    <div id="%E5%B1%80%E9%83%A8%E5%86%85%E9%83%A8%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B1%80%E9%83%A8%E5%86%85%E9%83%A8%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >用的很少</span>
+</div>
+
+作用域仅限于方法内（外界不可见）。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Outer</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">method</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">class</span> <span class="nc">Inner</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// 定义在方法内</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="kt">void</span><span class="w"> </span><span class="nf">print</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;局部内部类&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Inner</span><span class="w"> </span><span class="n">inner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Inner</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">inner</span><span class="p">.</span><span class="na">print</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">匿名内部类 
+    <div id="%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8C%BF%E5%90%8D%E5%86%85%E9%83%A8%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>本质：创建一个已知类或者已知接口的子类对象。</li>
+<li>无类名，直接实例化接口或抽象类。</li>
+<li>匿名内部类会在磁盘中生成 <code>.class</code> 文件。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">new</span><span class="w"> </span><span class="n">已知类</span><span class="o">|</span><span class="n">已知接口</span><span class="p">(</span><span class="n">对参数传递</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">对方法重写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><span id="lamdbaText"></span></p>
+
+
+<h2 class="relative group">Lambda 表达式 
+    <div id="lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#lambda-%E8%A1%A8%E8%BE%BE%E5%BC%8F" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p><strong>匿名函数的语法糖</strong>，用于简化函数式接口（@FunctionalInterface）的实现。</p>
+<p>编译后生成静态方法或动态调用点（依赖 invokedynamic 指令）。</p>
+<p>有且仅有一个抽象方法的接口叫做函数式接口.</p>
+<p><em>可以通过注解 <code>@FunctionalInterface</code> 检查一个接口是不是函数式接口</em></p>
+
+
+<h3 class="relative group">核心语法 
+    <div id="%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A0%B8%E5%BF%83%E8%AF%AD%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="p">(</span><span class="n">抽象方法参数列表</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">对抽象方法的重写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>简化格式：</p>
+<ol>
+<li>参数的数据类型可以省略。</li>
+<li>当参数有且只有一个的时候 <code>()</code> 可以省略。</li>
+<li>当方法体只有一行的时候 <code>{}</code> 可以省略, <code>{}</code> 一旦省略 <code>return</code> 和 <code>;</code> 都要省略。</li>
+</ol>
+
+
+<h2 class="relative group">方法引用 
+    <div id="%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>简化lambda的书写, lambda简化函数式接口的匿名内部类的书写, 匿名内部类快速创建子类。</p>
+<p><em>就像指向一个方法并说，“需要的时候用这个！”</em></p>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >语法糖的语法糖</span>
+</div>
+
+<p>进一步简化 Lambda，四种形式：</p>
+<ol>
+<li>
+<p>静态方法引用：类名::方法名</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="n">parseInt</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>实例方法引用：对象::方法名</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="s">&#34;a&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;b&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">list</span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">::</span><span class="n">println</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>类构造方法引用：类名::new</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">listSupplier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">::</span><span class="k">new</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div></li>
+<li>
+<p>任意对象方法引用：类名::实例方法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">strArray</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">compareToIgnoreCase</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></div></li>
 </ol>
 
           
@@ -2023,7 +2722,7 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time><span class="px-2 text-primary-500">&middot;</span><span>2664 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
+  <time datetime="2025-05-20T20:33:51&#43;08:00">2025-05-20</time><span class="px-2 text-primary-500">&middot;</span><span>2665 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">6 分钟</span>
   
 
   
