@@ -108,7 +108,7 @@
     "keywords": ["Java基础"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "6573"
+    "wordCount": "7676"
   }]
   </script>
 
@@ -626,7 +626,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>6573 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">14 分钟</span>
+  <time datetime="2025-05-14T09:08:14&#43;08:00">2025-05-14</time><span class="px-2 text-primary-500">&middot;</span><span>7676 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">16 分钟</span>
   
 
   
@@ -961,11 +961,11 @@
         <li><a href="#附加信息">附加信息</a></li>
       </ul>
     </li>
-    <li><a href="#列表--arraylist">列表 — ArrayList</a></li>
     <li><a href="#字符串">字符串</a></li>
     <li><a href="#接口">接口</a>
       <ul>
         <li><a href="#接口和抽象类的区别">接口和抽象类的区别</a></li>
+        <li><a href="#函数式接口">函数式接口</a></li>
       </ul>
     </li>
     <li><a href="#内部类">内部类</a>
@@ -982,6 +982,27 @@
       </ul>
     </li>
     <li><a href="#方法引用">方法引用</a></li>
+    <li><a href="#异常处理">异常处理</a>
+      <ul>
+        <li><a href="#java-异常体系结构">Java 异常体系结构</a></li>
+        <li><a href="#异常分类">异常分类</a>
+          <ul>
+            <li><a href="#error错误">Error（错误）</a></li>
+            <li><a href="#exception异常">Exception（异常）</a></li>
+          </ul>
+        </li>
+        <li><a href="#自定义异常">自定义异常</a></li>
+        <li><a href="#异常处理-1">异常处理</a></li>
+      </ul>
+    </li>
+    <li><a href="#泛型">泛型</a>
+      <ul>
+        <li><a href="#泛型类">泛型类</a></li>
+        <li><a href="#泛型接口">泛型接口</a></li>
+        <li><a href="#泛型方法">泛型方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#补充">补充</a></li>
   </ul>
 </nav>
   </div>
@@ -1037,11 +1058,11 @@
         <li><a href="#附加信息">附加信息</a></li>
       </ul>
     </li>
-    <li><a href="#列表--arraylist">列表 — ArrayList</a></li>
     <li><a href="#字符串">字符串</a></li>
     <li><a href="#接口">接口</a>
       <ul>
         <li><a href="#接口和抽象类的区别">接口和抽象类的区别</a></li>
+        <li><a href="#函数式接口">函数式接口</a></li>
       </ul>
     </li>
     <li><a href="#内部类">内部类</a>
@@ -1058,6 +1079,27 @@
       </ul>
     </li>
     <li><a href="#方法引用">方法引用</a></li>
+    <li><a href="#异常处理">异常处理</a>
+      <ul>
+        <li><a href="#java-异常体系结构">Java 异常体系结构</a></li>
+        <li><a href="#异常分类">异常分类</a>
+          <ul>
+            <li><a href="#error错误">Error（错误）</a></li>
+            <li><a href="#exception异常">Exception（异常）</a></li>
+          </ul>
+        </li>
+        <li><a href="#自定义异常">自定义异常</a></li>
+        <li><a href="#异常处理-1">异常处理</a></li>
+      </ul>
+    </li>
+    <li><a href="#泛型">泛型</a>
+      <ul>
+        <li><a href="#泛型类">泛型类</a></li>
+        <li><a href="#泛型接口">泛型接口</a></li>
+        <li><a href="#泛型方法">泛型方法</a></li>
+      </ul>
+    </li>
+    <li><a href="#补充">补充</a></li>
   </ul>
 </nav>
   </div>
@@ -1805,7 +1847,7 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
     </span>        
     
 </h3>
-<p>必须是一个还原操作, 否则会出现ClassClassException类型转换异常</p>
+<p>必须是一个还原操作, 否则会出现 <code>ClassCastException</code> 类型转换异常</p>
 <p>可以以使用 <code>instanceof</code> 方法进行检测，该方法会返回一个 boolean 值，表示是否为这个类型。</p>
 
 
@@ -1930,18 +1972,6 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
-
-<h2 class="relative group">列表 — ArrayList 
-    <div id="%E5%88%97%E8%A1%A8--arraylist" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E5%88%97%E8%A1%A8--arraylist" aria-label="锚点">#</a>
-    </span>        
-    
-</h2>
-
 
 <h2 class="relative group">字符串 
     <div id="%E5%AD%97%E7%AC%A6%E4%B8%B2" class="anchor"></div>
@@ -2189,6 +2219,25 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 </ol>
 
 
+<h3 class="relative group">函数式接口 
+    <div id="%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>是指<strong>只包含一个抽象方法</strong>的接口。它可以被 Lambda 表达式、方法引用、构造方法引用等函数式编程方式使用。</p>
+<p>可以通过 <code>@FunctionalInterface</code> 注解校验一个接口是否函数式接口</p>
+<p><strong>函数式接口规则</strong></p>
+<ol>
+<li>是否有且仅有一个抽象方法。</li>
+<li>允许存在默认方法（default）、静态方法、从 Object 继承的方法。</li>
+</ol>
+
+
 <h2 class="relative group">内部类 
     <div id="%E5%86%85%E9%83%A8%E7%B1%BB" class="anchor"></div>
     
@@ -2286,7 +2335,7 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><ul>
-<li>静态内部类只能访问外部静态的内容</li>
+<li>静态内部类只能访问外部静态的内容。</li>
 <li>不依赖外部类实例，可以通过 <code>new Outer.Inner()</code></li>
 </ul>
 
@@ -2377,10 +2426,10 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
     </span>        
     
 </h2>
-<p><strong>匿名函数的语法糖</strong>，用于简化函数式接口（@FunctionalInterface）的实现。</p>
-<p>编译后生成静态方法或动态调用点（依赖 invokedynamic 指令）。</p>
-<p>有且仅有一个抽象方法的接口叫做函数式接口.</p>
-<p><em>可以通过注解 <code>@FunctionalInterface</code> 检查一个接口是不是函数式接口</em></p>
+<p><strong>匿名内部类函数的语法糖</strong>，用于简化函数式接口（<code>@FunctionalInterface</code>）的实现。</p>
+<p>编译后生成静态方法或动态调用点（依赖 <code>invokedynamic</code> 指令）。</p>
+<p>有且仅有一个抽象方法的接口叫做函数式接口。</p>
+<p><em>可以通过注解 <code>@FunctionalInterface</code> 检查一个接口是不是函数式接口。</em></p>
 
 
 <h3 class="relative group">核心语法 
@@ -2393,9 +2442,7 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="p">(</span><span class="n">抽象方法参数列表</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">对抽象方法的重写</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="p">(</span><span class="n">参数列表</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">方法体</span><span class="w"> </span><span class="p">}</span><span class="w">  
 </span></span></span></code></pre></div><p>简化格式：</p>
 <ol>
 <li>参数的数据类型可以省略。</li>
@@ -2415,7 +2462,9 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
     
 </h2>
 <p>简化lambda的书写, lambda简化函数式接口的匿名内部类的书写, 匿名内部类快速创建子类。</p>
-<p><em>就像指向一个方法并说，“需要的时候用这个！”</em></p>
+<blockquote>
+<p><em>就像指向一个方法并说，“需要的时候用这个！”</em>
+我自己的理解就是引用某个方法的方法体，而 Lambda 是定义抽象方法的方法体</p></blockquote>
 
   
 
@@ -2450,7 +2499,7 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 <p>进一步简化 Lambda，四种形式：</p>
 <ol>
 <li>
-<p>静态方法引用：类名::方法名</p>
+<p>静态方法引用：类名::静态方法名</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Function</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">::</span><span class="n">parseInt</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></div></li>
 <li>
@@ -2467,6 +2516,248 @@ Java 中所有类要么直接继承 Object ，要么默认继承 Object ，要�
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">strArray</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">::</span><span class="n">compareToIgnoreCase</span><span class="p">);</span><span class="w">
 </span></span></span></code></pre></div></li>
 </ol>
+
+
+<h2 class="relative group">异常处理 
+    <div id="%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Java 异常体系结构 
+    <div id="java-%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#java-%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>Java 中的异常体系源于 <code>Throwable</code> 类，它有两个主要子类：</p>
+<ol>
+<li><code>Error</code> （错误）：表示 系统级别的严重问题，一般程序无法处理。</li>
+<li><code>Exception</code> （异常）：表示 程序可以捕获并处理的问题。</li>
+</ol>
+
+
+<h3 class="relative group">异常分类 
+    <div id="%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BC%82%E5%B8%B8%E5%88%86%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">Error（错误） 
+    <div id="error%E9%94%99%E8%AF%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#error%E9%94%99%E8%AF%AF" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p>JVM 或系统级别的严重问题，通常由 JVM 抛出，不需要捕获或处理，多是 JVM 本身的问题或者硬件问题。</p>
+<p><strong>常见的错误有</strong></p>
+<ul>
+<li>OutOfMemoryError（内存不足）</li>
+<li>StackOverflowError（栈溢出）</li>
+<li>NoClassDefFoundError（类加载失败）</li>
+</ul>
+
+
+<h4 class="relative group">Exception（异常） 
+    <div id="exception%E5%BC%82%E5%B8%B8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#exception%E5%BC%82%E5%B8%B8" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
+<p><strong>编译时异常 <code>Checked Exception</code></strong></p>
+<p>编译阶段必须处理、<strong>必须</strong>通过 <code>throws</code> 关键字声明异常类型, 标注该方法可能产生的异常类型。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">function</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>常见的异常有:</p>
+<ol>
+<li>IOException（文件读写异常）</li>
+<li>SQLException（数据库操作异常）</li>
+<li>ClassNotFoundException（类未找到）</li>
+</ol>
+<p><strong>运行时异常 <code>RuntimeException</code></strong></p>
+<p>不强制处理（可选择性捕获）。通常由编程错误引发（如空指针、数组越界）。</p>
+
+
+<h3 class="relative group">自定义异常 
+    <div id="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>继承 <code>Exception</code> 或者 <code>RuntimeException</code> ，重写带String类型参数的构造。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ArrayIsNullOrLengthIsZeroException</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">RuntimeException</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ArrayIsNullOrLengthIsZeroException</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">ArrayIsNullOrLengthIsZeroException</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">super</span><span class="p">(</span><span class="n">message</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h3 class="relative group">异常处理 
+    <div id="%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86-1" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>抛出异常</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">异常对象</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>处理异常</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 可能抛出异常的代码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 处理 IOException</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 处理其他异常</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">// 无论是否异常都会执行（常用于释放资源）</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><strong>执行流程</strong>：<br>
+首先执行try里面的代码, 一旦出现异常后,try剩下的代码将不会在执行,  就会直接找catch匹配异常, 一旦匹配成功, 执行catch中的异常处理方案, 整个try catch结束。</p>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >异常类型一旦有继承关系, 父类异常放到最下面。</span>
+</div>
+
+
+
+<h2 class="relative group">泛型 
+    <div id="%E6%B3%9B%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%9B%E5%9E%8B" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>在 java 5 引入的特性，核心作用第一是类型安全，在编译的时候就能检查类型错误，第二是提高代码复用性，同一套逻辑可以适配多种数据类型，第三是避免一些强制类型转换，自动类型推断。</p>
+<p>泛型可以定义为任意的标识符，一般是大写字母。</p>
+
+
+<h3 class="relative group">泛型类 
+    <div id="%E6%B3%9B%E5%9E%8B%E7%B1%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">类名</span><span class="o">&lt;</span><span class="n">泛型1</span><span class="p">,</span><span class="n">泛型2</span><span class="p">,....</span><span class="o">&gt;</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>在实例化对象时确定泛型的类型。</p>
+
+
+<h3 class="relative group">泛型接口 
+    <div id="%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">接口名</span><span class="o">&lt;</span><span class="n">泛型1</span><span class="p">,</span><span class="n">泛型2</span><span class="p">...</span><span class="o">&gt;</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><ol>
+<li>定义接口实现类的时候直接确定, 将泛型接口转成普通类。</li>
+<li>定义接口的实现类的时候不确定, 你就需要将该泛型继续声明出去, 让使用实现类的人确定, 将泛型接口转成泛型类了。</li>
+</ol>
+
+
+<h3 class="relative group">泛型方法 
+    <div id="%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">修饰符</span><span class="w">  </span><span class="o">&lt;</span><span class="n">泛型1</span><span class="p">,</span><span class="w"> </span><span class="n">泛型2</span><span class="p">,....</span><span class="o">&gt;</span><span class="w"> </span><span class="n">返回值类型</span><span class="w">  </span><span class="nf">方法名</span><span class="p">(</span><span class="n">参数列表</span><span class="w"> </span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">方法体</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">返回值</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
+
+<h2 class="relative group">补充 
+    <div id="%E8%A1%A5%E5%85%85" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%A5%E5%85%85" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>System：数组copy
+时间戳</p>
 
           
           

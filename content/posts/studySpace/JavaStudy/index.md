@@ -450,7 +450,7 @@ this(value1，value2，...)
 
 ### 多态下的类型转换
 
-必须是一个还原操作, 否则会出现ClassClassException类型转换异常
+必须是一个还原操作, 否则会出现 `ClassCastException` 类型转换异常
 
 可以以使用 `instanceof` 方法进行检测，该方法会返回一个 boolean 值，表示是否为这个类型。
     
@@ -559,8 +559,6 @@ public class Main {
     }
 }
 ~~~
-
-## 列表 — ArrayList
 
 ## 字符串
 
@@ -673,6 +671,18 @@ md 这玩意儿怎么越来越像抽象类了。
 3. 接口的灵活性高, 可以让类选择性的实现规则, 而抽象类要求所有的子类都必须实现规则。
 4. 接口没有构造方法, 抽象类有构造方法。
 
+### 函数式接口
+
+是指**只包含一个抽象方法**的接口。它可以被 Lambda 表达式、方法引用、构造方法引用等函数式编程方式使用。
+
+可以通过 `@FunctionalInterface` 注解校验一个接口是否函数式接口
+
+**函数式接口规则**
+1. 是否有且仅有一个抽象方法。
+2. 允许存在默认方法（default）、静态方法、从 Object 继承的方法。
+
+
+
 ## 内部类
 
 定义在类内部的类，可以直接访问外部类的成员（包括 `private` ），反之不行。
@@ -725,7 +735,7 @@ class Outer {
 }
 ~~~
 
-- 静态内部类只能访问外部静态的内容
+- 静态内部类只能访问外部静态的内容。
 - 不依赖外部类实例，可以通过 `new Outer.Inner()`
 
 ### 局部内部类
@@ -763,19 +773,17 @@ new 已知类|已知接口(对参数传递){
 
 ## Lambda 表达式
 
-**匿名函数的语法糖**，用于简化函数式接口（@FunctionalInterface）的实现。
+**匿名内部类函数的语法糖**，用于简化函数式接口（`@FunctionalInterface`）的实现。
 
-编译后生成静态方法或动态调用点（依赖 invokedynamic 指令）。
+编译后生成静态方法或动态调用点（依赖 `invokedynamic` 指令）。
 
-有且仅有一个抽象方法的接口叫做函数式接口.
+有且仅有一个抽象方法的接口叫做函数式接口。
 
-*可以通过注解 `@FunctionalInterface` 检查一个接口是不是函数式接口*  
+*可以通过注解 `@FunctionalInterface` 检查一个接口是不是函数式接口。*  
 
 ### 核心语法
 ~~~java
-(抽象方法参数列表) -> {
-	对抽象方法的重写
-}
+(参数列表) -> { 方法体 }  
 ~~~
 
 简化格式：
@@ -787,7 +795,8 @@ new 已知类|已知接口(对参数传递){
 
 简化lambda的书写, lambda简化函数式接口的匿名内部类的书写, 匿名内部类快速创建子类。
 
-*就像指向一个方法并说，“需要的时候用这个！”*
+> *就像指向一个方法并说，“需要的时候用这个！”*
+> 我自己的理解就是引用某个方法的方法体，而 Lambda 是定义抽象方法的方法体
 
 {{<alert>}}
 语法糖的语法糖
@@ -795,7 +804,7 @@ new 已知类|已知接口(对参数传递){
 
 进一步简化 Lambda，四种形式：
 
-1. 静态方法引用：类名::方法名
+1. 静态方法引用：类名::静态方法名
     ~~~java
     Function<String, Integer> parser = Integer::parseInt;
     ~~~
@@ -815,3 +824,127 @@ new 已知类|已知接口(对参数传递){
     ~~~java
     Arrays.sort(strArray, String::compareToIgnoreCase);
     ~~~
+
+## 异常处理
+
+### Java 异常体系结构
+
+Java 中的异常体系源于 `Throwable` 类，它有两个主要子类：
+
+1. `Error` （错误）：表示 系统级别的严重问题，一般程序无法处理。
+2. `Exception` （异常）：表示 程序可以捕获并处理的问题。
+
+### 异常分类
+#### Error（错误）
+JVM 或系统级别的严重问题，通常由 JVM 抛出，不需要捕获或处理，多是 JVM 本身的问题或者硬件问题。
+
+**常见的错误有**
+
+- OutOfMemoryError（内存不足）
+- StackOverflowError（栈溢出）
+- NoClassDefFoundError（类加载失败）
+
+#### Exception（异常）
+
+**编译时异常 `Checked Exception`**
+
+编译阶段必须处理、**必须**通过 `throws` 关键字声明异常类型, 标注该方法可能产生的异常类型。
+
+~~~java
+public static int function() throws Exception{
+  
+}
+~~~
+
+常见的异常有:
+
+1. IOException（文件读写异常）
+2. SQLException（数据库操作异常）
+3. ClassNotFoundException（类未找到）
+
+**运行时异常 `RuntimeException`**
+
+不强制处理（可选择性捕获）。通常由编程错误引发（如空指针、数组越界）。
+
+### 自定义异常
+
+继承 `Exception` 或者 `RuntimeException` ，重写带String类型参数的构造。 
+
+~~~java
+public class ArrayIsNullOrLengthIsZeroException extends RuntimeException {
+    public ArrayIsNullOrLengthIsZeroException() {
+    }
+
+    public ArrayIsNullOrLengthIsZeroException(String message) {
+        super(message);
+    }
+}
+~~~
+
+### 异常处理
+
+抛出异常
+~~~java
+throw new 异常对象;
+~~~
+
+处理异常
+~~~java
+try {
+    // 可能抛出异常的代码
+} catch (IOException e) {
+    // 处理 IOException
+} catch (Exception e) {
+    // 处理其他异常
+} finally {
+    // 无论是否异常都会执行（常用于释放资源）
+}
+~~~
+
+**执行流程**：  
+首先执行try里面的代码, 一旦出现异常后,try剩下的代码将不会在执行,  就会直接找catch匹配异常, 一旦匹配成功, 执行catch中的异常处理方案, 整个try catch结束。
+
+{{<alert>}}
+异常类型一旦有继承关系, 父类异常放到最下面。
+{{</alert>}}
+
+
+## 泛型
+在 java 5 引入的特性，核心作用第一是类型安全，在编译的时候就能检查类型错误，第二是提高代码复用性，同一套逻辑可以适配多种数据类型，第三是避免一些强制类型转换，自动类型推断。  
+
+泛型可以定义为任意的标识符，一般是大写字母。
+
+### 泛型类
+
+~~~java
+public class 类名<泛型1,泛型2,....>{
+
+}
+~~~
+
+在实例化对象时确定泛型的类型。
+
+### 泛型接口
+
+~~~java
+public interface 接口名<泛型1,泛型2...>{
+
+}
+~~~
+
+1. 定义接口实现类的时候直接确定, 将泛型接口转成普通类。
+2. 定义接口的实现类的时候不确定, 你就需要将该泛型继续声明出去, 让使用实现类的人确定, 将泛型接口转成泛型类了。
+
+### 泛型方法
+
+~~~java
+修饰符  <泛型1, 泛型2,....> 返回值类型  方法名(参数列表 ){
+    方法体;
+    return 返回值;
+}
+~~~
+
+## 补充
+
+System：数组copy
+时间戳
