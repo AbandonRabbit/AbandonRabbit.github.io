@@ -22,16 +22,6 @@
     </item>
     
     <item>
-      <title>Java基础</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/</link>
-      <pubDate>Wed, 14 May 2025 09:08:14 +0800</pubDate>
-      <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/featured.png" />
-    </item>
-    
-    <item>
       <title>MIT6.824_分布式系统</title>
       <link>http://localhost:1313/posts/studyspace/distributedsystem/</link>
       <pubDate>Sat, 10 May 2025 11:45:54 +0800</pubDate>
