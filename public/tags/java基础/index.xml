@@ -2,123 +2,113 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java基础 on Ting&#39;s Space</title>
-    <link>http://localhost:1313/tags/java%E5%9F%BA%E7%A1%80/</link>
+    <link>http://localhost:6092/tags/java%E5%9F%BA%E7%A1%80/</link>
     <description>Recent content in Java基础 on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Wed, 04 Jun 2025 18:06:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/java%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Jun 2025 18:06:21 +0800</lastBuildDate><atom:link href="http://localhost:6092/tags/java%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>集合</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/listandset/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/listandset/</link>
       <pubDate>Wed, 04 Jun 2025 18:06:21 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/listandset/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/listandset/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/listandset/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/javastudy/listandset/featured.png" />
     </item>
     
     <item>
       <title>泛型</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/generics/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/generics/</link>
       <pubDate>Wed, 04 Jun 2025 18:04:16 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/generics/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/generics/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/generics/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/javastudy/generics/featured.png" />
     </item>
     
     <item>
       <title>异常</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/exception/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/exception/</link>
       <pubDate>Wed, 04 Jun 2025 18:01:37 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/exception/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/exception/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/exception/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/javastudy/exception/featured.png" />
     </item>
     
     <item>
       <title>Lambda表达式和方法引用</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/lambdaandfuctionquote/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/lambdaandfuctionquote/</link>
       <pubDate>Wed, 04 Jun 2025 17:54:03 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/lambdaandfuctionquote/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/lambdaandfuctionquote/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/lambdaandfuctionquote/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/javastudy/lambdaandfuctionquote/featured.png" />
     </item>
     
     <item>
       <title>内部类</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/innerclasses/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/innerclasses/</link>
       <pubDate>Wed, 04 Jun 2025 17:50:34 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/innerclasses/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/innerclasses/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/innerclasses/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/javastudy/innerclasses/featured.png" />
     </item>
     
     <item>
       <title>接口</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/interfacepage/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/interfacepage/</link>
       <pubDate>Wed, 04 Jun 2025 17:46:07 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/interfacepage/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/interfacepage/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/interfacepage/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/javastudy/interfacepage/featured.png" />
     </item>
     
     <item>
       <title>Enumeration</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/enumeration/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/enumeration/</link>
       <pubDate>Wed, 04 Jun 2025 17:43:15 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/enumeration/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/enumeration/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/enumeration/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/javastudy/enumeration/featured.png" />
     </item>
     
     <item>
       <title>面向对象</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/objectorientation/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/objectorientation/</link>
       <pubDate>Wed, 04 Jun 2025 17:37:07 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/objectorientation/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/objectorientation/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/objectorientation/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/javastudy/objectorientation/featured.png" />
     </item>
     
     <item>
       <title>基本数据类型、流程控制</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/basic/</link>
+      <link>http://localhost:6092/posts/studyspace/javastudy/basic/</link>
       <pubDate>Wed, 04 Jun 2025 17:24:11 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/basic/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/basic/featured.png" />
-    </item>
-    
-    <item>
-      <title>Java基础</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/</link>
-      <pubDate>Wed, 14 May 2025 09:08:14 +0800</pubDate>
-      <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/basic/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Java全部</title>
-      <link>http://localhost:1313/posts/studyspace/javastudy/javaread/</link>
+      <title>Java基础</title>
+      <link>http://localhost:6092/posts/studyspace/javastudy/</link>
       <pubDate>Wed, 14 May 2025 09:08:14 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/javastudy/javaread/</guid>
+      <guid>http://localhost:6092/posts/studyspace/javastudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/javastudy/javaread/featured.png" />
+      
     </item>
     
   </channel>

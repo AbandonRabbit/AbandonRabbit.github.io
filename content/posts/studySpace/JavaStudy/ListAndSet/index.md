@@ -55,7 +55,7 @@ public interface Collection<E> extends Iterable<E> {
 
 ### List集合
 
-**ArrayList**
+#### ArrayList
 
 ~~~java
 ArrayList<Type> listName = new ArrayList<>();
@@ -68,7 +68,7 @@ ArrayList<Type> listName = new ArrayList<>();
 
 底层采用数组实现，默认初始容量 10，扩容 1.5 倍。
 
-**LinkedList**
+#### LinkedList
 
 ~~~java
 LinkedList<Type> listName = new LinkedList<>();
@@ -183,7 +183,9 @@ while (it.hasNext()) {
 
 唯一性基于 `hashcode() `，添加元素时，先计算哈希值定位桶位置。如果哈希冲突，再调用 `equals()` 比较是否重复。，查询/插入平均 O(1)（哈希冲突少时）。**无序**：遍历顺序与插入顺序无关。
 
-**扩容策略**：元素个数 / hash表的长度 > 加载因子(默认为0.75),则会扩容, "二倍"扩容, 所有的元素会重新计算索引重新排列。
+**扩容策略**：  
+元素个数 / hash表的长度 > 加载因子(默认为0.75),则会扩容, "二倍"扩容, 所有的元素会重新计算索引重新排列。  
+链表升级为红黑树：链表长度 ≥ 8 时，会变为红黑树，当树节点数 ≤ 6时，红黑树会退化为链表。
 
 ~~~java
 HashSet<Integer> hs =new HashSet<>();
@@ -195,7 +197,7 @@ HashSet<Integer> hs =new HashSet<>();
 
 特点：
 1. 有序：维护插入顺序（或访问顺序）
-2. 性能略低：比HashSet稍慢，因为要维护链表
+2. 性能略低：比 `HashSet` 稍慢，因为要维护链表
 3. 迭代效率高：直接遍历链表即可
 
 #### TreeSet
@@ -203,16 +205,43 @@ HashSet<Integer> hs =new HashSet<>();
 底层采用红黑树实现，排序规则按照自然排序或自定义排序。
 
 **唯一性保证**
-依赖 Comparable 或 Comparator：
-如果元素实现 Comparable，按 compareTo() 排序。
-可通过构造函数传入 Comparator 自定义排序规则。
+依赖 `Comparable` 或 `Comparator：`
+如果元素实现 `Comparable` ，按 `compareTo()` 排序。
+可通过构造函数传入 `Comparator` 自定义排序规则。
 
 **自然排序**
 
-让元素实现Comparable接口, 重写compareTo方法, this代表要添加的元素, o代表集合的元素。
+让元素实现 `Comparable` 接口, 重写 `compareTo` 方法, `this` 代表要添加的元素, o代表集合的元素。
 
 **比较器排序**
 
-创建Comparator对象, 实现compare方法, 里面有两个参数, 第一个参数是要添加的元素, 第二个参数是集合中的元素。
+创建 `Comparator` 对象, 实现 `compare` 方法, 里面有两个参数, 第一个参数是要添加的元素, 第二个参数是集合中的元素。
 
-红黑树
+## 双列集合
+
+### HashMap
+
+它基于哈希表实现，提供了高效的键值对存储和访问能力。
+
+## strem流
+
+函数式数据处理，主要用来简化集合的操作。
+
+**核心特点**;
+1. 非存储：Stream 不存储数据，只是对数据源（如集合）的计算视图。
+2. 惰性求值：中间操作（如 filter、map）不会立即执行，只有终端操作（如 collect、forEach）触发计算。
+3. 不可复用：一个 Stream 只能被消费一次。
+4. 并行支持：通过 parallel() 轻松实现并行处理。
+
+二、Stream 的操作分类
+|操作类型|	方法示例|	说明|
+|---------|---------|-------|
+|创建流	|stream()、Arrays.stream()|	从集合/数组创建流|
+|中间操作|	filter()、map()、sorted()|	返回新 Stream，可链式调用（惰性执行）|
+|终端操作|	collect()、forEach()、count()|	触发计算并返回结果（或副作用）|
+
+{{<alert>}}
+如果对数据进行修改会影响到原数据，筛选不会影响原数据。
+{{</alert>}}
+
+

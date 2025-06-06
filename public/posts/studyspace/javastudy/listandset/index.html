@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=6092&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="zh-cn" />
@@ -15,7 +15,7 @@
   <meta name="keywords" content="Java基础, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/studyspace/javastudy/listandset/" />
+  <link rel="canonical" href="http://localhost:6092/posts/studyspace/javastudy/listandset/" />
   
   
   
@@ -67,7 +67,7 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/posts/studyspace/javastudy/listandset/">
+  <meta property="og:url" content="http://localhost:6092/posts/studyspace/javastudy/listandset/">
   <meta property="og:site_name" content="Ting&#39;s Space">
   <meta property="og:title" content="集合">
   <meta property="og:locale" content="zh_cn">
@@ -76,17 +76,17 @@
     <meta property="article:published_time" content="2025-06-04T18:06:21+08:00">
     <meta property="article:modified_time" content="2025-06-04T18:06:21+08:00">
     <meta property="article:tag" content="Java基础">
-    <meta property="og:image" content="http://localhost:1313/posts/studyspace/javastudy/listandset/featured.png">
-      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/generics/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/exception/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/lambdaandfuctionquote/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/innerclasses/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/interfacepage/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/objectorientation/">
+    <meta property="og:image" content="http://localhost:6092/posts/studyspace/javastudy/listandset/featured.png">
+      <meta property="og:see_also" content="http://localhost:6092/posts/studyspace/javastudy/generics/">
+      <meta property="og:see_also" content="http://localhost:6092/posts/studyspace/javastudy/exception/">
+      <meta property="og:see_also" content="http://localhost:6092/posts/studyspace/javastudy/lambdaandfuctionquote/">
+      <meta property="og:see_also" content="http://localhost:6092/posts/studyspace/javastudy/innerclasses/">
+      <meta property="og:see_also" content="http://localhost:6092/posts/studyspace/javastudy/interfacepage/">
+      <meta property="og:see_also" content="http://localhost:6092/posts/studyspace/javastudy/objectorientation/">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/posts/studyspace/javastudy/listandset/featured.png">
+  <meta name="twitter:image" content="http://localhost:6092/posts/studyspace/javastudy/listandset/featured.png">
   <meta name="twitter:title" content="集合">
 
   
@@ -100,7 +100,7 @@
     
     
     "inLanguage": "zh-cn",
-    "url" : "http:\/\/localhost:1313\/posts\/studyspace\/javastudy\/listandset\/",
+    "url" : "http:\/\/localhost:6092\/posts\/studyspace\/javastudy\/listandset\/",
     "author" : {
       "@type": "Person",
       "name": "Ting"
@@ -114,7 +114,7 @@
     "keywords": ["Java基础"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2062"
+    "wordCount": "2423"
   }]
   </script>
 
@@ -632,7 +632,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-06-04T18:06:21&#43;08:00">2025-06-04</time><span class="px-2 text-primary-500">&middot;</span><span>2062 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
+  <time datetime="2025-06-04T18:06:21&#43;08:00">2025-06-04</time><span class="px-2 text-primary-500">&middot;</span><span>2423 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">5 分钟</span>
   
 
   
@@ -927,7 +927,12 @@
   <ul>
     <li><a href="#单列集合">单列集合</a>
       <ul>
-        <li><a href="#list集合">List集合</a></li>
+        <li><a href="#list集合">List集合</a>
+          <ul>
+            <li><a href="#arraylist">ArrayList</a></li>
+            <li><a href="#linkedlist">LinkedList</a></li>
+          </ul>
+        </li>
         <li><a href="#迭代器">迭代器</a></li>
         <li><a href="#set-集合">Set 集合</a>
           <ul>
@@ -938,6 +943,12 @@
         </li>
       </ul>
     </li>
+    <li><a href="#双列集合">双列集合</a>
+      <ul>
+        <li><a href="#hashmap">HashMap</a></li>
+      </ul>
+    </li>
+    <li><a href="#strem流">strem流</a></li>
   </ul>
 </nav>
   </div>
@@ -953,7 +964,12 @@
   <ul>
     <li><a href="#单列集合">单列集合</a>
       <ul>
-        <li><a href="#list集合">List集合</a></li>
+        <li><a href="#list集合">List集合</a>
+          <ul>
+            <li><a href="#arraylist">ArrayList</a></li>
+            <li><a href="#linkedlist">LinkedList</a></li>
+          </ul>
+        </li>
         <li><a href="#迭代器">迭代器</a></li>
         <li><a href="#set-集合">Set 集合</a>
           <ul>
@@ -964,6 +980,12 @@
         </li>
       </ul>
     </li>
+    <li><a href="#双列集合">双列集合</a>
+      <ul>
+        <li><a href="#hashmap">HashMap</a></li>
+      </ul>
+    </li>
+    <li><a href="#strem流">strem流</a></li>
   </ul>
 </nav>
   </div>
@@ -1173,7 +1195,18 @@
     </span>        
     
 </h3>
-<p><strong>ArrayList</strong></p>
+
+
+<h4 class="relative group">ArrayList 
+    <div id="arraylist" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#arraylist" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">listName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>主要特点：</p>
 <ol>
@@ -1182,7 +1215,18 @@
 <li>增删慢——中间操作要挪数据，O(n)时间复杂度。</li>
 </ol>
 <p>底层采用数组实现，默认初始容量 10，扩容 1.5 倍。</p>
-<p><strong>LinkedList</strong></p>
+
+
+<h4 class="relative group">LinkedList 
+    <div id="linkedlist" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linkedlist" aria-label="锚点">#</a>
+    </span>        
+    
+</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">listName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LinkedList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div><p>主要特点：</p>
 <ol>
@@ -1335,7 +1379,9 @@ A：如果使用集合类直接删除其中的某一项数据，那么集合后�
 链表长度 &gt;8 时转为红黑树，红黑树节点数 &lt;6 时转回链表</li>
 </ul>
 <p>唯一性基于 <code>hashcode() </code>，添加元素时，先计算哈希值定位桶位置。如果哈希冲突，再调用 <code>equals()</code> 比较是否重复。，查询/插入平均 O(1)（哈希冲突少时）。<strong>无序</strong>：遍历顺序与插入顺序无关。</p>
-<p><strong>扩容策略</strong>：元素个数 / hash表的长度 &gt; 加载因子(默认为0.75),则会扩容, &ldquo;二倍&quot;扩容, 所有的元素会重新计算索引重新排列。</p>
+<p><strong>扩容策略</strong>：<br>
+元素个数 / hash表的长度 &gt; 加载因子(默认为0.75),则会扩容, &ldquo;二倍&quot;扩容, 所有的元素会重新计算索引重新排列。<br>
+链表升级为红黑树：链表长度 ≥ 8 时，会变为红黑树，当树节点数 ≤ 6时，红黑树会退化为链表。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hs</span><span class="w"> </span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">HashSet</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w">
 </span></span></span></code></pre></div>
 
@@ -1353,7 +1399,7 @@ A：如果使用集合类直接删除其中的某一项数据，那么集合后�
 <p>特点：</p>
 <ol>
 <li>有序：维护插入顺序（或访问顺序）</li>
-<li>性能略低：比HashSet稍慢，因为要维护链表</li>
+<li>性能略低：比 <code>HashSet</code> 稍慢，因为要维护链表</li>
 <li>迭代效率高：直接遍历链表即可</li>
 </ol>
 
@@ -1370,14 +1416,116 @@ A：如果使用集合类直接删除其中的某一项数据，那么集合后�
 </h4>
 <p>底层采用红黑树实现，排序规则按照自然排序或自定义排序。</p>
 <p><strong>唯一性保证</strong>
-依赖 Comparable 或 Comparator：
-如果元素实现 Comparable，按 compareTo() 排序。
-可通过构造函数传入 Comparator 自定义排序规则。</p>
+依赖 <code>Comparable</code> 或 <code>Comparator：</code>
+如果元素实现 <code>Comparable</code> ，按 <code>compareTo()</code> 排序。
+可通过构造函数传入 <code>Comparator</code> 自定义排序规则。</p>
 <p><strong>自然排序</strong></p>
-<p>让元素实现Comparable接口, 重写compareTo方法, this代表要添加的元素, o代表集合的元素。</p>
+<p>让元素实现 <code>Comparable</code> 接口, 重写 <code>compareTo</code> 方法, <code>this</code> 代表要添加的元素, o代表集合的元素。</p>
 <p><strong>比较器排序</strong></p>
-<p>创建Comparator对象, 实现compare方法, 里面有两个参数, 第一个参数是要添加的元素, 第二个参数是集合中的元素。</p>
-<p>红黑树</p>
+<p>创建 <code>Comparator</code> 对象, 实现 <code>compare</code> 方法, 里面有两个参数, 第一个参数是要添加的元素, 第二个参数是集合中的元素。</p>
+
+
+<h2 class="relative group">双列集合 
+    <div id="%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%8C%E5%88%97%E9%9B%86%E5%90%88" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">HashMap 
+    <div id="hashmap" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hashmap" aria-label="锚点">#</a>
+    </span>        
+    
+</h3>
+<p>它基于哈希表实现，提供了高效的键值对存储和访问能力。</p>
+
+
+<h2 class="relative group">strem流 
+    <div id="strem%E6%B5%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#strem%E6%B5%81" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>函数式数据处理，主要用来简化集合的操作。</p>
+<p><strong>核心特点</strong>;</p>
+<ol>
+<li>非存储：Stream 不存储数据，只是对数据源（如集合）的计算视图。</li>
+<li>惰性求值：中间操作（如 filter、map）不会立即执行，只有终端操作（如 collect、forEach）触发计算。</li>
+<li>不可复用：一个 Stream 只能被消费一次。</li>
+<li>并行支持：通过 parallel() 轻松实现并行处理。</li>
+</ol>
+<p>二、Stream 的操作分类</p>
+<table>
+  <thead>
+      <tr>
+          <th>操作类型</th>
+          <th>方法示例</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>创建流</td>
+          <td>stream()、Arrays.stream()</td>
+          <td>从集合/数组创建流</td>
+      </tr>
+      <tr>
+          <td>中间操作</td>
+          <td>filter()、map()、sorted()</td>
+          <td>返回新 Stream，可链式调用（惰性执行）</td>
+      </tr>
+      <tr>
+          <td>终端操作</td>
+          <td>collect()、forEach()、count()</td>
+          <td>触发计算并返回结果（或副作用）</td>
+      </tr>
+  </tbody>
+</table>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M506.3 417l-213.3-364c-16.33-28-57.54-28-73.98 0l-213.2 364C-10.59 444.9 9.849 480 42.74 480h426.6C502.1 480 522.6 445 506.3 417zM232 168c0-13.25 10.75-24 24-24S280 154.8 280 168v128c0 13.25-10.75 24-23.1 24S232 309.3 232 296V168zM256 416c-17.36 0-31.44-14.08-31.44-31.44c0-17.36 14.07-31.44 31.44-31.44s31.44 14.08 31.44 31.44C287.4 401.9 273.4 416 256 416z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    >如果对数据进行修改会影响到原数据，筛选不会影响原数据。</span>
+</div>
+
 
           
           
@@ -2170,7 +2318,7 @@ A：如果使用集合类直接删除其中的某一项数据，那么集合后�
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/"
+  data-url="http://localhost:6092/"
   style="z-index:500"
 >
   <div

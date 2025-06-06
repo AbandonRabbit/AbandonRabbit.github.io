@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kafka on Ting&#39;s Space</title>
-    <link>http://localhost:1313/tags/kafka/</link>
+    <link>http://localhost:6092/tags/kafka/</link>
     <description>Recent content in Kafka on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Fri, 09 May 2025 18:08:04 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 May 2025 18:08:04 +0800</lastBuildDate><atom:link href="http://localhost:6092/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Kafka</title>
-      <link>http://localhost:1313/posts/studyspace/kafkastudy/</link>
+      <link>http://localhost:6092/posts/studyspace/kafkastudy/</link>
       <pubDate>Fri, 09 May 2025 18:08:04 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/posts/studyspace/kafkastudy/</guid>
+      <guid>http://localhost:6092/posts/studyspace/kafkastudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/posts/studyspace/kafkastudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:6092/posts/studyspace/kafkastudy/featured.png" />
     </item>
     
   </channel>
