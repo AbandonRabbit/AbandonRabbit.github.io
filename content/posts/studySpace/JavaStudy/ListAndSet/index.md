@@ -24,12 +24,12 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 
 该接口主要包含以下方法
 <!--
-|                             | 方法名                           | 功能 |
+|                                 | 方法名                           | 功能 |
 | ------------------------------- | -------------------------------- |
 | `boolean add(E e)`              | 添加元素，返回是否添加成功。     |
 | `boolean remove(Object obj);`   | 根据元素删除，返回是否删除成功。 |
 | `boolean contains(Object obj);` | 判断集合中是否包含某一个元素。   |
-| `int size();`                   | 求集合的元素个数。               |  |
+| `int size();`                   | 求集合的元素个数。               |      |
 --> 
 ~~~Java
 public interface Collection<E> extends Iterable<E> {
@@ -169,6 +169,10 @@ while (it.hasNext()) {
 
 用于存储 **唯一元素（不重复）** 的接口，其核心实现类（ `HashSet` 、 `LinkedHashSet` 、 `TreeSet` ）底层分别依赖不同的数据结构来保证元素的唯一性和特定顺序。
 
+{{<alert>}}
+存储的元素如果想要去重, 必须重写equals和hashcode方法
+{{</alert>}}
+
 #### HashSet（无序，基于哈希表）
 
 `HashSet` 是基于哈希表(Hash Table)实现的
@@ -181,11 +185,15 @@ while (it.hasNext()) {
   每个数组元素可能是一个链表或红黑树。
   链表长度 >8 时转为红黑树，红黑树节点数 <6 时转回链表
 
-唯一性基于 `hashcode() `，添加元素时，先计算哈希值定位桶位置。如果哈希冲突，再调用 `equals()` 比较是否重复。，查询/插入平均 O(1)（哈希冲突少时）。**无序**：遍历顺序与插入顺序无关。
+唯一性基于 `hashcode() `，添加元素时，先计算哈希值定位桶位置。如果哈希冲突，再调用 `equals()` 比较是否重复。查询/插入平均 O(1)（哈希冲突少时）。**无序**：遍历顺序与插入顺序无关。
 
 **扩容策略**：  
 元素个数 / hash表的长度 > 加载因子(默认为0.75),则会扩容, "二倍"扩容, 所有的元素会重新计算索引重新排列。  
 链表升级为红黑树：链表长度 ≥ 8 时，会变为红黑树，当树节点数 ≤ 6时，红黑树会退化为链表。
+
+{{<alert>}}
+在确定索引位置时，HashMap 是 (n-1) & hash，HashSet是%都组内长度，在存储时 HashMap 是直接覆盖， HashSet 是丢弃。
+{{</alert>}}
 
 ~~~java
 HashSet<Integer> hs =new HashSet<>();
@@ -204,10 +212,19 @@ HashSet<Integer> hs =new HashSet<>();
 
 底层采用红黑树实现，排序规则按照自然排序或自定义排序。
 
+*红黑规则*:  
+1. 跟节点是黑色, 叶子节点也是黑色的。
+2. 两个红色节点不能相连。
+3. 任何节点,到其下面所有的叶子节点的简单路径上, 所有的黑色节点保持一致。
+
 **唯一性保证**
 依赖 `Comparable` 或 `Comparator：`
 如果元素实现 `Comparable` ，按 `compareTo()` 排序。
 可通过构造函数传入 `Comparator` 自定义排序规则。
+
+{{<alert>}}
+元素必须有排序规则！！！
+{{</alert>}}
 
 **自然排序**
 
@@ -217,13 +234,46 @@ HashSet<Integer> hs =new HashSet<>();
 
 创建 `Comparator` 对象, 实现 `compare` 方法, 里面有两个参数, 第一个参数是要添加的元素, 第二个参数是集合中的元素。
 
+### Collections 工具类
+
+常用方法：
+
+| 方法名                                        | 描述                       |
+| --------------------------------------------- | -------------------------- |
+| `sort(List<T> list)`                          | 对列表进行自然排序         |
+| `sort(List<T> list, Comparator<? super T> c)` | 使用自定义比较器排序       |
+| `binarySearch()`                              | 二分查找（列表必须已排序） |
+| `shuffle()`                                   | 随机打乱列表               |
+| `swap()`                                      | 交换元素位置               |
+| `copy()`                                      | 复制列表                   |
+| `replaceAll()`                                | 批量替换                   |
+
 ## 双列集合
+
+顶层接口为 `Map` 不能直接使用, 我们需要使用他的实现类。
+
+常用方法：
+
+| 方法名                                                  | 描述                  |
+| ------------------------------------------------------- | --------------------- |
+| `V  put(K key, V value);`                               | 添加元素              |
+| `V  remove(K key);`                                     | 删除元素              |
+| `V  get(K key); `                                       | 获取元素              |
+| `int size()`                                            | 获取大小              |
+| `void clear()`                                          | 清空集合              |
+| `boolean containsKey(Object key);`                      | 是否存在这个 key      |
+| `boolean containsValue(Object value);`                  | 是否存在这个 value    |
+| `keyset()`                                              | 获取 key 的 set 集合  |
+| `entryset();`                                           | 获取键值对的 set 集合 |
+| `void forEach(BiConsumer<? super K, ? super V> action)` | 遍历操作              |
+
+
 
 ### HashMap
 
 它基于哈希表实现，提供了高效的键值对存储和访问能力。
 
-## strem流
+## Stream流
 
 函数式数据处理，主要用来简化集合的操作。
 
@@ -233,15 +283,34 @@ HashSet<Integer> hs =new HashSet<>();
 3. 不可复用：一个 Stream 只能被消费一次。
 4. 并行支持：通过 parallel() 轻松实现并行处理。
 
-二、Stream 的操作分类
-|操作类型|	方法示例|	说明|
-|---------|---------|-------|
-|创建流	|stream()、Arrays.stream()|	从集合/数组创建流|
-|中间操作|	filter()、map()、sorted()|	返回新 Stream，可链式调用（惰性执行）|
-|终端操作|	collect()、forEach()、count()|	触发计算并返回结果（或副作用）|
-
 {{<alert>}}
-如果对数据进行修改会影响到原数据，筛选不会影响原数据。
+如果对数据进行修改会影响到原数据，筛选不会影响原数据。Stream 流只能被操作一次。
 {{</alert>}}
 
+### Stream 的操作分类
 
+**创建流**
+| 方法示例              | 说明         |
+| --------------------- | ------------ |
+| `集合<E>.stream()`    | 从集合创建流 |
+| `Arrays.stream(数组)` | 数组创建流   |
+
+**中间操作**
+| 方法示例                                       | 说明                 |
+| ---------------------------------------------- | -------------------- |
+| `filter(Predicate<? super T> predicate);`      | 筛选                 |
+| `limit(long count);`                           | 只要前几个           |
+| `skip(long count);  `                          | 跳过前几个           |
+| `distinct(); `                                 | 去重, 采用的hash去重 |
+| `concat(Stream<T> s1, Stream<T> s2);`          | 合并两个集合         |
+| `map(Function<? super T, ? extends R> mapper)` | 操作集合中的元素值   |
+
+
+**终结操作**
+| 方法示例                              | 说明             |
+| ------------------------------------- | ---------------- |
+| `forEach(Consumer<? super T> action)` | 遍历             |
+| `count()`                             | 计算流中元素个数 |
+| `max(比较器);`                        | 取最大值         |
+| `min(比较器);`                        | 取最小值         |
+| `get();`                              | 获取比较器的结果 |

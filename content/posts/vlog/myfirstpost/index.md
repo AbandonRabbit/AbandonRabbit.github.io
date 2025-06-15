@@ -5,6 +5,7 @@ draft: false
 summary: "生活记录"
 language: zh-cn
 tags: ["生活记录"]
+Categories: ["diyipian"]
 ---
 
 

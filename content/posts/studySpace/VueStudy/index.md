@@ -24,13 +24,7 @@ index.html  如果HTML文件
 package.json  信息描述文件
 vite.config.js  Vue配置文件
 
-
-
 Vue.js是典型的MVVM框架
-
-
-
-
 
 文本绑定 {{}}
 

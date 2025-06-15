@@ -2,7 +2,7 @@
 title: "欢迎来到我的网站！我很高兴你的来访。"
 date: 2022-06-13T20:55:37+01:00
 draft: false
-excludeFromRelated: true
+excludeFromRelated: false
 # excludeFromRelated: true
 # seriesOpened: false
 # showDate: false
@@ -19,7 +19,9 @@ excludeFromRelated: true
 # showEdit: false
 # showViews: false
 # showLikes: false
-# showAuthor: true
+showAuthor: true
+tags: ["关于"]
+Categories: [""]
 # layoutBackgroundHeaderSpace: false
 ---
 
