@@ -4,7 +4,7 @@ draft: false
 title: '网络编程'
 seriesOpened: true #s是否开启系列
 series: ["java学习笔记"] #属于的系列 
-series_order: 14  #系列编号
+series_order: 12  #系列编号
 showSummary: true #摘要信息
 summary: "" #摘要信息
 tags: ["Java基础"]
@@ -34,6 +34,18 @@ layoutBackgroundHeaderSpace: true #在标题和正文之间添加空白区域间
 2. 服务端,回复ack消息, 让客户端处于fin_rev2。
 3. 服务器处理完数据后, 发送一个FIN消息等待客户端的确定自己处于rev_fin。
 4. 客户端发送ack消息, 确认断开。
+
+**InetAddress 类**  
+用来表示 `IP` 地址（包括IPv4和IPv6）的核心类。提供处理IP地址和进行DNS解析的方法。
+1. 根据主机名获取IP地址（会进行DNS查询）  
+   ~~~java
+    InetAddress address1 = InetAddress.getByName("www.example.com");
+   ~~~
+
+2. 根据IP地址字符串创建InetAddress（不会进行DNS查询） 
+   ~~~java
+    InetAddress address2 = InetAddress.getByName("192.168.1.1");
+   ~~~
 
 ## UDP 通信
 
@@ -154,12 +166,6 @@ System.out.println(inData.readUTF());
 
 ## 粘包问题
 
+指的是在TCP通信中，接收方读取到的数据与发送方发送的数据边界不一致，导致多条消息"粘"在一起的现象。
+
 如果使用 `socket.getInputStream()` 和 `socket.getOutputStream()` 直接读取或写入会有粘包问题，使用 `DataOutputStream` 和 `DataInputStream` 向包的尾部写了一个结束字符。保证不会发生粘包现象。
-
-## 时间
-
-## 反射
-
-### 获取字节码
-
-### 获取构造函数

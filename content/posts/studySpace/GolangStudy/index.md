@@ -273,10 +273,6 @@ type GenericSlice[T int | int32 | int64] []T
 GenericSlice[int]{1, 2, 3} //使用时就不能省略掉类型实参
 ~~~
 
-
-
-
-
 ## 反射reflect
 
 Valueof 和 Typeof

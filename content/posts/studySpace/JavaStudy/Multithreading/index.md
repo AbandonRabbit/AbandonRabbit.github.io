@@ -4,7 +4,7 @@ draft: false
 title: '多线程'
 seriesOpened: true #s是否开启系列
 series: ["java学习笔记"] #属于的系列
-series_order: 13  #系列编号
+series_order: 11  #系列编号
 showSummary: true #摘要信息
 summary: "" #摘要信息
 tags: ["Java基础"]
@@ -86,9 +86,9 @@ new Thread(new Runnable(){
 
 ## 常用的线程方法
 
-| 方法名                        | 作用                                             |
-| ----------------------------- | ------------------------------------------------ |
-| `run()`                       | 存放任务的地方, 我们也可以手动调用run!!!         |
+| 方法名                          | 作用                                             |
+| ------------------------------- | ------------------------------------------------ |
+| `run()`                         | 存放任务的地方, 我们也可以手动调用run!!!         |
 | `start()`                       | 开启线程                                         |
 | `String getName()`              | 获取线程的名字                                   |
 | `void setName(String name) `    | 设置线程的名字                                   |
@@ -209,4 +209,57 @@ long completedTaskCount = executor.getCompletedTaskCount();
 
 // 获取任务队列中的任务数
 int queueSize = executor.getQueue().size();
+~~~
+
+
+## 设计模式-单例模式
+
+保证全局只有一个实例对象
+
+**饿汉式**：  
+在jvm初始化类时，实例化对象。
+~~~java
+public class A {
+
+    //1.私有化构造
+    private A(){}
+
+    //2.维护一个本类的对象
+    private   static final A a  = new A();
+
+    public static A getInstance(){
+        return a;
+    }
+
+}
+~~~
+
+**懒汉式**：  
+在第一次使用时实例化对象。需要注意的是并发系统中的问题，加锁保证对象不会被重发加载。
+
+~~~java
+public class A {
+    //1.私有化构造
+    private  A() {
+    }
+    private int age;
+    public int getAge(){
+        return age;
+    }
+    //2.维护一个本类的对象
+    private static A a;
+
+    public synchronized static A getInstance() {
+        if (a == null) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            a = new A();
+        }
+        return a;
+    }
+
+}
 ~~~

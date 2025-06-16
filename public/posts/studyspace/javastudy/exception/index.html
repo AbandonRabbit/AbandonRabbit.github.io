@@ -77,12 +77,13 @@
     <meta property="article:modified_time" content="2025-06-04T18:01:37+08:00">
     <meta property="article:tag" content="Java基础">
     <meta property="og:image" content="http://localhost:1313/posts/studyspace/javastudy/exception/featured.png">
+      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/timeandanoannotation/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/iostream/">
       <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/reflection/">
       <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/multithreading/">
       <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/networkprogramming/">
       <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/listandset/">
       <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/generics/">
-      <meta property="og:see_also" content="http://localhost:1313/posts/studyspace/javastudy/lambdaandfuctionquote/">
 
   
   <meta name="twitter:card" content="summary_large_image">
@@ -114,7 +115,7 @@
     "keywords": ["Java基础"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "634"
+    "wordCount": "698"
   }]
   </script>
 
@@ -632,7 +633,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-06-04T18:01:37&#43;08:00">2025-06-04</time><span class="px-2 text-primary-500">&middot;</span><span>634 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span>
+  <time datetime="2025-06-04T18:01:37&#43;08:00">2025-06-04</time><span class="px-2 text-primary-500">&middot;</span><span>698 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span>
   
 
   
@@ -937,6 +938,7 @@
     </li>
     <li><a href="#自定义异常">自定义异常</a></li>
     <li><a href="#异常处理">异常处理</a></li>
+    <li><a href="#自动资源释放">自动资源释放</a></li>
   </ul>
 </nav>
   </div>
@@ -962,6 +964,7 @@
     </li>
     <li><a href="#自定义异常">自定义异常</a></li>
     <li><a href="#异常处理">异常处理</a></li>
+    <li><a href="#自动资源释放">自动资源释放</a></li>
   </ul>
 </nav>
   </div>
@@ -1075,7 +1078,16 @@
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="/posts/studyspace/javastudy/listandset/">
-            § 10: 集合
+            § 9: 集合
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/studyspace/javastudy/iostream/">
+            § 10: I/O流、文件处理
         </a>
     </div>
     
@@ -1084,7 +1096,7 @@
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="/posts/studyspace/javastudy/multithreading/">
-            § 13: 多线程
+            § 11: 多线程
         </a>
     </div>
     
@@ -1093,7 +1105,16 @@
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="/posts/studyspace/javastudy/networkprogramming/">
-            § 14: 网络编程
+            § 12: 网络编程
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/studyspace/javastudy/timeandanoannotation/">
+            § 13: TimeAndAnoAnnotation
         </a>
     </div>
     
@@ -1102,7 +1123,7 @@
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="/posts/studyspace/javastudy/reflection/">
-            § 15: 反射
+            § 13: 反射
         </a>
     </div>
     
@@ -1266,6 +1287,25 @@
 </div>
 
 
+
+<h2 class="relative group">自动资源释放 
+    <div id="%E8%87%AA%E5%8A%A8%E8%B5%84%E6%BA%90%E9%87%8A%E6%94%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%87%AA%E5%8A%A8%E8%B5%84%E6%BA%90%E9%87%8A%E6%94%BE" aria-label="锚点">#</a>
+    </span>        
+    
+</h2>
+<p>jdk 1.7 之后出现的</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">try</span><span class="p">(</span><span class="w"> </span><span class="n">需要释放资源的对象</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">其他操作</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="n">异常</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>当 <code>try</code> 执行完之后会自动将 <code>()</code> 内声明的资源进行释放</p>
+
           
           
           
@@ -1347,7 +1387,16 @@
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="/posts/studyspace/javastudy/listandset/">
-            § 10: 集合
+            § 9: 集合
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/studyspace/javastudy/iostream/">
+            § 10: I/O流、文件处理
         </a>
     </div>
     
@@ -1356,7 +1405,7 @@
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="/posts/studyspace/javastudy/multithreading/">
-            § 13: 多线程
+            § 11: 多线程
         </a>
     </div>
     
@@ -1365,7 +1414,16 @@
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="/posts/studyspace/javastudy/networkprogramming/">
-            § 14: 网络编程
+            § 12: 网络编程
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/studyspace/javastudy/timeandanoannotation/">
+            § 13: TimeAndAnoAnnotation
         </a>
     </div>
     
@@ -1374,7 +1432,7 @@
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="/posts/studyspace/javastudy/reflection/">
-            § 15: 反射
+            § 13: 反射
         </a>
     </div>
     
@@ -1510,11 +1568,303 @@
     
   
     
+      
+    
+  
+    
+      
+    
+  
+    
   
   
   
     <h2 class="mt-8 text-2xl font-extrabold mb-10">相关文章</h2>
     <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+      
+        
+
+  <a href="/posts/studyspace/javastudy/timeandanoannotation/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/studyspace/javastudy/timeandanoannotation/featured_hu_a8dc38496b2c4279.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/studyspace/javastudy/timeandanoannotation/">TimeAndAnoAnnotation</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-06-16T17:55:02&#43;08:00">2025-06-16</time>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/java/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Java
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/java%E5%9F%BA%E7%A1%80/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Java基础
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+      
+        
+
+  <a href="/posts/studyspace/javastudy/iostream/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/studyspace/javastudy/iostream/featured_hu_a8dc38496b2c4279.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/posts/studyspace/javastudy/iostream/">I/O流、文件处理</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-06-15T22:21:49&#43;08:00">2025-06-15</time><span class="px-2 text-primary-500">&middot;</span><span>1166 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">3 分钟</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/java/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Java
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学习笔记
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/java%E5%9F%BA%E7%A1%80/&#34;,'_self');return false;">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Java基础
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+        <div class="py-1 prose dark:prose-invert">
+          
+        </div>
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
       
         
 
@@ -1573,295 +1923,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-06-14T18:22:35&#43;08:00">2025-06-14</time><span class="px-2 text-primary-500">&middot;</span><span>1185 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">3 分钟</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/java/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Java
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    学习笔记
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/java%E5%9F%BA%E7%A1%80/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Java基础
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-      
-        
-
-  <a href="/posts/studyspace/javastudy/multithreading/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/studyspace/javastudy/multithreading/featured_hu_a8dc38496b2c4279.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/studyspace/javastudy/multithreading/">多线程</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-06-09T20:31:23&#43;08:00">2025-06-09</time><span class="px-2 text-primary-500">&middot;</span><span>1398 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">3 分钟</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/java/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Java
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    学习笔记
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/java%E5%9F%BA%E7%A1%80/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Java基础
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-        <div class="py-1 prose dark:prose-invert">
-          
-        </div>
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-      
-        
-
-  <a href="/posts/studyspace/javastudy/networkprogramming/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/posts/studyspace/javastudy/networkprogramming/featured_hu_a8dc38496b2c4279.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/posts/studyspace/javastudy/networkprogramming/">网络编程</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-06-09T20:26:11&#43;08:00">2025-06-09</time><span class="px-2 text-primary-500">&middot;</span><span>941 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">2 分钟</span>
+  <time datetime="2025-06-14T18:22:35&#43;08:00">2025-06-14</time><span class="px-2 text-primary-500">&middot;</span><span>1309 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">3 分钟</span>
   
 
   

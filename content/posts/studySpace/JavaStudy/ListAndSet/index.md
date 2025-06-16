@@ -4,7 +4,7 @@ draft: false
 title: '集合'
 seriesOpened: true #s是否开启系列
 series: ["java学习笔记"] #属于的系列 
-series_order: 10  #系列编号
+series_order: 9  #系列编号
 showSummary: true #摘要信息
 summary: "" #摘要信息
 tags: ["Java基础"]
