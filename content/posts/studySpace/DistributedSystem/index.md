@@ -189,6 +189,38 @@ ps： 如果极端情况下所有分区都不占多数（ 比如这里3台被拆
 
 ![123](imgs/image_01.png)
 
+> Q： 为什么不是全部确认？  
+> A： 需要保证整个系统运行，而不是因为某个机器宕机导致整个服务失效。
+>
+> Q： Follower 的 commit 在什么时候？  
+> A： 在 RAFT 中不存在日志提交的消息，取而代之的是 leader 会在下一次的 AppendEntries 中，记录信息，不管是什么原因，像 leader commit 或者 leader 需要发送 heartbeat 或者 需要发送一条新的客户端请求的时候会把 leader 最新的 commit 值连带发送出去。
+
+**日志的作用**
+1. 维护操作顺序，这个操作顺序对于 Replicated State 非常重要。
+2. 通过日志 Leader 可以安排请求操作的顺序，当产生并发的请求，Leader 就需要确定一个顺序，确保 Follower 也会执行到这个顺序。
+3. 在没有收到 Leader 的 commit 号增长消息之前，Follower 还不能执行，必须把这条操作暂存起来，直到收到 Leader 的消息。
+4. Leader使用日志的原因是，在部分 Follower 离线时，Leader 要有能力重新发送 Follower 错过的消息，第二个原因是如果一个 server 重新加入集群，就需要这些日志，server 重启之后，会对日志中的操作，从头进行重演。
+
+
+> Q： 如果 Leader 每秒能处理 1000 条请求，而 Follower 每秒只能处理 100 个请求会怎么样？  
+> A： Follower 需要确定，确认消息的速率是不受限制的，所以会产生 Follower 一秒一次确认 1000 条请求，将会导致日志大小没有上限，最终在某个时间点耗尽内存。
+
+### Leader Election (选举)
+
+*有 Leader vs 无 Leader*
+- 有 leader：Client 只需要 发送一次请求就可以
+- 无 leader：Client 需要发送请求两次，第一次和一个临时 Leader 达成一致，第二次发出实际请求。
+
+RAFT 使用 term(任期) 号标识不同的 Leader
+
+Follower 不需要知道 Leader 的标识，只需要知道当前 term 号
+
+一个任期里可能有一个 Leader，也可能没有 Leader ，绝对不会出现两个 Leader
+
+如果选举周期到了之后还没有收到当前 Leader 的消息，server 就假设 Leader已经挂了，发起新一次的选举
+
+
+
 **系统出现故障**
 - Client 向 Leader 请求
 - Leader 向其他2台机器同步 log 并且获得 ACK
@@ -200,12 +232,3 @@ ps： 如果极端情况下所有分区都不占多数（ 比如这里3台被拆
 
 需要考虑的是存活的两台机器的log中会有重复请求，而我们需要能够检测(detect)出这些重复请求。
 
-### Leader 选举
-
-Leader 使用 term(任期) 号标识不同的 Leader
-
-Follower 不需要知道 Leader 的标识号，只需要知道当前 term 号
-
-每个 term 至多由一个 Leader
-
-如果选举周期到了之后还没有收到当前 Leader 的消息，server 就假设 Leader已经挂了，发起新一次的选举 
