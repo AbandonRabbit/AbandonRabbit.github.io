@@ -217,7 +217,33 @@ Follower 不需要知道 Leader 的标识，只需要知道当前 term 号
 
 一个任期里可能有一个 Leader，也可能没有 Leader ，绝对不会出现两个 Leader
 
-如果选举周期到了之后还没有收到当前 Leader 的消息，server 就假设 Leader已经挂了，发起新一次的选举
+**创建 Leader** 
+
+内部维护了一个定时器，如果选举周期到了之后还没有收到当前 Leader 的消息，server 就假设 Leader已经挂了，发起新一次的选举
+
+先执行 Term ++ ， server 升级为 candidate 状态。
+并强制发起新一轮选举，然后发送 RequestVotes RPC 给其他的所有 server ，会发送出 N-1 条， candidate 会先给自己投一票
+
+需要考虑的特殊情况，比如产生了一个网络分区，旧的 leader 仍然存活，并处在一个只包含不到一半的 server 分区中，那么超过一半的 server 的分区可能会发生选举，并成功选取出一个新的 server ，但是新的 Leader 并不知道旧的 leader 的存在，需要考虑到旧的 leader 会干啥
+
+**server 是怎么知道那个 server 被选举了**
+
+发起选举的 candidate 胜出，则发送 AppendEntries 消息，告诉 其他的 server 我是 term n 号的 Leader ，除了 Leader 其他人是不允许发送 AppendEntries 消息的，这条消息会重置每个 server 的选举定时器，
+
+**选取失败的情况**
+
+有多个 server 之间会瓜分选票，加入有三台 server，当 Timer 同一时间触发，这些 server 先给自己投了一票，成为 candidate ，当接收到其他 server 发送过来的选票，因为先给自己投过一票就会回复 no ，现在每个 server 各自有一票，导致选取失败
+
+**日志同步**
+
+AppendEntrie：里面有两个参数，ProvLogIndex——当前 log 的 index，provLogTerm——当前 Term 编号，nextIndex——当前所有 server 的 log 的 nextIndex。
+
+Leader 发送 AppendEntrie，server 收到之后检查nextIndex和自己的log对比是否一致，不一致回复 false ，Leader 收到 false 之后 回退nextIndex ，并再次发送 nextIndex ，server 检查为 true 之后将nextIndex之后的条目写入自己的 log 中，完成同步
+
+为什么不选择日志最长的作为 Leader
+
+
+
 
 
 
