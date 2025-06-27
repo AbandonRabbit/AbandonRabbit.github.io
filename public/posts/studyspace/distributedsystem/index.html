@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=8422&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="zh-cn" />
@@ -15,7 +15,7 @@
   <meta name="keywords" content="分布式系统, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/studyspace/distributedsystem/" />
+  <link rel="canonical" href="http://localhost:8422/posts/studyspace/distributedsystem/" />
   
   
   
@@ -67,7 +67,7 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/posts/studyspace/distributedsystem/">
+  <meta property="og:url" content="http://localhost:8422/posts/studyspace/distributedsystem/">
   <meta property="og:site_name" content="Ting&#39;s Space">
   <meta property="og:title" content="MIT6.824_分布式系统">
   <meta property="og:description" content="多台计算机进行协作，完成同一项任务">
@@ -94,7 +94,7 @@
     
     "abstract": "多台计算机进行协作，完成同一项任务",
     "inLanguage": "zh-cn",
-    "url" : "http:\/\/localhost:1313\/posts\/studyspace\/distributedsystem\/",
+    "url" : "http:\/\/localhost:8422\/posts\/studyspace\/distributedsystem\/",
     "author" : {
       "@type": "Person",
       "name": "Ting"
@@ -108,7 +108,7 @@
     "keywords": ["分布式系统"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "5894"
+    "wordCount": "6343"
   }]
   </script>
 
@@ -632,7 +632,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>5894 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">12 分钟</span>
+  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>6343 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">13 分钟</span>
   
 
   
@@ -1274,7 +1274,18 @@ Primary 发出执行操作命令</p></blockquote>
 </ol>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="imgs/image_01.png" alt="123" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/studyspace/distributedsystem/imgs/image_01_hu_a701ed214dbeb021.png 330w,
+        /posts/studyspace/distributedsystem/imgs/image_01_hu_bafd286e519ee852.png 660w,
+        /posts/studyspace/distributedsystem/imgs/image_01_hu_139bf72f472ce36.png 1024w,
+        /posts/studyspace/distributedsystem/imgs/image_01_hu_b530b9b0d78ead60.png 2x"
+        data-zoom-src="/posts/studyspace/distributedsystem/imgs/image_01_hu_b530b9b0d78ead60.png"
+        src="/posts/studyspace/distributedsystem/imgs/image_01_hu_bafd286e519ee852.png"
+        alt="123"
+      />
       
     </figure>
 </p>
@@ -1323,9 +1334,33 @@ A： Follower 需要确定，确认消息的速率是不受限制的，所以会
 <p><strong>选取失败的情况</strong></p>
 <p>有多个 server 之间会瓜分选票，加入有三台 server，当 Timer 同一时间触发，这些 server 先给自己投了一票，成为 candidate ，当接收到其他 server 发送过来的选票，因为先给自己投过一票就会回复 no ，现在每个 server 各自有一票，导致选取失败</p>
 <p><strong>日志同步</strong></p>
-<p>AppendEntrie：里面有两个参数，ProvLogIndex——当前 log 的 index，provLogTerm——当前 Term 编号，nextIndex——当前所有 server 的 log 的 nextIndex。</p>
-<p>Leader 发送 AppendEntrie，server 收到之后检查nextIndex和自己的log对比是否一致，不一致回复 false ，Leader 收到 false 之后 回退nextIndex ，并再次发送 nextIndex ，server 检查为 true 之后将nextIndex之后的条目写入自己的 log 中，完成同步</p>
-<p>为什么不选择日志最长的作为 Leader</p>
+<p>上任之后会发送第一条 AppendEntrie：里面有两个参数，PrevLogIndex —— 上一个 log 槽位的 index，PrevLogTerm —— 上一个槽位 Term 编号，nextIndex——当前所有 server 的 log 的 nextIndex。</p>
+<p>Leader 为每个 Follower 维护了 nextIndex , nextIndex的初始值是从新任Leader的最后一条日志开始。</p>
+<p>Leader 发送 AppendEntrie，server 收到之后检查本地的前一个 Log 条目，是否与 Leader 发来的有关前一条Log的信息匹配对比是否一致，不一致回复 false ，Leader 收到 false 之后 回退nextIndex ，并再次发送 nextIndex 。同时，这次Leader发送的AppendEntries消息包含了prevLogIndex之后的所有条目， server 检查为 true 之后将 nextIndex 之后的条目写入自己的 log 中，完成同步。</p>
+<p>ps：如果接受一个 AppendEntries 消息，那么需要首先删除本地相应的 Log 。</p>
+<p>日志快速恢复：让 Follower 返回足够的信息，让 Leader 以 Term 为单位来回退，</p>
+<p><strong>为什么不选举日志条目最大的为 Leader</strong></p>
+<p>有s1、s2、s3台服务器，s1 为 Leader ，当收到一个 client 请求，在发出 AppendEntries 之前将请求写入 log ，之后就宕机了，很快就重启了，在新的选举中，又被选为 leader ，在接受一个请求，写入 log 之后，发出 AppendEntries 之前又宕机了，重新选举 s2 为 leader ， 接收到一个请求，并完美的处理，处理完之后 s2 宕机，触发选举。</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /posts/studyspace/distributedsystem/imgs/image_02_hu_b1fb3b4792531ab6.jpg 330w,
+        /posts/studyspace/distributedsystem/imgs/image_02_hu_4c4512ce5ac78899.jpg 660w,
+        /posts/studyspace/distributedsystem/imgs/image_02_hu_3aec45ea36c752e6.jpg 1024w,
+        /posts/studyspace/distributedsystem/imgs/image_02_hu_98a4cd2033bee708.jpg 2x"
+        data-zoom-src="/posts/studyspace/distributedsystem/imgs/image_02_hu_98a4cd2033bee708.jpg"
+        src="/posts/studyspace/distributedsystem/imgs/image_02_hu_4c4512ce5ac78899.jpg"
+        alt="image_02.png"
+      />
+      
+    </figure>
+</p>
+<p><strong>选举机制</strong>
+候选人最后一条Log条目的任期号大于本地最后一条Log条目的任期号。
+或者，候选人最后一条Log条目的任期号等于本地最后一条Log条目的任期号，且候选人的Log记录长度大于等于本地Log记录的长度。</p>
 <p><strong>系统出现故障</strong></p>
 <ul>
 <li>Client 向 Leader 请求</li>
@@ -1336,6 +1371,8 @@ A： Follower 需要确定，确认消息的速率是不受限制的，所以会
 <li>新 Leader 同样记录log并且同步log到另一台机器获取到ACK</li>
 <li>新 Leader 响应 Client</li>
 </ul>
+<p>持久化（Persistence）</p>
+<p>目的一：让新服务器在集群内工作 目的二：集群断电之后能够快速恢复。</p>
 <p>需要考虑的是存活的两台机器的log中会有重复请求，而我们需要能够检测(detect)出这些重复请求。</p>
 
           
@@ -2089,7 +2126,7 @@ A： Follower 需要确定，确认消息的速率是不受限制的，所以会
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/"
+  data-url="http://localhost:8422/"
   style="z-index:500"
 >
   <div

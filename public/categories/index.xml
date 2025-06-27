@@ -2,71 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>主题 on Ting&#39;s Space</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>http://localhost:8422/categories/</link>
     <description>Recent content in 主题 on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Mon, 16 Jun 2025 17:55:02 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jun 2025 17:55:02 +0800</lastBuildDate><atom:link href="http://localhost:8422/categories/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Java</title>
-      <link>http://localhost:1313/categories/java/</link>
+      <link>http://localhost:8422/categories/java/</link>
       <pubDate>Mon, 16 Jun 2025 17:55:02 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/categories/java/</guid>
+      <guid>http://localhost:8422/categories/java/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>学习笔记</title>
-      <link>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>http://localhost:8422/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 16 Jun 2025 17:55:02 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>http://localhost:8422/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://localhost:1313/categories/golang/</link>
+      <link>http://localhost:8422/categories/golang/</link>
       <pubDate>Fri, 09 May 2025 18:07:10 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/categories/golang/</guid>
+      <guid>http://localhost:8422/categories/golang/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>计算机基础</title>
-      <link>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</link>
+      <link>http://localhost:8422/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Fri, 09 May 2025 15:24:46 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</guid>
+      <guid>http://localhost:8422/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>菜鸟提升</title>
-      <link>http://localhost:1313/categories/%E8%8F%9C%E9%B8%9F%E6%8F%90%E5%8D%87/</link>
+      <link>http://localhost:8422/categories/%E8%8F%9C%E9%B8%9F%E6%8F%90%E5%8D%87/</link>
       <pubDate>Fri, 04 Oct 2024 16:07:15 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/categories/%E8%8F%9C%E9%B8%9F%E6%8F%90%E5%8D%87/</guid>
+      <guid>http://localhost:8422/categories/%E8%8F%9C%E9%B8%9F%E6%8F%90%E5%8D%87/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Diyipian</title>
-      <link>http://localhost:1313/categories/diyipian/</link>
+      <link>http://localhost:8422/categories/diyipian/</link>
       <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:1313/categories/diyipian/</guid>
+      <guid>http://localhost:8422/categories/diyipian/</guid>
       <description></description>
       
     </item>

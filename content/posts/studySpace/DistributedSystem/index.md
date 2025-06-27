@@ -189,6 +189,9 @@ ps： 如果极端情况下所有分区都不占多数（ 比如这里3台被拆
 
 ![123](imgs/image_01.png)
 
+
+
+
 > Q： 为什么不是全部确认？  
 > A： 需要保证整个系统运行，而不是因为某个机器宕机导致整个服务失效。
 >
@@ -236,16 +239,25 @@ Follower 不需要知道 Leader 的标识，只需要知道当前 term 号
 
 **日志同步**
 
-AppendEntrie：里面有两个参数，ProvLogIndex——当前 log 的 index，provLogTerm——当前 Term 编号，nextIndex——当前所有 server 的 log 的 nextIndex。
+上任之后会发送第一条 AppendEntrie：里面有两个参数，PrevLogIndex —— 上一个 log 槽位的 index，PrevLogTerm —— 上一个槽位 Term 编号，nextIndex——当前所有 server 的 log 的 nextIndex。
 
-Leader 发送 AppendEntrie，server 收到之后检查nextIndex和自己的log对比是否一致，不一致回复 false ，Leader 收到 false 之后 回退nextIndex ，并再次发送 nextIndex ，server 检查为 true 之后将nextIndex之后的条目写入自己的 log 中，完成同步
+Leader 为每个 Follower 维护了 nextIndex , nextIndex的初始值是从新任Leader的最后一条日志开始。
 
-为什么不选择日志最长的作为 Leader
+Leader 发送 AppendEntrie，server 收到之后检查本地的前一个 Log 条目，是否与 Leader 发来的有关前一条Log的信息匹配对比是否一致，不一致回复 false ，Leader 收到 false 之后 回退nextIndex ，并再次发送 nextIndex 。同时，这次Leader发送的AppendEntries消息包含了prevLogIndex之后的所有条目， server 检查为 true 之后将 nextIndex 之后的条目写入自己的 log 中，完成同步。
 
+ps：如果接受一个 AppendEntries 消息，那么需要首先删除本地相应的 Log 。
 
+日志快速恢复：让 Follower 返回足够的信息，让 Leader 以 Term 为单位来回退，
 
+**为什么不选举日志条目最大的为 Leader**
 
+有s1、s2、s3台服务器，s1 为 Leader ，当收到一个 client 请求，在发出 AppendEntries 之前将请求写入 log ，之后就宕机了，很快就重启了，在新的选举中，又被选为 leader ，在接受一个请求，写入 log 之后，发出 AppendEntries 之前又宕机了，重新选举 s2 为 leader ， 接收到一个请求，并完美的处理，处理完之后 s2 宕机，触发选举。
 
+![image_02.png](imgs/image_02.jpg)
+
+**选举机制**
+候选人最后一条Log条目的任期号大于本地最后一条Log条目的任期号。
+或者，候选人最后一条Log条目的任期号等于本地最后一条Log条目的任期号，且候选人的Log记录长度大于等于本地Log记录的长度。
 
 **系统出现故障**
 - Client 向 Leader 请求
@@ -255,6 +267,14 @@ Leader 发送 AppendEntrie，server 收到之后检查nextIndex和自己的log�
 - Client 请求超时或失败，重新发起请求，系统内部 failover 故障转移，所以这次 Client 请求到的是新 Leader
 - 新 Leader 同样记录log并且同步log到另一台机器获取到ACK
 - 新 Leader 响应 Client
+
+持久化（Persistence）
+
+目的一：让新服务器在集群内工作 目的二：集群断电之后能够快速恢复。
+
+
+
+
 
 需要考虑的是存活的两台机器的log中会有重复请求，而我们需要能够检测(detect)出这些重复请求。
 
