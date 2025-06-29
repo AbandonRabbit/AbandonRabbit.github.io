@@ -259,22 +259,22 @@ ps：如果接受一个 AppendEntries 消息，那么需要首先删除本地相
 候选人最后一条Log条目的任期号大于本地最后一条Log条目的任期号。
 或者，候选人最后一条Log条目的任期号等于本地最后一条Log条目的任期号，且候选人的Log记录长度大于等于本地Log记录的长度。
 
-**系统出现故障**
-- Client 向 Leader 请求
-- Leader 向其他2台机器同步 log 并且获得 ACK
-- Leader 准备响应时突然宕机，无法响应 Client
-- 其他2台机器重新选举出其中1台作为新的 Leader
-- Client 请求超时或失败，重新发起请求，系统内部 failover 故障转移，所以这次 Client 请求到的是新 Leader
-- 新 Leader 同样记录log并且同步log到另一台机器获取到ACK
-- 新 Leader 响应 Client
 
-持久化（Persistence）
+**持久化（Persistence）**
 
 目的一：让新服务器在集群内工作 目的二：集群断电之后能够快速恢复。
 
+需要持久化的数据有： Log、currentTerm、votedFor。
 
+Log 记录了应用程序的状态，用来重建应用程序的状态。
 
+currentTerm 和 votedFor 都是用来确保每个任期内最多只有一个 Leader 。
 
+假如有三台服务器。当一个服务器收到投票请求，然后投票给服务 A ，之后发生故障并重启，然后收到了服务 B 发来的投票请求，应为没有存储 votedFor ，投票给了 B ，此时在同一个 Term 中存在了两台 Leader 。
 
-需要考虑的是存活的两台机器的log中会有重复请求，而我们需要能够检测(detect)出这些重复请求。
+currentTerm 用来存储已经被使用过的任期号。
+
+![alt text](imgs/image_03.png)
+
+s1 关机了， s2 和 s3 会重新选取一个 Leader ，对于 s2 和 s3 来说，下一个 Trem 号应该是 6 而不是 8 ，所以需要持久化 currentTrem 号。
 

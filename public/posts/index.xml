@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>文档 on Ting&#39;s Space</title>
-    <link>http://localhost:8422/posts/</link>
+    <link>https://abandonrabbit.github.io/posts/</link>
     <description>Recent content in 文档 on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Mon, 13 Jun 2022 20:55:37 +0100</lastBuildDate><atom:link href="http://localhost:8422/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jun 2022 20:55:37 +0100</lastBuildDate><atom:link href="https://abandonrabbit.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

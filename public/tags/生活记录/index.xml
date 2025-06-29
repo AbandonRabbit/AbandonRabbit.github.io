@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>生活记录 on Ting&#39;s Space</title>
-    <link>http://localhost:8422/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/</link>
+    <link>https://abandonrabbit.github.io/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/</link>
     <description>Recent content in 生活记录 on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Sun, 14 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:8422/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Aug 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://abandonrabbit.github.io/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>生活记录</title>
-      <link>http://localhost:8422/posts/vlog/myfirstpost/</link>
+      <link>https://abandonrabbit.github.io/posts/vlog/myfirstpost/</link>
       <pubDate>Sun, 14 Aug 2022 00:00:00 +0000</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/vlog/myfirstpost/</guid>
+      <guid>https://abandonrabbit.github.io/posts/vlog/myfirstpost/</guid>
       <description>生活记录</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/vlog/myfirstpost/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/vlog/myfirstpost/featured.jpg" />
     </item>
     
   </channel>

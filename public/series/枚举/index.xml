@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>枚举 on Ting&#39;s Space</title>
-    <link>http://localhost:8422/series/%E6%9E%9A%E4%B8%BE/</link>
+    <link>https://abandonrabbit.github.io/series/%E6%9E%9A%E4%B8%BE/</link>
     <description>Recent content in 枚举 on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Wed, 04 Jun 2025 17:43:15 +0800</lastBuildDate><atom:link href="http://localhost:8422/series/%E6%9E%9A%E4%B8%BE/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Jun 2025 17:43:15 +0800</lastBuildDate><atom:link href="https://abandonrabbit.github.io/series/%E6%9E%9A%E4%B8%BE/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Enumeration</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/enumeration/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/enumeration/</link>
       <pubDate>Wed, 04 Jun 2025 17:43:15 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/enumeration/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/enumeration/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/enumeration/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/enumeration/featured.png" />
     </item>
     
   </channel>

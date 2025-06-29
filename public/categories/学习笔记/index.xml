@@ -2,343 +2,343 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>学习笔记 on Ting&#39;s Space</title>
-    <link>http://localhost:8422/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+    <link>https://abandonrabbit.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
     <description>Recent content in 学习笔记 on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Mon, 16 Jun 2025 17:55:02 +0800</lastBuildDate><atom:link href="http://localhost:8422/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jun 2025 17:55:02 +0800</lastBuildDate><atom:link href="https://abandonrabbit.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>时间处理、注解</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/timeandanoannotation/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/timeandanoannotation/</link>
       <pubDate>Mon, 16 Jun 2025 17:55:02 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/timeandanoannotation/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/timeandanoannotation/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/timeandanoannotation/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/timeandanoannotation/featured.png" />
     </item>
     
     <item>
       <title>I/O流、文件处理</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/iostream/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/iostream/</link>
       <pubDate>Sun, 15 Jun 2025 22:21:49 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/iostream/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/iostream/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/iostream/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/iostream/featured.png" />
     </item>
     
     <item>
       <title>反射</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/reflection/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/reflection/</link>
       <pubDate>Sat, 14 Jun 2025 18:22:35 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/reflection/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/reflection/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/reflection/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/reflection/featured.png" />
     </item>
     
     <item>
       <title>多线程</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/multithreading/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/multithreading/</link>
       <pubDate>Mon, 09 Jun 2025 20:31:23 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/multithreading/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/multithreading/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/multithreading/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/multithreading/featured.png" />
     </item>
     
     <item>
       <title>网络编程</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/networkprogramming/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/networkprogramming/</link>
       <pubDate>Mon, 09 Jun 2025 20:26:11 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/networkprogramming/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/networkprogramming/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/networkprogramming/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/networkprogramming/featured.png" />
     </item>
     
     <item>
       <title>集合</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/listandset/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/listandset/</link>
       <pubDate>Wed, 04 Jun 2025 18:06:21 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/listandset/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/listandset/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/listandset/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/listandset/featured.png" />
     </item>
     
     <item>
       <title>泛型</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/generics/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/generics/</link>
       <pubDate>Wed, 04 Jun 2025 18:04:16 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/generics/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/generics/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/generics/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/generics/featured.png" />
     </item>
     
     <item>
       <title>异常</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/exception/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/exception/</link>
       <pubDate>Wed, 04 Jun 2025 18:01:37 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/exception/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/exception/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/exception/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/exception/featured.png" />
     </item>
     
     <item>
       <title>Lambda表达式和方法引用</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/lambdaandfuctionquote/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/lambdaandfuctionquote/</link>
       <pubDate>Wed, 04 Jun 2025 17:54:03 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/lambdaandfuctionquote/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/lambdaandfuctionquote/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/lambdaandfuctionquote/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/lambdaandfuctionquote/featured.png" />
     </item>
     
     <item>
       <title>内部类</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/innerclasses/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/innerclasses/</link>
       <pubDate>Wed, 04 Jun 2025 17:50:34 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/innerclasses/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/innerclasses/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/innerclasses/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/innerclasses/featured.png" />
     </item>
     
     <item>
       <title>接口</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/interfacepage/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/interfacepage/</link>
       <pubDate>Wed, 04 Jun 2025 17:46:07 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/interfacepage/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/interfacepage/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/interfacepage/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/interfacepage/featured.png" />
     </item>
     
     <item>
       <title>Enumeration</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/enumeration/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/enumeration/</link>
       <pubDate>Wed, 04 Jun 2025 17:43:15 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/enumeration/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/enumeration/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/enumeration/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/enumeration/featured.png" />
     </item>
     
     <item>
       <title>面向对象</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/objectorientation/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/objectorientation/</link>
       <pubDate>Wed, 04 Jun 2025 17:37:07 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/objectorientation/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/objectorientation/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/objectorientation/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/objectorientation/featured.png" />
     </item>
     
     <item>
       <title>基本数据类型、流程控制</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/basic/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/basic/</link>
       <pubDate>Wed, 04 Jun 2025 17:24:11 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/basic/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/basic/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/javastudy/basic/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javastudy/basic/featured.png" />
     </item>
     
     <item>
       <title>AI 大模型基础</title>
-      <link>http://localhost:8422/posts/studyspace/aifoundationmodel/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/aifoundationmodel/</link>
       <pubDate>Tue, 20 May 2025 20:33:51 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/aifoundationmodel/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/aifoundationmodel/</guid>
       <description>AI 大模型基础到实战 B站课程学习笔记</description>
       
     </item>
     
     <item>
       <title>Java基础</title>
-      <link>http://localhost:8422/posts/studyspace/javastudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javastudy/</link>
       <pubDate>Wed, 14 May 2025 09:08:14 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/javastudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javastudy/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>MIT6.824_分布式系统</title>
-      <link>http://localhost:8422/posts/studyspace/distributedsystem/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/distributedsystem/</link>
       <pubDate>Sat, 10 May 2025 11:45:54 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/distributedsystem/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/distributedsystem/</guid>
       <description>多台计算机进行协作，完成同一项任务</description>
       
     </item>
     
     <item>
       <title>Vue</title>
-      <link>http://localhost:8422/posts/studyspace/vuestudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/vuestudy/</link>
       <pubDate>Fri, 09 May 2025 18:14:49 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/vuestudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/vuestudy/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Redis</title>
-      <link>http://localhost:8422/posts/studyspace/redisstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/redisstudy/</link>
       <pubDate>Fri, 09 May 2025 18:14:07 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/redisstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/redisstudy/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>RabbitMQ</title>
-      <link>http://localhost:8422/posts/studyspace/rabbitmqstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/rabbitmqstudy/</link>
       <pubDate>Fri, 09 May 2025 18:13:15 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/rabbitmqstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/rabbitmqstudy/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>MySql</title>
-      <link>http://localhost:8422/posts/studyspace/mysqlstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/mysqlstudy/</link>
       <pubDate>Fri, 09 May 2025 18:12:03 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/mysqlstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/mysqlstudy/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>MongoDB</title>
-      <link>http://localhost:8422/posts/studyspace/mongodb/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/mongodb/</link>
       <pubDate>Fri, 09 May 2025 18:10:21 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/mongodb/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/mongodb/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/mongodb/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/mongodb/featured.png" />
     </item>
     
     <item>
       <title>Linux</title>
-      <link>http://localhost:8422/posts/studyspace/linuxstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/linuxstudy/</link>
       <pubDate>Fri, 09 May 2025 18:09:02 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/linuxstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/linuxstudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/linuxstudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/linuxstudy/featured.png" />
     </item>
     
     <item>
       <title>Kafka</title>
-      <link>http://localhost:8422/posts/studyspace/kafkastudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/kafkastudy/</link>
       <pubDate>Fri, 09 May 2025 18:08:04 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/kafkastudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/kafkastudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/kafkastudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/kafkastudy/featured.png" />
     </item>
     
     <item>
       <title>gRPC</title>
-      <link>http://localhost:8422/posts/studyspace/grpcstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/grpcstudy/</link>
       <pubDate>Fri, 09 May 2025 18:07:10 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/grpcstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/grpcstudy/</guid>
       <description>RPC的全称是Remote Procedure Call，远程过程调用。这是一种协议，是用来屏蔽分布式计算中的各种调用细节，使得你可以像是本地调用一样直接调用一个远程的函数。</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/grpcstudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/grpcstudy/featured.png" />
     </item>
     
     <item>
       <title>Golang</title>
-      <link>http://localhost:8422/posts/studyspace/golangstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/golangstudy/</link>
       <pubDate>Fri, 09 May 2025 18:05:57 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/golangstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/golangstudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/golangstudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/golangstudy/featured.png" />
     </item>
     
     <item>
       <title>Goctl</title>
-      <link>http://localhost:8422/posts/studyspace/goctlstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/goctlstudy/</link>
       <pubDate>Fri, 09 May 2025 18:04:29 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/goctlstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/goctlstudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/goctlstudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/goctlstudy/featured.png" />
     </item>
     
     <item>
       <title>Go-Zero</title>
-      <link>http://localhost:8422/posts/studyspace/go-zero/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/go-zero/</link>
       <pubDate>Fri, 09 May 2025 17:58:40 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/go-zero/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/go-zero/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/go-zero/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/go-zero/featured.png" />
     </item>
     
     <item>
       <title>Git</title>
-      <link>http://localhost:8422/posts/studyspace/gitstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/gitstudy/</link>
       <pubDate>Fri, 09 May 2025 17:56:17 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/gitstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/gitstudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/gitstudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/gitstudy/featured.png" />
     </item>
     
     <item>
       <title>ETCD</title>
-      <link>http://localhost:8422/posts/studyspace/etcdstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/etcdstudy/</link>
       <pubDate>Fri, 09 May 2025 17:54:41 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/etcdstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/etcdstudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/etcdstudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/etcdstudy/featured.png" />
     </item>
     
     <item>
       <title>计算机组成原理</title>
-      <link>http://localhost:8422/posts/studyspace/computerorganization/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/computerorganization/</link>
       <pubDate>Fri, 09 May 2025 15:24:46 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/computerorganization/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/computerorganization/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/computerorganization/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/computerorganization/featured.jpg" />
     </item>
     
     <item>
       <title>数据结构</title>
-      <link>http://localhost:8422/posts/studyspace/datastructure/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/datastructure/</link>
       <pubDate>Fri, 09 May 2025 14:49:56 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/datastructure/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/datastructure/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/datastructure/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/datastructure/featured.jpg" />
     </item>
     
     <item>
       <title>Docker</title>
-      <link>http://localhost:8422/posts/studyspace/dockerstudy/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/dockerstudy/</link>
       <pubDate>Sat, 09 Nov 2024 17:44:17 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/dockerstudy/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/dockerstudy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/studyspace/dockerstudy/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/dockerstudy/featured.png" />
     </item>
     
   </channel>

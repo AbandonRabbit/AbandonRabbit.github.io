@@ -2,43 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>菜鸟提升 on Ting&#39;s Space</title>
-    <link>http://localhost:8422/categories/%E8%8F%9C%E9%B8%9F%E6%8F%90%E5%8D%87/</link>
+    <link>https://abandonrabbit.github.io/categories/%E8%8F%9C%E9%B8%9F%E6%8F%90%E5%8D%87/</link>
     <description>Recent content in 菜鸟提升 on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Fri, 04 Oct 2024 16:07:15 +0800</lastBuildDate><atom:link href="http://localhost:8422/categories/%E8%8F%9C%E9%B8%9F%E6%8F%90%E5%8D%87/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Oct 2024 16:07:15 +0800</lastBuildDate><atom:link href="https://abandonrabbit.github.io/categories/%E8%8F%9C%E9%B8%9F%E6%8F%90%E5%8D%87/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Context的用法</title>
-      <link>http://localhost:8422/posts/technique/20241004/</link>
+      <link>https://abandonrabbit.github.io/posts/technique/20241004/</link>
       <pubDate>Fri, 04 Oct 2024 16:07:15 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/technique/20241004/</guid>
+      <guid>https://abandonrabbit.github.io/posts/technique/20241004/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/technique/20241004/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/technique/20241004/featured.png" />
     </item>
     
     <item>
       <title>go语言实现hook效果</title>
-      <link>http://localhost:8422/posts/technique/20241002/</link>
+      <link>https://abandonrabbit.github.io/posts/technique/20241002/</link>
       <pubDate>Wed, 02 Oct 2024 15:33:12 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/technique/20241002/</guid>
+      <guid>https://abandonrabbit.github.io/posts/technique/20241002/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/technique/20241002/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/technique/20241002/featured.png" />
     </item>
     
     <item>
       <title>并发提升思路</title>
-      <link>http://localhost:8422/posts/technique/20240809/</link>
+      <link>https://abandonrabbit.github.io/posts/technique/20240809/</link>
       <pubDate>Fri, 09 Aug 2024 15:33:12 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/technique/20240809/</guid>
+      <guid>https://abandonrabbit.github.io/posts/technique/20240809/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:8422/posts/technique/20240809/featured.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/technique/20240809/featured.png" />
     </item>
     
   </channel>

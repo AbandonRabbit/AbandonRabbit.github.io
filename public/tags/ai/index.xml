@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AI on Ting&#39;s Space</title>
-    <link>http://localhost:8422/tags/ai/</link>
+    <link>https://abandonrabbit.github.io/tags/ai/</link>
     <description>Recent content in AI on Ting&#39;s Space</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <managingEditor>604102668@qq.com (Ting)</managingEditor>
     <webMaster>604102668@qq.com (Ting)</webMaster>
     <copyright>© 2025 Ting</copyright>
-    <lastBuildDate>Tue, 20 May 2025 20:33:51 +0800</lastBuildDate><atom:link href="http://localhost:8422/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 May 2025 20:33:51 +0800</lastBuildDate><atom:link href="https://abandonrabbit.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AI 大模型基础</title>
-      <link>http://localhost:8422/posts/studyspace/aifoundationmodel/</link>
+      <link>https://abandonrabbit.github.io/posts/studyspace/aifoundationmodel/</link>
       <pubDate>Tue, 20 May 2025 20:33:51 +0800</pubDate>
       <author>604102668@qq.com (Ting)</author>
-      <guid>http://localhost:8422/posts/studyspace/aifoundationmodel/</guid>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/aifoundationmodel/</guid>
       <description>AI 大模型基础到实战 B站课程学习笔记</description>
       
     </item>
