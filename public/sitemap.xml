@@ -4,7 +4,37 @@
 
   <url>
     <loc>https://abandonrabbit.github.io/</loc>
-    <lastmod>2025-06-16T17:55:02+08:00</lastmod>
+    <lastmod>2025-06-29T19:43:52+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://abandonrabbit.github.io/posts/studyspace/javaweb/mybatis/</loc>
+    <lastmod>2025-06-29T19:43:52+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://abandonrabbit.github.io/posts/studyspace/javaweb/springboot/</loc>
+    <lastmod>2025-06-29T18:07:22+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://abandonrabbit.github.io/posts/studyspace/javaweb/webbasic/</loc>
+    <lastmod>2025-06-29T16:30:52+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://abandonrabbit.github.io/posts/studyspace/javaweb/mavenbasic/</loc>
+    <lastmod>2025-06-29T14:37:43+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://abandonrabbit.github.io/posts/studyspace/javaweb/</loc>
+    <lastmod>2025-06-29T14:32:07+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

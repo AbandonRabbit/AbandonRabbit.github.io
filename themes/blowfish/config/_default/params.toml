@@ -165,3 +165,12 @@ forgejoDefaultServer = "https://v8.next.forgejo.org"
 [rssnext]
   # feedId = ""
   # userId = ""
+
+#看板娘
+[live2d]
+  enable = true
+  model = "hijiki"  # 可选模型：hijiki, z16, shizuku等
+  width = 150
+  height = 300
+  position = "right"  # left或right
+  mobileShow = true   # 移动端是否显示

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Ting&#39;s Space</title>
+    <link>https://abandonrabbit.github.io/tags/web/</link>
+    <description>Recent content in Web on Ting&#39;s Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>604102668@qq.com (Ting)</managingEditor>
+    <webMaster>604102668@qq.com (Ting)</webMaster>
+    <copyright>© 2025 Ting</copyright>
+    <lastBuildDate>Sun, 29 Jun 2025 19:43:52 +0800</lastBuildDate><atom:link href="https://abandonrabbit.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Mybatis</title>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javaweb/mybatis/</link>
+      <pubDate>Sun, 29 Jun 2025 19:43:52 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javaweb/mybatis/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javaweb/mybatis/feature.png" />
+    </item>
+    
+    <item>
+      <title>Web基础</title>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javaweb/webbasic/</link>
+      <pubDate>Sun, 29 Jun 2025 16:30:52 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javaweb/webbasic/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javaweb/webbasic/feature.png" />
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SpringBoot on Ting&#39;s Space</title>
+    <link>https://abandonrabbit.github.io/tags/springboot/</link>
+    <description>Recent content in SpringBoot on Ting&#39;s Space</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>604102668@qq.com (Ting)</managingEditor>
+    <webMaster>604102668@qq.com (Ting)</webMaster>
+    <copyright>© 2025 Ting</copyright>
+    <lastBuildDate>Sun, 29 Jun 2025 18:07:22 +0800</lastBuildDate><atom:link href="https://abandonrabbit.github.io/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SpringBoot</title>
+      <link>https://abandonrabbit.github.io/posts/studyspace/javaweb/springboot/</link>
+      <pubDate>Sun, 29 Jun 2025 18:07:22 +0800</pubDate>
+      <author>604102668@qq.com (Ting)</author>
+      <guid>https://abandonrabbit.github.io/posts/studyspace/javaweb/springboot/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://abandonrabbit.github.io/posts/studyspace/javaweb/springboot/feature.png" />
+    </item>
+    
+  </channel>
+</rss>

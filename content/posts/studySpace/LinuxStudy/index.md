@@ -22,8 +22,8 @@ command [-options] [parameter]
 ~~~
 
 - command ：命令本身
-- -options ：可选，命令的一些选项，可以通过选项控制命令的行为细节
-- parameter ：可选，命令的参数，多用于命令的指向目标
+- -options ：选项
+- parameter ：参数
 
 ## ls命令
 

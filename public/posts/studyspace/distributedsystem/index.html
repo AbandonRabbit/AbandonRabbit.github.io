@@ -47,7 +47,7 @@
   
   
   <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.3ad74b33440334ca29f8801ec6dac1f314951cf580e503d49631816b48d1f28d03543275f92b651565b48045b90731f47595b1396214b8b6aa11c6990f867f7e.js"
-    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="复制" data-copied="已复制"></script>
+    integrity="sha512-OtdLM0QDNMop&#43;IAextrB8xSVHPWA5QPUljGBa0jR8o0DVDJ1&#43;StlFWW0gEW5BzH0dZWxOWIUuLaqEcaZD4Z/fg==" data-copy="" data-copied=""></script>
   
   
   
@@ -55,10 +55,10 @@
   
   
   
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/%20apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/%20favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/%20favicon-16x16.png" />
+  <link rel="manifest" href="/%20site.webmanifest" />
   
   
   
@@ -108,7 +108,7 @@
     "keywords": ["分布式系统"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "6391"
+    "wordCount": "6595"
   }]
   </script>
 
@@ -191,11 +191,10 @@
 
   
   
-  <meta name="theme-color"/>
+  <meta name="theme-color" />
   
   
-</head>
-<body
+ </head><body
   class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
   <div id="the-top" class="absolute flex self-center">
     <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
@@ -632,7 +631,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>6391 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">13 分钟</span>
+  <time datetime="2025-05-10T11:45:54&#43;08:00">2025-05-10</time><span class="px-2 text-primary-500">&middot;</span><span>6595 字</span><span class="px-2 text-primary-500">&middot;</span><span title="预计阅读">14 分钟</span>
   
 
   
@@ -1362,7 +1361,8 @@ A： Follower 需要确定，确认消息的速率是不受限制的，所以会
 候选人最后一条Log条目的任期号大于本地最后一条Log条目的任期号。
 或者，候选人最后一条Log条目的任期号等于本地最后一条Log条目的任期号，且候选人的Log记录长度大于等于本地Log记录的长度。</p>
 <p><strong>持久化（Persistence）</strong></p>
-<p>目的一：让新服务器在集群内工作 目的二：集群断电之后能够快速恢复。</p>
+<p>目的一：让新服务器在集群内工作。<br>
+目的二：集群断电之后能够快速恢复。</p>
 <p>需要持久化的数据有： Log、currentTerm、votedFor。</p>
 <p>Log 记录了应用程序的状态，用来重建应用程序的状态。</p>
 <p>currentTerm 和 votedFor 都是用来确保每个任期内最多只有一个 Leader 。</p>
@@ -1386,6 +1386,14 @@ A： Follower 需要确定，确认消息的速率是不受限制的，所以会
     </figure>
 </p>
 <p>s1 关机了， s2 和 s3 会重新选取一个 Leader ，对于 s2 和 s3 来说，下一个 Trem 号应该是 6 而不是 8 ，所以需要持久化 currentTrem 号。</p>
+<p><strong>日志快照</strong></p>
+<p>如果一个系统长期运行，那么它的日志会不断增长，当一个服务器重新加入集群时，需要执行整个Log的内容，可能要花费几个小时来完成，Raft 会要求应用程序在 log 的特定位置，对他的状态做一个快照，然后丢弃掉这个位置之前的日志。</p>
+<p><strong>线性一致性</strong></p>
+<p>确定两个操作顺序的限制：</p>
+<ol>
+<li>读取到的值一定是最新的，是前一个操作的结果，读必须在写之后。</li>
+<li>第一个写操作结束，第二个写操作才开始，在总的顺序中，第一个写操作必须在第二个写操作前面。</li>
+</ol>
 
           
           
@@ -1400,6 +1408,22 @@ A： Follower 需要确定，确认消息的速率是不受限制的，所以会
         
   
   
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
   
     
       
